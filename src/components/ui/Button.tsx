@@ -1,6 +1,6 @@
 import { type ComponentProps } from "react";
 
-type ButtonVariant = "primary" | "secondary" | "outline";
+type ButtonVariant = "primary" | "secondary" | "ghost";
 
 interface ButtonProps extends ComponentProps<"a"> {
   variant?: ButtonVariant;
@@ -8,11 +8,11 @@ interface ButtonProps extends ComponentProps<"a"> {
 
 const variants: Record<ButtonVariant, string> = {
   primary:
-    "bg-primary text-background hover:bg-primary-light shadow-lg shadow-primary/20",
+    "bg-[#e8ddd0] text-[#0a0705] hover:brightness-110 border border-[#e8ddd0]",
   secondary:
-    "bg-secondary text-background hover:brightness-110 shadow-lg shadow-secondary/20",
-  outline:
-    "border border-border text-foreground hover:border-primary hover:text-primary",
+    "border border-[rgba(58,42,26,0.4)] text-[#e8ddd0] hover:border-[rgba(196,87,26,0.6)] hover:text-[#c4571a]",
+  ghost:
+    "text-[rgba(232,221,208,0.55)] hover:text-[#e8ddd0] underline-offset-4 hover:underline",
 };
 
 export function Button({
@@ -23,7 +23,7 @@ export function Button({
 }: ButtonProps) {
   return (
     <a
-      className={`inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 font-medium transition-all duration-200 cursor-pointer ${variants[variant]} ${className}`}
+      className={`inline-flex items-center justify-center gap-2 px-6 py-3 text-xs font-mono tracking-[0.15em] uppercase transition-all duration-200 cursor-crosshair ${variants[variant]} ${className}`}
       {...props}
     >
       {children}

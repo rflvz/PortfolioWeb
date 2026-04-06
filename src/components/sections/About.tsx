@@ -1,81 +1,77 @@
-import { Badge } from "@/components/ui/Badge";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
-const skillCategories = [
+const skillGroups = [
   {
-    name: "AI / ML",
-    variant: "primary" as const,
-    skills: [
-      "Claude API",
-      "MCP",
-      "Agent Architecture",
-      "Prompt Engineering",
-      "LLM Integration",
-    ],
+    label: "AI / ML",
+    skills: ["Claude_API", "MCP", "Agent_Architecture", "Prompt_Engineering", "LLM_Orchestration"],
   },
   {
-    name: "Frontend",
-    variant: "secondary" as const,
-    skills: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Electron"],
+    label: "Frontend",
+    skills: ["Next.js", "React", "TypeScript", "Tailwind_CSS", "Electron"],
   },
   {
-    name: "Backend",
-    variant: "accent" as const,
-    skills: ["Node.js", "Python", "Rust", "REST APIs", "PostgreSQL"],
+    label: "Backend",
+    skills: ["Node.js", "Python", "Rust", "REST_APIs", "PostgreSQL"],
   },
   {
-    name: "Tools",
-    variant: "default" as const,
-    skills: ["Git", "Linear", "Google Stitch", "Vercel", "Docker"],
+    label: "Toolchain",
+    skills: ["Git", "Linear", "Google_Stitch", "Vercel", "Docker"],
   },
 ];
 
 export function About() {
   return (
-    <section id="about" className="py-24">
+    <section id="about" className="py-28" style={{ background: "#0f0c07" }}>
       <div className="mx-auto max-w-6xl px-6">
         <SectionHeading
-          title="Sobre mi"
-          subtitle="Combino desarrollo de software con inteligencia artificial para crear soluciones que van mas alla de lo convencional."
+          label="// STORY"
+          title="Architect of the Ghost"
+          subtitle="I build software where AI is not an afterthought. From the architecture to the interface, intelligence is the core."
         />
 
-        <div className="grid gap-12 lg:grid-cols-2">
+        <div className="grid gap-16 lg:grid-cols-5">
           {/* Bio */}
-          <div className="space-y-4">
-            <p className="text-muted leading-relaxed">
-              Soy un desarrollador enfocado en{" "}
-              <span className="text-foreground font-medium">
-                arquitectura IA
-              </span>
-              . Mi objetivo es integrar modelos de lenguaje y agentes
-              inteligentes en cada fase del desarrollo — desde el diseno hasta
-              el deployment.
+          <div className="lg:col-span-2 space-y-5">
+            <p className="text-sm font-mono text-[rgba(232,221,208,0.5)] leading-loose">
+              Desarrollador enfocado en{" "}
+              <span className="text-[#e8ddd0]">arquitectura IA</span>. Integro
+              modelos de lenguaje y agentes inteligentes en cada fase del
+              desarrollo — desde el diseño hasta el deployment.
             </p>
-            <p className="text-muted leading-relaxed">
+            <p className="text-sm font-mono text-[rgba(232,221,208,0.5)] leading-loose">
               Trabajo con{" "}
-              <span className="text-primary">protocolos como MCP</span> para
-              conectar herramientas de IA con flujos de trabajo reales, y diseno
-              sistemas donde la inteligencia artificial no es solo un accesorio,
-              sino la base de la arquitectura.
+              <span className="text-[#c4571a]">protocolos MCP</span> para
+              conectar herramientas de IA con flujos de trabajo reales, donde
+              la inteligencia artificial no es un accesorio, sino la base.
             </p>
-            <p className="text-muted leading-relaxed">
-              Creo en el desarrollo asistido por IA como el estandar del futuro.
-              Cada proyecto que construyo es una prueba de ese principio.
+            <p className="text-sm font-mono text-[rgba(232,221,208,0.5)] leading-loose">
+              El desarrollo asistido por IA es el estándar del futuro. Cada
+              proyecto es una prueba de ese principio.
             </p>
+
+            <div className="pt-4">
+              <div className="scratched-divider max-w-xs" />
+              <p className="mt-4 text-[10px] font-mono tracking-[0.2em] text-[rgba(139,26,26,0.6)] uppercase">
+                rflvz &mdash; rafa alvarez
+              </p>
+            </div>
           </div>
 
-          {/* Skills grid */}
-          <div className="space-y-6">
-            {skillCategories.map((category) => (
-              <div key={category.name}>
-                <h3 className="font-heading text-sm font-semibold text-foreground mb-3">
-                  {category.name}
-                </h3>
+          {/* Skills */}
+          <div className="lg:col-span-3 space-y-8">
+            {skillGroups.map((group) => (
+              <div key={group.label}>
+                <p className="text-[9px] font-mono tracking-[0.25em] text-[rgba(139,26,26,0.7)] uppercase mb-3">
+                  {group.label}
+                </p>
                 <div className="flex flex-wrap gap-2">
-                  {category.skills.map((skill) => (
-                    <Badge key={skill} variant={category.variant}>
+                  {group.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="text-[11px] font-mono tracking-[0.05em] text-[rgba(232,221,208,0.45)] border border-[rgba(58,42,26,0.4)] px-3 py-1.5 hover:text-[#e8ddd0] hover:border-[rgba(196,87,26,0.4)] transition-colors cursor-crosshair"
+                    >
                       {skill}
-                    </Badge>
+                    </span>
                   ))}
                 </div>
               </div>

@@ -1,24 +1,34 @@
 interface SectionHeadingProps {
   title: string;
   subtitle?: string;
+  label?: string;
   align?: "left" | "center";
 }
 
 export function SectionHeading({
   title,
   subtitle,
+  label,
   align = "center",
 }: SectionHeadingProps) {
   return (
     <div
-      className={`mb-12 ${align === "center" ? "text-center" : "text-left"}`}
+      className={`mb-16 ${align === "center" ? "text-center" : "text-left"}`}
     >
-      <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl">
+      {label && (
+        <p className="text-[10px] font-mono tracking-[0.2em] uppercase text-[#8b1a1a] mb-4">
+          {label}
+        </p>
+      )}
+      <h2 className="font-heading text-3xl font-semibold tracking-tight text-[#e8ddd0] chiseled sm:text-4xl lg:text-5xl">
         {title}
       </h2>
       {subtitle && (
-        <p className="mt-4 text-lg text-muted max-w-2xl mx-auto">{subtitle}</p>
+        <p className="mt-5 text-sm font-mono text-[rgba(232,221,208,0.5)] max-w-xl mx-auto leading-relaxed tracking-wide">
+          {subtitle}
+        </p>
       )}
+      <div className="scratched-divider mt-8 max-w-xs mx-auto" />
     </div>
   );
 }
