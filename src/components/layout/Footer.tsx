@@ -10,7 +10,7 @@ export function Footer() {
           {Array.from({ length: 8 }).map((_, i) => (
             <span
               key={i}
-              className="text-[10px] font-mono tracking-[0.2em] text-[rgba(139,26,26,0.4)] px-8 whitespace-nowrap"
+              className="text-[10px] font-mono tracking-[0.2em] text-[#c41e3a] px-8 whitespace-nowrap"
             >
               AI_ARCHITECTURE &nbsp;&bull;&nbsp; LLM_ORCHESTRATION &nbsp;&bull;&nbsp; AUTONOMOUS_AGENTS &nbsp;&bull;&nbsp; RFLVZ
             </span>
@@ -20,7 +20,7 @@ export function Footer() {
 
       <div className="mx-auto max-w-6xl px-6 py-8">
         <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-          <p className="text-[10px] font-mono tracking-[0.15em] text-[rgba(232,221,208,0.25)] uppercase">
+          <p className="text-[10px] font-mono tracking-[0.15em] text-[rgba(232,221,208,0.7)] uppercase">
             &copy; {new Date().getFullYear()} Rafa Alvarez &mdash; Built with AI Architecture
           </p>
           <div className="flex items-center gap-8">
@@ -33,7 +33,7 @@ export function Footer() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[10px] font-mono tracking-[0.2em] text-[rgba(232,221,208,0.25)] hover:text-[rgba(232,221,208,0.7)] transition-colors"
+                className="text-[10px] font-mono tracking-[0.2em] text-[rgba(232,221,208,0.6)] hover:text-[rgba(232,221,208,0.9)] transition-colors"
               >
                 {link.label}
               </a>

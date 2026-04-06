@@ -40,10 +40,10 @@ export function Contact() {
                 rel={link.label !== "EMAIL" ? "noopener noreferrer" : undefined}
                 className="flex items-center justify-between group py-3 border-b border-[rgba(58,42,26,0.3)] hover:border-[rgba(196,87,26,0.4)] transition-colors"
               >
-                <span className="text-[10px] font-mono tracking-[0.25em] uppercase text-[rgba(232,221,208,0.25)] group-hover:text-[rgba(139,26,26,0.8)] transition-colors">
+                <span className="text-[10px] font-mono tracking-[0.25em] uppercase text-[rgba(232,221,208,0.6)] group-hover:text-[#c41e3a] transition-colors">
                   {link.label}
                 </span>
-                <span className="text-sm font-mono text-[rgba(232,221,208,0.5)] group-hover:text-[#e8ddd0] transition-colors">
+                <span className="text-sm font-mono text-[rgba(232,221,208,0.75)] group-hover:text-[#e8ddd0] transition-colors">
                   {link.value}
                 </span>
               </a>
@@ -62,7 +62,7 @@ export function Contact() {
         </div>
 
         {/* Bottom label */}
-        <p className="mt-8 text-center text-[10px] font-mono tracking-[0.2em] text-[rgba(232,221,208,0.15)] uppercase">
+        <p className="mt-8 text-center text-[10px] font-mono tracking-[0.2em] text-[rgba(232,221,208,0.5)] uppercase">
           Response within 48h &mdash; All signals received
         </p>
       </div>

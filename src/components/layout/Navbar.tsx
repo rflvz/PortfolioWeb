@@ -25,7 +25,7 @@ export function Navbar() {
         {/* Logo */}
         <a
           href="#"
-          className="font-heading text-sm font-semibold tracking-[0.3em] text-[#e8ddd0] hover:text-[#c4571a] transition-colors uppercase chiseled"
+          className="font-heading text-sm font-semibold tracking-[0.3em] text-[#e8ddd0] hover:text-[#d94f3d] transition-colors uppercase chiseled"
         >
           rflvz
         </a>
@@ -36,7 +36,7 @@ export function Navbar() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className="text-[10px] font-mono tracking-[0.25em] text-[rgba(232,221,208,0.5)] hover:text-[#e8ddd0] transition-colors"
+                className="text-[10px] font-mono tracking-[0.25em] text-[rgba(232,221,208,0.75)] hover:text-[#e8ddd0] transition-colors"
               >
                 {link.label}
               </a>
@@ -47,7 +47,7 @@ export function Navbar() {
               href="https://github.com/rflvz"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[10px] font-mono tracking-[0.25em] text-[rgba(232,221,208,0.5)] hover:text-[#e8ddd0] transition-colors"
+              className="text-[10px] font-mono tracking-[0.25em] text-[rgba(232,221,208,0.75)] hover:text-[#e8ddd0] transition-colors"
             >
               GITHUB
             </a>
@@ -91,7 +91,7 @@ export function Navbar() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="text-[10px] font-mono tracking-[0.25em] text-[rgba(232,221,208,0.5)] hover:text-[#e8ddd0] transition-colors"
+                  className="text-[10px] font-mono tracking-[0.25em] text-[rgba(232,221,208,0.75)] hover:text-[#e8ddd0] transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.label}
@@ -103,7 +103,7 @@ export function Navbar() {
                 href="https://github.com/rflvz"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[10px] font-mono tracking-[0.25em] text-[rgba(232,221,208,0.5)] hover:text-[#e8ddd0] transition-colors"
+                className="text-[10px] font-mono tracking-[0.25em] text-[rgba(232,221,208,0.75)] hover:text-[#e8ddd0] transition-colors"
               >
                 GITHUB
               </a>

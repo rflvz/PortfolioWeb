@@ -16,7 +16,7 @@ export function SectionHeading({
       className={`mb-16 ${align === "center" ? "text-center" : "text-left"}`}
     >
       {label && (
-        <p className="text-[10px] font-mono tracking-[0.2em] uppercase text-[#8b1a1a] mb-4">
+        <p className="text-[10px] font-mono tracking-[0.2em] uppercase text-[#c41e3a] mb-4">
           {label}
         </p>
       )}
@@ -24,7 +24,7 @@ export function SectionHeading({
         {title}
       </h2>
       {subtitle && (
-        <p className="mt-5 text-sm font-mono text-[rgba(232,221,208,0.5)] max-w-xl mx-auto leading-relaxed tracking-wide">
+        <p className="mt-5 text-sm font-mono text-[rgba(232,221,208,0.75)] max-w-xl mx-auto leading-relaxed tracking-wide">
           {subtitle}
         </p>
       )}

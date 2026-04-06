@@ -48,15 +48,15 @@ export function Projects() {
                 <div className="flex-1">
                   {/* Header row */}
                   <div className="flex items-center gap-4 mb-4">
-                    <span className="text-[10px] font-mono tracking-[0.2em] text-[rgba(139,26,26,0.5)]">
+                    <span className="text-[10px] font-mono tracking-[0.2em] text-[#c41e3a]">
                       {project.id}
                     </span>
                     <div className="h-px flex-1 bg-[rgba(58,42,26,0.4)]" />
                     <span
                       className={`text-[9px] font-mono tracking-[0.2em] uppercase ${
                         project.status === "LIVE"
-                          ? "text-[rgba(196,87,26,0.8)]"
-                          : "text-[rgba(232,221,208,0.25)]"
+                          ? "text-[#d94f3d]"
+                          : "text-[rgba(232,221,208,0.65)]"
                       }`}
                     >
                       {project.status}
@@ -67,7 +67,7 @@ export function Projects() {
                     {project.title}
                   </h3>
 
-                  <p className="text-sm font-mono text-[rgba(232,221,208,0.45)] leading-loose mb-5">
+                  <p className="text-sm font-mono text-[rgba(232,221,208,0.7)] leading-loose mb-5">
                     {project.description}
                   </p>
 
@@ -76,7 +76,7 @@ export function Projects() {
                     {project.tech.map((t) => (
                       <span
                         key={t}
-                        className="text-[10px] font-mono tracking-[0.05em] text-[rgba(232,221,208,0.3)] border border-[rgba(58,42,26,0.3)] px-2.5 py-1"
+                        className="text-[10px] font-mono tracking-[0.05em] text-[rgba(232,221,208,0.65)] border border-[rgba(58,42,26,0.3)] px-2.5 py-1"
                       >
                         {t}
                       </span>
@@ -90,7 +90,7 @@ export function Projects() {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-[10px] font-mono tracking-[0.2em] uppercase text-[rgba(232,221,208,0.35)] hover:text-[#c4571a] border border-[rgba(58,42,26,0.3)] hover:border-[rgba(196,87,26,0.4)] px-4 py-3 transition-all"
+                    className="inline-flex items-center gap-2 text-[10px] font-mono tracking-[0.2em] uppercase text-[rgba(232,221,208,0.7)] hover:text-[#d94f3d] border border-[rgba(58,42,26,0.3)] hover:border-[rgba(196,87,26,0.4)] px-4 py-3 transition-all"
                   >
                     VIEW_SOURCE
                     <svg
