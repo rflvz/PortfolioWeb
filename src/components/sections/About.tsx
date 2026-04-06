@@ -1,21 +1,51 @@
-import { SectionHeading } from "@/components/ui/SectionHeading";
+"use client";
+
+import { motion } from "framer-motion";
+import { MotionContainer, StaggerContainer, StaggerItem } from "@/components/ui/MotionContainer";
+
+const skillGroupVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1, delayChildren: 0.1 },
+  },
+};
+
+const skillItemVariants = {
+  hidden: { opacity: 0, y: 10, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.35, ease: "easeOut" as const },
+  },
+};
+
+const bioVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" as const, delay: i * 0.12 },
+  }),
+};
 
 const skillGroups = [
   {
-    label: "AI / ML",
-    skills: ["Claude_API", "MCP", "Agent_Architecture", "Prompt_Engineering", "LLM_Orchestration"],
+    label: "Lenguajes",
+    skills: ["TypeScript", "Python", "Rust"],
+  },
+  {
+    label: "IA / Agentes",
+    skills: ["LLM_Orchestration", "MCP", "Prompt_Engineering", "Agent_Architecture"],
   },
   {
     label: "Frontend",
-    skills: ["Next.js", "React", "TypeScript", "Tailwind_CSS", "Electron"],
+    skills: ["React", "Next.js", "Tailwind"],
   },
   {
     label: "Backend",
-    skills: ["Node.js", "Python", "Rust", "REST_APIs", "PostgreSQL"],
-  },
-  {
-    label: "Toolchain",
-    skills: ["Git", "Linear", "Google_Stitch", "Vercel", "Docker"],
+    skills: ["Node.js", "FastAPI", "PostgreSQL"],
   },
 ];
 
@@ -23,59 +53,103 @@ export function About() {
   return (
     <section id="about" className="py-28" style={{ background: "#0f0c07" }}>
       <div className="mx-auto max-w-6xl px-6">
-        <SectionHeading
-          label="// STORY"
-          title="Architect of the Ghost"
-          subtitle="I build software where AI is not an afterthought. From the architecture to the interface, intelligence is the core."
-        />
+        <StaggerContainer className="mb-16" delay={0.1}>
+          <StaggerItem>
+            <MotionContainer animation="fadeInUp">
+              <div className="text-[10px] font-mono tracking-[0.3em] text-[#c41e3a] uppercase mb-3">
+                // STORY
+              </div>
+              <h2 className="font-heading text-4xl font-bold text-[#e8ddd0] chiseled mb-3">
+                Programar con IA
+              </h2>
+              <p className="text-sm font-mono text-[rgba(232,221,208,0.6)] max-w-xl">
+                No integro IA. Programa con ella. Cada línea, cada arquitectura, cada decisión pasa por un modelo de lenguaje.
+              </p>
+            </MotionContainer>
+          </StaggerItem>
+        </StaggerContainer>
 
         <div className="grid gap-16 lg:grid-cols-5">
-          {/* Bio */}
-          <div className="lg:col-span-2 space-y-5">
-            <p className="text-sm font-mono text-[rgba(232,221,208,0.75)] leading-loose">
-              Desarrollador enfocado en{" "}
-              <span className="text-[#e8ddd0]">arquitectura IA</span>. Integro
-              modelos de lenguaje y agentes inteligentes en cada fase del
-              desarrollo — desde el diseño hasta el deployment.
-            </p>
-            <p className="text-sm font-mono text-[rgba(232,221,208,0.75)] leading-loose">
-              Trabajo con{" "}
-              <span className="text-[#d94f3d]">protocolos MCP</span> para
-              conectar herramientas de IA con flujos de trabajo reales, donde
-              la inteligencia artificial no es un accesorio, sino la base.
-            </p>
-            <p className="text-sm font-mono text-[rgba(232,221,208,0.75)] leading-loose">
-              El desarrollo asistido por IA es el estándar del futuro. Cada
-              proyecto es una prueba de ese principio.
-            </p>
+          {/* Image with torn-edge */}
+          <div className="lg:col-span-2">
+            <MotionContainer animation="fadeInLeft" delay={0.2}>
+              <div className="relative">
+                <div className="overflow-hidden">
+                  <motion.img
+                    whileHover={{ scale: 1.03 }}
+                    transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                    src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80"
+                    alt="Circuit board macro"
+                    className="w-full object-cover opacity-60 transition-opacity duration-500"
+                    style={{ minHeight: "240px" }}
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0705] via-transparent to-transparent" />
+              </div>
+            </MotionContainer>
+          </div>
 
-            <div className="pt-4">
-              <div className="scratched-divider max-w-xs" />
-              <p className="mt-4 text-[10px] font-mono tracking-[0.2em] text-[#c41e3a] uppercase">
-                rflvz &mdash; rafa alvarez
-              </p>
-            </div>
+          {/* Bio */}
+          <div className="lg:col-span-3 space-y-5">
+            {[
+              "Desarrollé ChessRadar (chesstogether.app) en 10 días con un equipo de 2 devs + 1 team leader. 4 días los hice en solitario. El proyecto existía en mi cabeza y en papel. La IA帮我 a materializarlo en tiempo récord.",
+              "CodeOrchestrator es mi laboratorio personal: un sistema donde agentes autónomos generan, implementan y despliegan código siguiendo specs en lenguaje natural. Agentes que piensas antes de actuar.",
+              "Mi stack mental es Flow — no frameworks. TypeScript y Python para traducir lógica. Agentes MCP para conectar herramientas. El resultado: software donde la inteligencia no es un feature, es el foundation.",
+            ].map((text, i) => (
+              <motion.p
+                key={i}
+                custom={i}
+                variants={bioVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-80px" }}
+                className="text-sm font-mono text-[rgba(232,221,208,0.75)] leading-loose"
+              >
+                {text}
+              </motion.p>
+            ))}
+
+            <MotionContainer animation="fadeInUp" delay={0.1}>
+              <div className="pt-4">
+                <div className="scratched-divider max-w-xs" />
+                <p className="mt-4 text-[10px] font-mono tracking-[0.2em] text-[#c41e3a] uppercase">
+                  rflvz &mdash; rafa alvarez
+                </p>
+              </div>
+            </MotionContainer>
           </div>
 
           {/* Skills */}
           <div className="lg:col-span-3 space-y-8">
-            {skillGroups.map((group) => (
-              <div key={group.label}>
-                <p className="text-[9px] font-mono tracking-[0.25em] text-[#c41e3a] uppercase mb-3">
-                  {group.label}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {group.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="text-[11px] font-mono tracking-[0.05em] text-[rgba(232,221,208,0.7)] border border-[rgba(58,42,26,0.4)] px-3 py-1.5 hover:text-[#e8ddd0] hover:border-[rgba(196,87,26,0.4)] transition-colors cursor-crosshair"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
+            <StaggerContainer>
+              {skillGroups.map((group) => (
+                <StaggerItem key={group.label}>
+                  <motion.div
+                    variants={skillGroupVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-80px" }}
+                  >
+                    <p className="text-[9px] font-mono tracking-[0.25em] text-[#c41e3a] uppercase mb-3">
+                      {group.label}
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {group.skills.map((skill) => (
+                        <motion.span
+                          key={skill}
+                          variants={skillItemVariants}
+                          whileHover={{ y: -2, borderColor: "rgba(196,87,26,0.4)", color: "#e8ddd0" }}
+                          transition={{ duration: 0.2 }}
+                          className="text-[11px] font-mono tracking-[0.05em] text-[rgba(232,221,208,0.7)] border border-[rgba(58,42,26,0.4)] px-3 py-1.5 cursor-crosshair"
+                        >
+                          {skill}
+                        </motion.span>
+                      ))}
+                    </div>
+                  </motion.div>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
           </div>
         </div>
       </div>

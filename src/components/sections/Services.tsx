@@ -1,5 +1,8 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { Card } from "@/components/ui/Card";
-import { SectionHeading } from "@/components/ui/SectionHeading";
+import { MotionContainer, StaggerContainer, StaggerItem } from "@/components/ui/MotionContainer";
 
 const services = [
   {
@@ -57,51 +60,64 @@ export function Services() {
   return (
     <section id="services" className="py-28" style={{ background: "#0f0c07" }}>
       <div className="mx-auto max-w-6xl px-6">
-        <SectionHeading
-          label="// SERVICES"
-          title="What I Build"
-          subtitle="From interfaces to intelligent systems — design, development, and the architecture that connects them."
-        />
-
-        <div className="grid gap-6 md:grid-cols-2">
-          {services.map((service) => (
-            <Card key={service.title} className="p-8 group relative">
-              {/* Icon + Title row */}
-              <div className="flex items-start gap-4 mb-5">
-                <div className="shrink-0 mt-1">{service.icon}</div>
-                <h3 className="font-heading text-lg font-semibold text-[#e8ddd0] chiseled">
-                  {service.title}
-                </h3>
+        <StaggerContainer className="mb-16" delay={0.1}>
+          <StaggerItem>
+            <MotionContainer animation="fadeInUp">
+              <div className="text-[10px] font-mono tracking-[0.3em] text-[#c41e3a] uppercase mb-3">
+                // SERVICES
               </div>
-
-              {/* Description */}
-              <p className="text-sm font-mono text-[rgba(232,221,208,0.65)] leading-loose mb-5">
-                {service.description}
+              <h2 className="font-heading text-4xl font-bold text-[#e8ddd0] chiseled mb-3">
+                What I Build
+              </h2>
+              <p className="text-sm font-mono text-[rgba(232,221,208,0.6)] max-w-xl">
+                From interfaces to intelligent systems — design, development, and the architecture that connects them.
               </p>
+            </MotionContainer>
+          </StaggerItem>
+        </StaggerContainer>
 
-              {/* View link */}
-              <a
-                href={service.link}
-                className="inline-flex items-center gap-2 text-[10px] font-mono tracking-[0.2em] uppercase text-[rgba(232,221,208,0.4)] hover:text-[#d94f3d] transition-colors"
+        <StaggerContainer staggerDelay={0.1}>
+          {services.map((service) => (
+            <StaggerItem key={service.title}>
+              <motion.div
+                whileHover={{ x: 5, borderColor: "rgba(196,87,26,0.5)" }}
+                transition={{ type: "spring", stiffness: 400, damping: 25 }}
               >
-                VIEW_DETAILS
-                <svg
-                  width="10"
-                  height="10"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                >
-                  <path d="M7 17l9.2-9.2M17 17V7H7" />
-                </svg>
-              </a>
+                <Card className="p-8 group relative">
+                  <div className="flex items-start gap-4 mb-5">
+                    <div className="shrink-0 mt-1">{service.icon}</div>
+                    <h3 className="font-heading text-lg font-semibold text-[#e8ddd0] chiseled">
+                      {service.title}
+                    </h3>
+                  </div>
 
-              {/* Bottom border line */}
-              <div className="absolute bottom-0 left-0 right-0 h-px bg-[rgba(58,42,26,0.3)]" />
-            </Card>
+                  <p className="text-sm font-mono text-[rgba(232,221,208,0.65)] leading-loose mb-5">
+                    {service.description}
+                  </p>
+
+                  <a
+                    href={service.link}
+                    className="inline-flex items-center gap-2 text-[10px] font-mono tracking-[0.2em] uppercase text-[rgba(232,221,208,0.4)] hover:text-[#d94f3d] transition-colors"
+                  >
+                    VIEW_DETAILS
+                    <svg
+                      width="10"
+                      height="10"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                    >
+                      <path d="M7 17l9.2-9.2M17 17V7H7" />
+                    </svg>
+                  </a>
+
+                  <div className="absolute bottom-0 left-0 right-0 h-px bg-[rgba(58,42,26,0.3)]" />
+                </Card>
+              </motion.div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );

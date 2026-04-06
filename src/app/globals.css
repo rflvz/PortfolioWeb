@@ -45,6 +45,13 @@ body::before {
   opacity: 0.06;
   pointer-events: none;
   z-index: 9999;
+  transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+/* Interactive grain on hover — active state controlled via JS */
+body:hover::before {
+  opacity: 0.1;
+  filter: brightness(1.2);
 }
 
 /* ─── Vignette ─── */
@@ -127,4 +134,49 @@ body::after {
 @keyframes grain-flicker {
   0%, 100% { opacity: 0.06; }
   50% { opacity: 0.1; }
+}
+
+/* ─── Card hover lift ─── */
+.card-hover {
+  transition: transform 0.3s ease-out, border-color 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  border-color: rgba(196, 31, 58, 0.4);
+  box-shadow: inset 0 1px 0 rgba(232, 221, 208, 0.04), 0 8px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(196, 31, 58, 0.08);
+}
+
+/* ─── Glow pulse ─── */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 8px rgba(196, 31, 58, 0.15); }
+  50% { box-shadow: 0 0 20px rgba(196, 31, 58, 0.3); }
+}
+
+.glow-pulse {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+/* ─── Text shimmer hover ─── */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.text-shimmer-hover:hover {
+  background: linear-gradient(90deg, #e8ddd0 0%, #d94f3d 25%, #e8ddd0 50%, #d94f3d 75%, #e8ddd0 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s linear infinite;
+}
+
+/* ─── Float animation ─── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
 }

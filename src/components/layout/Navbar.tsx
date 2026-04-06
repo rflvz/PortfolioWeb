@@ -1,6 +1,12 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { useState } from "react";
+
+const linkVariants = {
+  hidden: { opacity: 0, y: -8 },
+  visible: { opacity: 1, y: 0 },
+};
 
 const navLinks = [
   { href: "#about", label: "STORY" },
@@ -29,32 +35,36 @@ export function Navbar() {
           href="#"
           className="font-heading text-sm font-semibold tracking-[0.3em] text-[#e8ddd0] hover:text-[#d94f3d] transition-colors uppercase chiseled"
         >
-          rflvz
+          THE_ARTIFACT
         </a>
 
         {/* Desktop */}
-        <ul className="hidden items-center gap-10 md:flex">
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                className="text-[10px] font-mono tracking-[0.25em] text-[rgba(232,221,208,0.75)] hover:text-[#e8ddd0] transition-colors"
+        <div className="flex items-center gap-10">
+          <ul className="hidden items-center gap-10 md:flex">
+            {navLinks.map((link, i) => (
+              <motion.li
+                key={link.href}
+                variants={linkVariants}
+                initial="hidden"
+                animate="visible"
+                transition={{ delay: 0.1 + i * 0.06, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
               >
-                {link.label}
-              </a>
-            </li>
-          ))}
-          <li>
-            <a
-              href="https://github.com/rflvz"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[10px] font-mono tracking-[0.25em] text-[rgba(232,221,208,0.75)] hover:text-[#e8ddd0] transition-colors"
-            >
-              GITHUB
-            </a>
-          </li>
-        </ul>
+                <a
+                  href={link.href}
+                  className="text-[10px] font-mono tracking-[0.25em] text-[rgba(232,221,208,0.75)] hover:text-[#e8ddd0] transition-colors"
+                >
+                  {link.label}
+                </a>
+              </motion.li>
+            ))}
+          </ul>
+          <a
+            href="#contact"
+            className="glow-pulse text-[10px] font-mono tracking-[0.2em] text-[#e8ddd0] border border-[#c41e3a] px-4 py-2 hover:bg-[#c41e3a] hover:text-[#0a0705] transition-all duration-300"
+          >
+            INITIATE_CONTACT
+          </a>
+        </div>
 
         {/* Mobile toggle */}
         <button
@@ -90,7 +100,12 @@ export function Navbar() {
         >
           <ul className="flex flex-col gap-6 px-6 py-6">
             {navLinks.map((link) => (
-              <li key={link.href}>
+              <motion.li
+                key={link.href}
+                initial={{ opacity: 0, x: -12 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+              >
                 <a
                   href={link.href}
                   className="text-[10px] font-mono tracking-[0.25em] text-[rgba(232,221,208,0.75)] hover:text-[#e8ddd0] transition-colors"
@@ -98,18 +113,8 @@ export function Navbar() {
                 >
                   {link.label}
                 </a>
-              </li>
+              </motion.li>
             ))}
-            <li>
-              <a
-                href="https://github.com/rflvz"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[10px] font-mono tracking-[0.25em] text-[rgba(232,221,208,0.75)] hover:text-[#e8ddd0] transition-colors"
-              >
-                GITHUB
-              </a>
-            </li>
           </ul>
         </div>
       )}
