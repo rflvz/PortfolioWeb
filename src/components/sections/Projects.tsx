@@ -90,7 +90,7 @@ export function Projects() {
   );
 
   const activeProject = cmsProjects[activeIndex] ?? cmsProjects[0];
-  const shouldLockScroll = isDescriptionVisible && !hasUnlockedScroll;
+  const shouldLockScroll = false;
 
   useEffect(() => {
     const updateDescriptionVisibility = () => {
@@ -99,8 +99,8 @@ export function Projects() {
 
       const rect = panel.getBoundingClientRect();
       const viewportHeight = window.innerHeight;
-      const enoughTopVisible = rect.top <= viewportHeight - 24;
-      const enoughBottomInside = rect.bottom >= 64;
+      const enoughTopVisible = rect.top <= viewportHeight - 48;
+      const enoughBottomInside = rect.bottom >= 96;
 
       setIsDescriptionVisible(enoughTopVisible && enoughBottomInside);
     };
