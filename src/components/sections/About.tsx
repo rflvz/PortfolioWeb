@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { MotionContainer, StaggerContainer, StaggerItem } from "@/components/ui/MotionContainer";
+import { Badge, BadgeDot } from "@/components/ui/Badge";
 
 const skillGroupVariants = {
   hidden: { opacity: 0 },
@@ -49,6 +50,14 @@ const skillGroups = [
   },
 ];
 
+const skillToVariant = (skill: string): "primary" | "info" | "success" | "warning" | "secondary" => {
+  if (["TypeScript", "Next.js", "React", "Tailwind"].includes(skill)) return "info";
+  if (["Python", "Rust", "Node.js", "FastAPI"].includes(skill)) return "success";
+  if (["PostgreSQL", "MCP"].includes(skill)) return "warning";
+  if (["LLM_Orchestration", "Prompt_Engineering", "Agent_Architecture"].includes(skill)) return "primary";
+  return "secondary";
+};
+
 export function About() {
   return (
     <section id="about" className="py-28" style={{ background: "transparent" }}>
@@ -57,7 +66,7 @@ export function About() {
           <StaggerItem>
             <MotionContainer animation="fadeInUp">
               <div className="text-[10px] font-mono tracking-[0.3em] text-[#c41e3a] uppercase mb-3">
-                // STORY
+                {"// STORY"}
               </div>
               <h2 className="font-heading text-4xl font-bold text-[#e8ddd0] chiseled mb-3">
                 Programar con IA
@@ -135,15 +144,18 @@ export function About() {
                     </p>
                     <div className="flex flex-wrap gap-2">
                       {group.skills.map((skill) => (
-                        <motion.span
+                        <motion.div
                           key={skill}
                           variants={skillItemVariants}
-                          whileHover={{ y: -2, borderColor: "rgba(196,87,26,0.4)", color: "#e8ddd0" }}
+                          whileHover={{ y: -2 }}
                           transition={{ duration: 0.2 }}
-                          className="text-[11px] font-mono tracking-[0.05em] text-[rgba(232,221,208,0.7)] border border-[rgba(58,42,26,0.4)] px-3 py-1.5 cursor-crosshair"
+                          className="cursor-crosshair"
                         >
-                          {skill}
-                        </motion.span>
+                          <Badge variant={skillToVariant(skill)} appearance="light" size="sm" className="font-mono tracking-[0.05em]">
+                            <BadgeDot />
+                            {skill}
+                          </Badge>
+                        </motion.div>
                       ))}
                     </div>
                   </motion.div>

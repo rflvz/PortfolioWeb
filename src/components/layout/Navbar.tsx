@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { LiquidMetalButton } from "@/components/ui/LiquidMetalButton";
 
 const linkVariants = {
   hidden: { opacity: 0, y: -8 },
@@ -23,10 +24,10 @@ export function Navbar() {
     <header
       className="fixed top-0 left-0 right-0 z-50"
       style={{
-        background: "rgba(20, 16, 8, 0.72)",
+        background: "linear-gradient(160deg, rgba(42,22,24,0.88) 0%, rgba(29,17,19,0.85) 52%, rgba(20,12,15,0.86) 100%)",
         backdropFilter: "blur(12px)",
         WebkitBackdropFilter: "blur(12px)",
-        borderBottom: "1px solid rgba(58, 42, 26, 0.3)",
+        borderBottom: "1px solid rgba(196, 31, 58, 0.32)",
       }}
     >
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
@@ -58,12 +59,7 @@ export function Navbar() {
               </motion.li>
             ))}
           </ul>
-          <a
-            href="#contact"
-            className="glow-pulse text-[10px] font-mono tracking-[0.2em] text-[#e8ddd0] border border-[#c41e3a] px-4 py-2 hover:bg-[#c41e3a] hover:text-[#0a0705] transition-all duration-300"
-          >
-            INITIATE_CONTACT
-          </a>
+          <LiquidMetalButton label="INITIATE_CONTACT" href="#contact" width={220} />
         </div>
 
         {/* Mobile toggle */}
@@ -93,8 +89,8 @@ export function Navbar() {
       {isOpen && (
         <div
           style={{
-            background: "rgba(10, 7, 5, 0.95)",
-            borderTop: "1px solid rgba(58, 42, 26, 0.3)",
+            background: "linear-gradient(160deg, rgba(42,22,24,0.95) 0%, rgba(29,17,19,0.95) 52%, rgba(20,12,15,0.95) 100%)",
+            borderTop: "1px solid rgba(196, 31, 58, 0.32)",
           }}
           className="md:hidden"
         >

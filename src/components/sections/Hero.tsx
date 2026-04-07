@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform, type Variants, type Transition } from "framer-motion";
 import { useRef } from "react";
+import { LiquidMetalButton } from "@/components/ui/LiquidMetalButton";
 import { Button } from "@/components/ui/Button";
 import { TextGlitch } from "@/components/ui/text-glitch-effect";
 
@@ -161,9 +162,7 @@ export function Hero() {
             variants={ctaVariants}
             className="mt-14 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
           >
-            <Button href="#projects" variant="primary">
-              SEE_MY_WORK
-            </Button>
+            <LiquidMetalButton label="SEE_MY_WORK" href="#projects" width={200} />
             <Button href="#contact" variant="secondary">
               SIGNAL_FOR_ACCESS
             </Button>
@@ -174,7 +173,7 @@ export function Hero() {
             variants={scrollHintVariants}
             className="mt-20 flex flex-col items-center gap-2"
           >
-            <span className="text-[9px] font-mono tracking-[0.25em] text-[rgba(232,221,208,0.5)] uppercase">
+            <span className="text-[9px] font-mono tracking-[0.25em] text-[rgba(232,221,208,0.72)] uppercase">
               scroll
             </span>
             <motion.div

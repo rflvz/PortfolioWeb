@@ -79,7 +79,7 @@ export function Footer() {
                 aria-label={social.name}
                 whileHover={{ y: -2, color: "#c41e3a" }}
                 transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                className="text-[rgba(232,221,208,0.3)] transition-all duration-300 cursor-crosshair"
+                className="text-[rgba(232,221,208,0.65)] transition-all duration-300 cursor-crosshair"
               >
                 {social.svg}
               </motion.a>

@@ -8,6 +8,11 @@
   --color-foreground: #e8ddd0;
   --color-foreground-muted: rgba(232, 221, 208, 0.55);
   --color-primary: #e8ddd0;
+  --color-primary-foreground: #110d0a;
+  --color-secondary: #1c1510;
+  --color-secondary-foreground: #e8ddd0;
+  --color-border: #3a2a1a;
+  --color-destructive: #c41e3a;
   --color-accent: #c41e3a;
   --color-accent-orange: #d94f3d;
   --color-outline: #3a2a1a;
@@ -15,6 +20,15 @@
   --font-heading: var(--font-cinzel);
   --font-sans: var(--font-ibm-plex-mono);
   --font-mono: var(--font-ibm-plex-mono);
+  --color-destructive-foreground: oklch(1 0 0);
+}
+
+:root {
+  --destructive-foreground: oklch(1 0 0);
+}
+
+.dark {
+  --destructive-foreground: oklch(1 0 0);
 }
 
 /* ─── Base ─── */
