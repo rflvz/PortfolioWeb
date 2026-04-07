@@ -169,6 +169,29 @@ body {
   animation: float 4s ease-in-out infinite;
 }
 
+/* ─── Large screens (1000x2000 and above) ─── */
+@media (min-height: 1900px) and (min-width: 1000px) {
+  html {
+    font-size: 18px;
+  }
+
+  section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+@media (min-height: 2200px) and (min-width: 1200px) {
+  html {
+    font-size: 20px;
+  }
+
+  section {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
 /* ─── Extra padding for very large screens ─── */
 @media (min-height: 1100px) and (min-width: 2000px) {
   section:first-of-type {

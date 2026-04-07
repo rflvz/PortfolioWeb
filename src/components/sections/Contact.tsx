@@ -1,8 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Warp } from "@paper-design/shaders-react";
 import { StaggerContainer, StaggerItem, MotionContainer } from "@/components/ui/MotionContainer";
 import { LiquidMetalButton } from "@/components/ui/LiquidMetalButton";
+import { InputField } from "@/components/ui/InputField";
 
 export function Contact() {
   return (
@@ -25,105 +27,93 @@ export function Contact() {
         </StaggerContainer>
 
         <MotionContainer animation="fadeInUp" delay={0.2}>
-          <div className="iron-plate border-[rgba(196,31,58,0.42)] bg-[linear-gradient(160deg,#2a1618_0%,#1d1113_52%,#140c0f_100%)] p-6 sm:p-10">
-            <form
-              className="space-y-6"
-              onSubmit={(e) => {
-                e.preventDefault();
-                const formData = new FormData(e.currentTarget);
-                const identity = formData.get("identity");
-                const transmission = formData.get("transmission");
-                window.location.href = `mailto:rafaceitunoalvarez@gmail.com?subject=Signal from ${identity}&body=${encodeURIComponent(transmission as string)}`;
-              }}
-            >
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45, ease: "easeOut", delay: 0.25 }}
+          <div className="relative overflow-hidden rounded-xl border border-[rgba(196,31,58,0.42)]">
+            <div className="absolute inset-0 bg-[linear-gradient(160deg,#0d0708_0%,#0a0607_52%,#060304_100%)]" />
+            <div className="absolute inset-0 overflow-hidden">
+              <Warp
+                style={{ height: "100%", width: "100%" }}
+                proportion={0.4}
+                softness={1.0}
+                distortion={0.18}
+                swirl={0.75}
+                swirlIterations={10}
+                shape="checks"
+                shapeScale={0.09}
+                scale={1}
+                rotation={0}
+                speed={0.4}
+                colors={["hsl(350, 60%, 5%)", "hsl(352, 70%, 10%)", "hsl(348, 50%, 7%)", "hsl(354, 80%, 15%)"]}
+              />
+            </div>
+            <div className="relative z-10 p-6 sm:p-10">
+              <form
+                className="space-y-6"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const formData = new FormData(e.currentTarget);
+                  const identity = formData.get("identity");
+                  const transmission = formData.get("transmission");
+                  window.location.href = `mailto:rafaceitunoalvarez@gmail.com?subject=Signal from ${identity}&body=${encodeURIComponent(transmission as string)}`;
+                }}
               >
-                <label
-                  htmlFor="identity"
-                  className="block text-[10px] font-mono tracking-[0.2em] text-[rgba(232,221,208,0.72)] uppercase mb-3"
-                >
-                  _IDENTITY
-                </label>
-                <motion.input
-                  type="text"
+                <InputField
                   id="identity"
                   name="identity"
-                  required
+                  label="_IDENTITY"
                   placeholder="Your name or company"
-                  whileFocus={{ scale: 1.01 }}
-                  transition={{ duration: 0.2 }}
-                  className="w-full bg-[rgba(42,22,24,0.72)] border border-[rgba(196,31,58,0.42)] text-[rgba(232,221,208,0.75)] font-mono text-sm px-4 py-3 placeholder:text-[rgba(232,221,208,0.55)] focus:outline-none focus:border-[#c41e3a] transition-colors"
+                  required
                 />
-              </motion.div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45, ease: "easeOut", delay: 0.35 }}
-              >
-                <label
-                  htmlFor="transmission"
-                  className="block text-[10px] font-mono tracking-[0.2em] text-[rgba(232,221,208,0.72)] uppercase mb-3"
-                >
-                  _TRANSMISSION
-                </label>
-                <motion.textarea
+                <InputField
                   id="transmission"
                   name="transmission"
-                  required
-                  rows={5}
+                  label="_TRANSMISSION"
                   placeholder="Describe your project or idea..."
-                  whileFocus={{ scale: 1.01 }}
-                  transition={{ duration: 0.2 }}
-                  className="w-full bg-[rgba(42,22,24,0.72)] border border-[rgba(196,31,58,0.42)] text-[rgba(232,221,208,0.75)] font-mono text-sm px-4 py-3 placeholder:text-[rgba(232,221,208,0.55)] focus:outline-none focus:border-[#c41e3a] transition-colors resize-none"
+                  type="textarea"
+                  required
                 />
-              </motion.div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45, ease: "easeOut", delay: 0.45 }}
-                className="pt-2 flex justify-center"
-              >
-                <LiquidMetalButton label="SEND_MESSAGE" type="submit" width={210} />
-              </motion.div>
-            </form>
-
-            {/* Social icons */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-              className="flex items-center justify-center gap-6 mt-10 pt-8 border-t border-[rgba(196,31,58,0.32)]"
-            >
-              {[
-                { href: "https://github.com/rflvz", label: "GitHub", icon: <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" /> },
-                { href: "https://linkedin.com/in/rflvz", label: "LinkedIn", icon: <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /> },
-                { href: "mailto:rafaceitunoalvarez@gmail.com", label: "Email", icon: <><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7" /></> },
-              ].map((link) => (
-                <motion.a
-                  key={link.label}
-                  href={link.href}
-                  target={link.href.startsWith("mailto") ? undefined : "_blank"}
-                  rel="noopener noreferrer"
-                  aria-label={link.label}
-                  whileHover={{ y: -3, color: "#c41e3a" }}
-                  transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                  className="text-[rgba(232,221,208,0.7)] transition-colors duration-300"
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.45, ease: "easeOut", delay: 0.45 }}
+                  className="pt-2 flex justify-center"
                 >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill={link.href.includes("github") || link.href.includes("linkedin") ? "currentColor" : "none"} stroke={link.href.includes("mailto") ? "currentColor" : undefined} strokeWidth={link.href.includes("mailto") ? 1.5 : undefined}>
-                    {link.icon}
-                  </svg>
-                </motion.a>
-              ))}
-            </motion.div>
+                  <LiquidMetalButton label="SEND_MESSAGE" type="submit" width={210} />
+                </motion.div>
+              </form>
+
+              {/* Social icons */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.6 }}
+                className="flex items-center justify-center gap-6 mt-10 pt-8 border-t border-[rgba(196,31,58,0.32)]"
+              >
+                {[
+                  { href: "https://github.com/rflvz", label: "GitHub", icon: <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" /> },
+                  { href: "https://linkedin.com/in/rflvz", label: "LinkedIn", icon: <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /> },
+                  { href: "mailto:rafaceitunoalvarez@gmail.com", label: "Email", icon: <><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7" /></> },
+                ].map((link) => (
+                  <motion.a
+                    key={link.label}
+                    href={link.href}
+                    target={link.href.startsWith("mailto") ? undefined : "_blank"}
+                    rel="noopener noreferrer"
+                    aria-label={link.label}
+                    whileHover={{ y: -3, color: "#c41e3a" }}
+                    transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                    className="text-[rgba(232,221,208,0.7)] transition-colors duration-300"
+                  >
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill={link.href.includes("github") || link.href.includes("linkedin") ? "currentColor" : "none"} stroke={link.href.includes("mailto") ? "currentColor" : undefined} strokeWidth={link.href.includes("mailto") ? 1.5 : undefined}>
+                      {link.icon}
+                    </svg>
+                  </motion.a>
+                ))}
+              </motion.div>
+            </div>
           </div>
         </MotionContainer>
 
