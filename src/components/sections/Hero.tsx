@@ -173,7 +173,7 @@ export function Hero() {
             variants={scrollHintVariants}
             className="mt-20 flex flex-col items-center gap-2"
           >
-            <span className="text-[9px] font-mono tracking-[0.25em] text-[rgba(232,221,208,0.5)] uppercase">
+            <span className="text-[9px] font-mono tracking-[0.25em] text-[rgba(232,221,208,0.72)] uppercase">
               scroll
             </span>
             <motion.div

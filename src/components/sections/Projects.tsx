@@ -5,6 +5,7 @@ import { StaggerContainer, StaggerItem } from "@/components/ui/MotionContainer";
 import { LiquidMetalButton } from "@/components/ui/LiquidMetalButton";
 import { CardStack, CardStackControls, CardStackItem } from "@/components/ui/card-stack";
 import { Badge, BadgeDot } from "@/components/ui/Badge";
+import { GlowCard } from "@/components/ui/spotlight-card";
 
 type ProjectCmsItem = {
   uid: string;
@@ -192,60 +193,67 @@ export function Projects() {
             controlsRef={stackControlsRef}
           />
 
-          <div ref={descriptionPanelRef} className="bg-[#1c1510] p-8 rounded-2xl border border-[rgba(58,42,26,0.4)]">
-            <div className="flex items-center gap-4 mb-3">
-              <span className="text-[10px] font-mono tracking-[0.2em] text-[#c41e3a]">{activeProject.displayId}</span>
-              <div className="h-px flex-1 bg-[rgba(58,42,26,0.3)]" />
-              <Badge
-                size="xs"
-                variant={activeProject.status === "LIVE" ? "success" : "secondary"}
-                appearance={activeProject.status === "LIVE" ? "light" : "outline"}
-                className="font-mono tracking-[0.15em] uppercase"
-              >
-                {activeProject.status}
-              </Badge>
-            </div>
-
-            <h3 className="mb-3 font-heading text-2xl font-bold text-[#e8ddd0] chiseled">{activeProject.title}</h3>
-            <p className="text-sm font-mono text-[rgba(232,221,208,0.7)] leading-relaxed">{activeProject.summary}</p>
-
-            <div className="mt-5 flex flex-wrap gap-2">
-              {activeProject.tags.map((tag) => (
+          <div ref={descriptionPanelRef}>
+            <GlowCard
+              customSize
+              width="100%"
+              glowColor="red"
+              className="rounded-2xl border border-[rgba(58,42,26,0.4)] p-8"
+            >
+              <div className="flex items-center gap-4 mb-3">
+                <span className="text-[10px] font-mono tracking-[0.2em] text-[#c41e3a]">{activeProject.displayId}</span>
+                <div className="h-px flex-1 bg-[rgba(58,42,26,0.3)]" />
                 <Badge
-                  key={tag}
-                  variant={tagToVariant(tag)}
-                  appearance="light"
-                  size="sm"
-                  className="font-mono tracking-[0.05em] uppercase"
+                  size="xs"
+                  variant={activeProject.status === "LIVE" ? "success" : "secondary"}
+                  appearance={activeProject.status === "LIVE" ? "light" : "outline"}
+                  className="font-mono tracking-[0.15em] uppercase"
                 >
-                  <BadgeDot />
-                  {tag}
+                  {activeProject.status}
                 </Badge>
-              ))}
-            </div>
+              </div>
 
-            <div className="mt-6 flex flex-wrap gap-4">
-              {activeProject.externalUrl ? (
-                <LiquidMetalButton
-                  label="VISIT_SITE →"
-                  href={activeProject.externalUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  width={175}
-                />
-              ) : (
-                <span className="text-[10px] font-mono tracking-[0.2em] uppercase text-[rgba(232,221,208,0.25)]">PRIVATE</span>
-              )}
-              {activeProject.repositoryUrl ? (
-                <LiquidMetalButton
-                  label="VIEW_REPOSITORY →"
-                  href={activeProject.repositoryUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  width={230}
-                />
-              ) : null}
-            </div>
+              <h3 className="mb-3 font-heading text-2xl font-bold text-[#e8ddd0] chiseled">{activeProject.title}</h3>
+              <p className="text-sm font-mono text-[rgba(232,221,208,0.7)] leading-relaxed">{activeProject.summary}</p>
+
+              <div className="mt-5 flex flex-wrap gap-2">
+                {activeProject.tags.map((tag) => (
+                  <Badge
+                    key={tag}
+                    variant={tagToVariant(tag)}
+                    appearance="light"
+                    size="sm"
+                    className="font-mono tracking-[0.05em] uppercase"
+                  >
+                    <BadgeDot />
+                    {tag}
+                  </Badge>
+                ))}
+              </div>
+
+              <div className="mt-6 flex flex-wrap gap-4">
+                {activeProject.externalUrl ? (
+                  <LiquidMetalButton
+                    label="VISIT_SITE →"
+                    href={activeProject.externalUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    width={175}
+                  />
+                ) : (
+                  <span className="text-[10px] font-mono tracking-[0.2em] uppercase text-[rgba(232,221,208,0.55)]">PRIVATE</span>
+                )}
+                {activeProject.repositoryUrl ? (
+                  <LiquidMetalButton
+                    label="VIEW_REPOSITORY →"
+                    href={activeProject.repositoryUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    width={230}
+                  />
+                ) : null}
+              </div>
+            </GlowCard>
           </div>
         </div>
       </div>

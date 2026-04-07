@@ -44,7 +44,7 @@ export function Contact() {
               >
                 <label
                   htmlFor="identity"
-                  className="block text-[10px] font-mono tracking-[0.2em] text-[rgba(232,221,208,0.5)] uppercase mb-3"
+                  className="block text-[10px] font-mono tracking-[0.2em] text-[rgba(232,221,208,0.72)] uppercase mb-3"
                 >
                   _IDENTITY
                 </label>
@@ -56,7 +56,7 @@ export function Contact() {
                   placeholder="Your name or company"
                   whileFocus={{ scale: 1.01 }}
                   transition={{ duration: 0.2 }}
-                  className="w-full bg-[#1c1510] border border-[rgba(58,42,26,0.4)] text-[rgba(232,221,208,0.75)] font-mono text-sm px-4 py-3 placeholder:text-[rgba(232,221,208,0.25)] focus:outline-none focus:border-[#c41e3a] transition-colors"
+                  className="w-full bg-[#1c1510] border border-[rgba(58,42,26,0.4)] text-[rgba(232,221,208,0.75)] font-mono text-sm px-4 py-3 placeholder:text-[rgba(232,221,208,0.55)] focus:outline-none focus:border-[#c41e3a] transition-colors"
                 />
               </motion.div>
 
@@ -68,7 +68,7 @@ export function Contact() {
               >
                 <label
                   htmlFor="transmission"
-                  className="block text-[10px] font-mono tracking-[0.2em] text-[rgba(232,221,208,0.5)] uppercase mb-3"
+                  className="block text-[10px] font-mono tracking-[0.2em] text-[rgba(232,221,208,0.72)] uppercase mb-3"
                 >
                   _TRANSMISSION
                 </label>
@@ -80,7 +80,7 @@ export function Contact() {
                   placeholder="Describe your project or idea..."
                   whileFocus={{ scale: 1.01 }}
                   transition={{ duration: 0.2 }}
-                  className="w-full bg-[#1c1510] border border-[rgba(58,42,26,0.4)] text-[rgba(232,221,208,0.75)] font-mono text-sm px-4 py-3 placeholder:text-[rgba(232,221,208,0.25)] focus:outline-none focus:border-[#c41e3a] transition-colors resize-none"
+                  className="w-full bg-[#1c1510] border border-[rgba(58,42,26,0.4)] text-[rgba(232,221,208,0.75)] font-mono text-sm px-4 py-3 placeholder:text-[rgba(232,221,208,0.55)] focus:outline-none focus:border-[#c41e3a] transition-colors resize-none"
                 />
               </motion.div>
 
@@ -116,7 +116,7 @@ export function Contact() {
                   aria-label={link.label}
                   whileHover={{ y: -3, color: "#c41e3a" }}
                   transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                  className="text-[rgba(232,221,208,0.4)] transition-colors duration-300"
+                  className="text-[rgba(232,221,208,0.7)] transition-colors duration-300"
                 >
                   <svg width="20" height="20" viewBox="0 0 24 24" fill={link.href.includes("github") || link.href.includes("linkedin") ? "currentColor" : "none"} stroke={link.href.includes("mailto") ? "currentColor" : undefined} strokeWidth={link.href.includes("mailto") ? 1.5 : undefined}>
                     {link.icon}
@@ -127,7 +127,7 @@ export function Contact() {
           </div>
         </MotionContainer>
 
-        <p className="mt-8 text-center text-[10px] font-mono tracking-[0.2em] text-[rgba(232,221,208,0.5)] uppercase">
+        <p className="mt-8 text-center text-[10px] font-mono tracking-[0.2em] text-[rgba(232,221,208,0.72)] uppercase">
           Response within 48h &mdash; All signals received
         </p>
       </div>
