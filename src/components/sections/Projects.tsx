@@ -170,91 +170,93 @@ export function Projects() {
             </p>
           </StaggerItem>
         </StaggerContainer>
+      </div>
 
-        <div className="space-y-10">
-          <CardStack
-            items={stackItems}
-            initialIndex={0}
-            maxVisible={5}
-            cardWidth={720}
-            cardHeight={360}
-            overlap={0.72}
-            spreadDeg={22}
-            depthPx={120}
-            activeLiftPx={16}
-            activeScale={1.02}
-            inactiveScale={0.93}
-            loop={false}
-            autoAdvance={false}
-            intervalMs={3400}
-            pauseOnHover
-            className="mx-auto max-w-5xl"
-            onChangeIndex={(index) => setActiveIndex(index)}
-            controlsRef={stackControlsRef}
-          />
+      <div className="w-full">
+        <CardStack
+          items={stackItems}
+          initialIndex={0}
+          maxVisible={5}
+          cardWidth={720}
+          cardHeight={360}
+          overlap={0.72}
+          spreadDeg={22}
+          depthPx={120}
+          activeLiftPx={16}
+          activeScale={1.02}
+          inactiveScale={0.93}
+          loop={false}
+          autoAdvance={false}
+          intervalMs={3400}
+          pauseOnHover
+          className="w-full"
+          onChangeIndex={(index) => setActiveIndex(index)}
+          controlsRef={stackControlsRef}
+        />
+      </div>
 
-          <div ref={descriptionPanelRef}>
-            <GlowCard
-              customSize
-              width="100%"
-              glowColor="red"
-              className="rounded-2xl border border-[rgba(196,31,58,0.42)] bg-[linear-gradient(160deg,#2a1618_0%,#1d1113_52%,#140c0f_100%)] [--backdrop:rgba(29,17,19,0.92)] [--backup-border:rgba(196,31,58,0.42)] p-8"
-            >
-              <div className="flex items-center gap-4 mb-3">
-                <span className="text-[10px] font-mono tracking-[0.2em] text-[#c41e3a]">{activeProject.displayId}</span>
-                <div className="h-px flex-1 bg-[rgba(196,31,58,0.38)]" />
+      <div className="mx-auto max-w-6xl px-6 space-y-10">
+        <div ref={descriptionPanelRef}>
+          <GlowCard
+            customSize
+            width="100%"
+            glowColor="red"
+            className="rounded-2xl border border-[rgba(196,31,58,0.42)] bg-[linear-gradient(160deg,#2a1618_0%,#1d1113_52%,#140c0f_100%)] [--backdrop:rgba(29,17,19,0.92)] [--backup-border:rgba(196,31,58,0.42)] p-8"
+          >
+            <div className="flex items-center gap-4 mb-3">
+              <span className="text-[10px] font-mono tracking-[0.2em] text-[#c41e3a]">{activeProject.displayId}</span>
+              <div className="h-px flex-1 bg-[rgba(196,31,58,0.38)]" />
+              <Badge
+                size="xs"
+                variant={activeProject.status === "LIVE" ? "success" : "secondary"}
+                appearance={activeProject.status === "LIVE" ? "light" : "outline"}
+                className="font-mono tracking-[0.15em] uppercase"
+              >
+                {activeProject.status}
+              </Badge>
+            </div>
+
+            <h3 className="mb-3 font-heading text-2xl font-bold text-[#e8ddd0] chiseled">{activeProject.title}</h3>
+            <p className="text-sm font-mono text-[rgba(232,221,208,0.82)] leading-relaxed">{activeProject.summary}</p>
+
+            <div className="mt-5 flex flex-wrap gap-2">
+              {activeProject.tags.map((tag) => (
                 <Badge
-                  size="xs"
-                  variant={activeProject.status === "LIVE" ? "success" : "secondary"}
-                  appearance={activeProject.status === "LIVE" ? "light" : "outline"}
-                  className="font-mono tracking-[0.15em] uppercase"
+                  key={tag}
+                  variant={tagToVariant(tag)}
+                  appearance="light"
+                  size="sm"
+                  className="font-mono tracking-[0.05em] uppercase"
                 >
-                  {activeProject.status}
+                  <BadgeDot />
+                  {tag}
                 </Badge>
-              </div>
+              ))}
+            </div>
 
-              <h3 className="mb-3 font-heading text-2xl font-bold text-[#e8ddd0] chiseled">{activeProject.title}</h3>
-              <p className="text-sm font-mono text-[rgba(232,221,208,0.82)] leading-relaxed">{activeProject.summary}</p>
-
-              <div className="mt-5 flex flex-wrap gap-2">
-                {activeProject.tags.map((tag) => (
-                  <Badge
-                    key={tag}
-                    variant={tagToVariant(tag)}
-                    appearance="light"
-                    size="sm"
-                    className="font-mono tracking-[0.05em] uppercase"
-                  >
-                    <BadgeDot />
-                    {tag}
-                  </Badge>
-                ))}
-              </div>
-
-              <div className="mt-6 flex flex-wrap gap-4">
-                {activeProject.externalUrl ? (
-                  <LiquidMetalButton
-                    label="VISIT_SITE →"
-                    href={activeProject.externalUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    width={175}
-                  />
-                ) : (
-                  <span className="text-[10px] font-mono tracking-[0.2em] uppercase text-[rgba(232,221,208,0.55)]">PRIVATE</span>
-                )}
-                {activeProject.repositoryUrl ? (
-                  <LiquidMetalButton
-                    label="VIEW_REPOSITORY →"
-                    href={activeProject.repositoryUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    width={230}
-                  />
-                ) : null}
-              </div>
-            </GlowCard>
-          </div>
+            <div className="mt-6 flex flex-wrap gap-4">
+              {activeProject.externalUrl ? (
+                <LiquidMetalButton
+                  label="VISIT_SITE →"
+                  href={activeProject.externalUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  width={175}
+                />
+              ) : (
+                <span className="text-[10px] font-mono tracking-[0.2em] uppercase text-[rgba(232,221,208,0.55)]">PRIVATE</span>
+              )}
+              {activeProject.repositoryUrl ? (
+                <LiquidMetalButton
+                  label="VIEW_REPOSITORY →"
+                  href={activeProject.repositoryUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  width={230}
+                />
+              ) : null}
+            </div>
+          </GlowCard>
         </div>
       </div>
     </section>
