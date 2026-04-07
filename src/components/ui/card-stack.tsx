@@ -93,6 +93,29 @@ export function CardStack<T extends CardStackItem>({
 }: CardStackProps<T>) {
   const reduceMotion = useReducedMotion();
   const len = items.length;
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  const getScaledDimensions = React.useCallback(() => {
+    if (isMobile && typeof window !== "undefined") {
+      const vw = window.innerWidth;
+      const scale = vw / cardWidth;
+      return {
+        width: vw,
+        height: Math.round(cardHeight * scale),
+        fanScale: scale,
+      };
+    }
+    return { width: cardWidth, height: cardHeight, fanScale: 1 };
+  }, [isMobile, cardWidth, cardHeight]);
+
+  const { width: effectiveCardWidth, height: effectiveCardHeight, fanScale } = getScaledDimensions();
 
   const containerRef = React.useRef<HTMLDivElement>(null);
   const [containerWidth, setContainerWidth] = React.useState(0);
@@ -133,8 +156,8 @@ export function CardStack<T extends CardStackItem>({
   }, [active, items, len, onChangeIndex]);
 
   const maxOffset = Math.max(0, Math.floor(maxVisible / 2));
-  const cardSpacing = Math.max(10, Math.round(effectiveCardWidth * (1 - overlap)));
-  const stepDeg = maxOffset > 0 ? spreadDeg / maxOffset : 0;
+  const cardSpacing = Math.max(10, Math.round(effectiveCardWidth * (1 - overlap) * fanScale));
+  const stepDeg = maxOffset > 0 ? (spreadDeg * fanScale) / maxOffset : 0;
 
   const canGoPrev = loop || active > 0;
   const canGoNext = loop || active < len - 1;
@@ -188,8 +211,7 @@ export function CardStack<T extends CardStackItem>({
 
   return (
     <div
-      ref={containerRef}
-      className={cn("w-full", className)}
+      className={cn("w-full", isMobile && "overflow-x-hidden", className)}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
     >
