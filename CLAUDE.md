@@ -32,7 +32,7 @@ src/components/
 
 ### Design System: "The Analog Artifact"
 
-- **Theme**: Dark cinematic — background `#0a0705`, no solid black
+- **Theme**: Dark cinematic — background `#140c0f`, no solid black
 - **Palette**:
   - `--color-accent: #c41e3a` (carmine red — use for labels, IDs, accents)
   - `--color-accent-orange: #d94f3d` (warm red — use for highlights, hovers)

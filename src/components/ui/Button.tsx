@@ -8,7 +8,7 @@ interface ButtonProps extends ComponentProps<"a"> {
 
 const variants: Record<ButtonVariant, string> = {
   primary:
-    "bg-[#e8ddd0] text-[#0a0705] hover:brightness-110 border border-[#e8ddd0]",
+    "bg-[#e8ddd0] text-[#140c0f] hover:brightness-110 border border-[#e8ddd0]",
   secondary:
     "border border-[rgba(58,42,26,0.4)] text-[#e8ddd0] hover:border-[rgba(196,87,26,0.6)] hover:text-[#d94f3d]",
   ghost:

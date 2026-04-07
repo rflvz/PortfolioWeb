@@ -167,9 +167,14 @@ export function EtherealShadow({
                     style={{
                         backgroundColor: color,
                         maskImage: `url('https://framerusercontent.com/images/ceBGguIpUU8luwByxuQz79t7To.png')`,
-                        maskSize: sizing === "stretch" ? "100% 100%" : "cover",
+                        maskSize: "cover",
                         maskRepeat: "no-repeat",
                         maskPosition: "center",
+                        position: "absolute",
+                        left: 0,
+                        right: 0,
+                        top: 0,
+                        bottom: 0,
                         width: "100%",
                         height: "100%"
                     }}

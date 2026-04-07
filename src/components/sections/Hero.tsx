@@ -83,7 +83,8 @@ export function Hero() {
   return (
     <section
       ref={ref}
-      className="relative flex min-h-screen items-center justify-center overflow-hidden pt-16"
+      className="relative flex items-center justify-center overflow-hidden pt-16 lg:pt-24"
+      style={{ minHeight: "100vh" }}
     >
       {/* Parallax background gradient */}
       <motion.div
