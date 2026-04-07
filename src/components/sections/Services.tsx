@@ -58,7 +58,7 @@ const services = [
 
 export function Services() {
   return (
-    <section id="services" className="py-28" style={{ background: "#0f0c07" }}>
+    <section id="services" className="py-28" style={{ background: "transparent" }}>
       <div className="mx-auto max-w-6xl px-6">
         <StaggerContainer className="mb-16" delay={0.1}>
           <StaggerItem>

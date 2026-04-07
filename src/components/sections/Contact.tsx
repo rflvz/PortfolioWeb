@@ -5,7 +5,7 @@ import { StaggerContainer, StaggerItem, MotionContainer } from "@/components/ui/
 
 export function Contact() {
   return (
-    <section id="contact" className="py-28" style={{ background: "#0f0c07" }}>
+    <section id="contact" className="py-28" style={{ background: "transparent" }}>
       <div className="mx-auto max-w-3xl px-6">
         <StaggerContainer className="mb-12" delay={0.1}>
           <StaggerItem>

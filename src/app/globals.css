@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-background: #0a0705;
+  --color-background: #110d0a;
   --color-surface: #141008;
   --color-surface-variant: #1c1510;
   --color-surface-high: #2a1e12;
@@ -23,7 +23,7 @@ html {
 }
 
 body {
-  background: var(--color-background);
+  background-color: var(--color-background);
   color: var(--color-foreground);
   font-family: var(--font-mono), monospace;
   cursor: crosshair;
@@ -31,38 +31,10 @@ body {
 }
 
 ::selection {
-  background-color: rgba(196, 31, 58, 0.4);
   color: #e8ddd0;
 }
 
-/* ─── Grain overlay ─── */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
-  background-size: 200px 200px;
-  opacity: 0.06;
-  pointer-events: none;
-  z-index: 9999;
-  transition: opacity 0.3s ease, filter 0.3s ease;
-}
-
-/* Interactive grain on hover — active state controlled via JS */
-body:hover::before {
-  opacity: 0.1;
-  filter: brightness(1.2);
-}
-
-/* ─── Vignette ─── */
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background: radial-gradient(ellipse at center, transparent 40%, rgba(10, 7, 5, 0.65) 100%);
-  pointer-events: none;
-  z-index: 9998;
-}
+/* ─── EtheralShadow background (used via layout) ─── */
 
 /* ─── Scratched divider ─── */
 .scratched-divider {

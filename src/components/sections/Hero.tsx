@@ -88,8 +88,7 @@ export function Hero() {
         className="pointer-events-none absolute inset-0"
         style={{
           y,
-          background:
-            "radial-gradient(ellipse 80% 60% at 50% 30%, rgba(196,31,58,0.1) 0%, transparent 70%)",
+          background: "transparent",
         }}
       />
 
