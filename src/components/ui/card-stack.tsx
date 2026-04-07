@@ -93,26 +93,30 @@ export function CardStack<T extends CardStackItem>({
 }: CardStackProps<T>) {
   const reduceMotion = useReducedMotion();
   const len = items.length;
-  const [isMobile, setIsMobile] = React.useState(false);
+
+  const containerRef = React.useRef<HTMLDivElement>(null);
+  const [containerWidth, setContainerWidth] = React.useState(0);
 
   React.useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
+    const el = containerRef.current;
+    if (!el) return;
+    const update = () => setContainerWidth(el.clientWidth);
+    update();
+    const ro = new ResizeObserver(() => {
+      if (containerRef.current) setContainerWidth(containerRef.current.clientWidth);
+    });
+    ro.observe(el);
+    return () => ro.disconnect();
   }, []);
 
   const getScaledDimensions = React.useCallback(() => {
-    if (isMobile && typeof window !== "undefined") {
-      const vw = window.innerWidth;
-      const scale = vw / cardWidth;
-      return {
-        width: vw,
-        height: Math.round(cardHeight * scale),
-      };
-    }
-    return { width: cardWidth, height: cardHeight };
-  }, [isMobile, cardWidth, cardHeight]);
+    if (!containerWidth) return { width: cardWidth, height: cardHeight };
+    const ratio = cardHeight / cardWidth;
+    const fill = containerWidth < 768 ? 0.92 : 0.82;
+    const w = Math.round(containerWidth * fill);
+    const h = Math.round(w * ratio);
+    return { width: w, height: h };
+  }, [containerWidth, cardWidth, cardHeight]);
 
   const { width: effectiveCardWidth, height: effectiveCardHeight } = getScaledDimensions();
 
@@ -184,7 +188,8 @@ export function CardStack<T extends CardStackItem>({
 
   return (
     <div
-      className={cn("w-full", isMobile && "overflow-x-hidden", className)}
+      ref={containerRef}
+      className={cn("w-full", className)}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
     >

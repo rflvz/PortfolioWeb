@@ -177,8 +177,8 @@ export function Projects() {
           items={stackItems}
           initialIndex={0}
           maxVisible={5}
-          cardWidth={560}
-          cardHeight={280}
+          cardWidth={720}
+          cardHeight={360}
           overlap={0.72}
           spreadDeg={22}
           depthPx={120}
@@ -189,7 +189,7 @@ export function Projects() {
           autoAdvance={false}
           intervalMs={3400}
           pauseOnHover
-          className="mx-auto max-w-3xl lg:max-w-5xl"
+          className="mx-auto max-w-6xl"
           onChangeIndex={(index) => setActiveIndex(index)}
           controlsRef={stackControlsRef}
         />
