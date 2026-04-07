@@ -13,7 +13,7 @@ export default function Home() {
       <Services />
       <Projects />
       {/* Tech Stack Marquee */}
-      <div className="py-6 border-y border-[rgba(58,42,26,0.3)] bg-[#0a0705] overflow-hidden">
+      <div className="py-6 border-y border-[rgba(58,42,26,0.3)] bg-[#140c0f] overflow-hidden">
         <div className="marquee-track">
           {Array.from({ length: 6 }).map((_, i) => (
             <span

@@ -46,7 +46,7 @@ export function Footer() {
   return (
     <footer
       style={{ borderTop: "1px solid rgba(58, 42, 26, 0.3)" }}
-      className="bg-[#0a0705]"
+      className="bg-[#140c0f]"
     >
       {/* Marquee */}
       <div className="overflow-hidden py-3 border-b border-[rgba(58,42,26,0.2)]">
