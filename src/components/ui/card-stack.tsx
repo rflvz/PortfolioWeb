@@ -102,7 +102,7 @@ export function CardStack<T extends CardStackItem>({
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  const getScaledDimensions = React.useCallback(() => {
+  const getMobileDimensions = React.useCallback(() => {
     if (isMobile && typeof window !== "undefined") {
       const vw = window.innerWidth;
       const scale = vw / cardWidth;
@@ -115,7 +115,7 @@ export function CardStack<T extends CardStackItem>({
     return { width: cardWidth, height: cardHeight, fanScale: 1 };
   }, [isMobile, cardWidth, cardHeight]);
 
-  const { width: effectiveCardWidth, height: effectiveCardHeight, fanScale } = getScaledDimensions();
+  const { width: effectiveCardWidth, height: effectiveCardHeight, fanScale } = getMobileDimensions();
 
   const containerRef = React.useRef<HTMLDivElement>(null);
   const [containerWidth, setContainerWidth] = React.useState(0);
@@ -141,7 +141,7 @@ export function CardStack<T extends CardStackItem>({
     return { width: w, height: h };
   }, [containerWidth, cardWidth, cardHeight]);
 
-  const { width: effectiveCardWidth, height: effectiveCardHeight } = getScaledDimensions();
+  const { width: scaledCardWidth, height: scaledCardHeight } = getScaledDimensions();
 
   const [active, setActive] = React.useState(() => wrapIndex(initialIndex, len));
   const [hovering, setHovering] = React.useState(false);
@@ -156,7 +156,7 @@ export function CardStack<T extends CardStackItem>({
   }, [active, items, len, onChangeIndex]);
 
   const maxOffset = Math.max(0, Math.floor(maxVisible / 2));
-  const cardSpacing = Math.max(10, Math.round(effectiveCardWidth * (1 - overlap) * fanScale));
+  const cardSpacing = Math.max(10, Math.round(scaledCardWidth * (1 - overlap) * fanScale));
   const stepDeg = maxOffset > 0 ? (spreadDeg * fanScale) / maxOffset : 0;
 
   const canGoPrev = loop || active > 0;
@@ -215,7 +215,7 @@ export function CardStack<T extends CardStackItem>({
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
     >
-      <div className="relative w-full" style={{ height: Math.max(380, effectiveCardHeight + 220) }} tabIndex={0} onKeyDown={onKeyDown}>
+      <div className="relative w-full" style={{ height: Math.max(380, scaledCardHeight + 220) }} tabIndex={0} onKeyDown={onKeyDown}>
         <div
           className="pointer-events-none absolute inset-x-0 top-6 mx-auto h-48 w-[70%] rounded-full bg-black/5 blur-3xl dark:bg-white/5"
           aria-hidden="true"
@@ -251,7 +251,7 @@ export function CardStack<T extends CardStackItem>({
                       if (reduceMotion) return;
                       const travel = info.offset.x;
                       const v = info.velocity.x;
-                      const threshold = Math.min(160, effectiveCardWidth * 0.22);
+                      const threshold = Math.min(160, scaledCardWidth * 0.22);
                       if (travel > threshold || v > 650) prev();
                       else if (travel < -threshold || v < -650) next();
                     },
@@ -266,7 +266,7 @@ export function CardStack<T extends CardStackItem>({
                     "will-change-transform select-none",
                     isActive ? "cursor-grab active:cursor-grabbing" : "cursor-pointer",
                   )}
-                  style={{ width: effectiveCardWidth, height: effectiveCardHeight, maxWidth: "100%", zIndex, transformStyle: "preserve-3d" }}
+                  style={{ width: scaledCardWidth, height: scaledCardHeight, maxWidth: "100%", zIndex, transformStyle: "preserve-3d" }}
                   initial={reduceMotion ? false : { opacity: 0, y: y + 40, x, rotateZ, rotateX, scale }}
                   animate={{ opacity: 1, x, y: y + lift, rotateZ, rotateX, scale }}
                   transition={{ type: "spring", stiffness: springStiffness, damping: springDamping }}
