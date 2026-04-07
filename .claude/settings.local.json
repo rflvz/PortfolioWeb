@@ -2,7 +2,16 @@
   "permissions": {
     "allow": [
       "Bash(npx tsc:*)",
-      "Bash(curl -s http://localhost:3000)"
+      "Bash(curl -s http://localhost:3000)",
+      "Bash(npm run:*)",
+      "Bash(git checkout:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m ':*)",
+      "Bash(git push:*)",
+      "Bash(gh pr create --title 'fix: mobile responsiveness for CardStack and page sections' --body ':*)",
+      "Bash(git commit:*)",
+      "Bash(git fetch:*)",
+      "Bash(gh pr:*)"
     ]
   }
 }

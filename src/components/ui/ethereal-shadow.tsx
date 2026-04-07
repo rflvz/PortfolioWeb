@@ -115,8 +115,13 @@ export function EtherealShadow({
             <div
                 style={{
                     position: "absolute",
-                    inset: -displacementScale,
-                    filter: animationEnabled ? `url(#${id}) blur(4px)` : "none"
+                    left: -displacementScale,
+                    right: -displacementScale,
+                    top: -displacementScale,
+                    bottom: -displacementScale,
+                    filter: animationEnabled ? `url(#${id}) blur(4px)` : "none",
+                    maxWidth: "100vw",
+                    maxHeight: "100vh"
                 }}
             >
                 {animationEnabled && (

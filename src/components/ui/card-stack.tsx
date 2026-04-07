@@ -117,6 +117,32 @@ export function CardStack<T extends CardStackItem>({
 
   const { width: effectiveCardWidth, height: effectiveCardHeight, fanScale } = getScaledDimensions();
 
+  const containerRef = React.useRef<HTMLDivElement>(null);
+  const [containerWidth, setContainerWidth] = React.useState(0);
+
+  React.useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const update = () => setContainerWidth(el.clientWidth);
+    update();
+    const ro = new ResizeObserver(() => {
+      if (containerRef.current) setContainerWidth(containerRef.current.clientWidth);
+    });
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+
+  const getScaledDimensions = React.useCallback(() => {
+    if (!containerWidth) return { width: cardWidth, height: cardHeight };
+    const ratio = cardHeight / cardWidth;
+    const fill = containerWidth < 768 ? 0.92 : 0.82;
+    const w = Math.round(containerWidth * fill);
+    const h = Math.round(w * ratio);
+    return { width: w, height: h };
+  }, [containerWidth, cardWidth, cardHeight]);
+
+  const { width: effectiveCardWidth, height: effectiveCardHeight } = getScaledDimensions();
+
   const [active, setActive] = React.useState(() => wrapIndex(initialIndex, len));
   const [hovering, setHovering] = React.useState(false);
 
