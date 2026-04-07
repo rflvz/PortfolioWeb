@@ -1,5 +1,5 @@
 {
   "framework": "nextjs",
-  "buildCommand": "npm run build",
+  "buildCommand": "npx next build --webpack",
   "outputDirectory": ".next"
 }
