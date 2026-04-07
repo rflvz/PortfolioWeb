@@ -1,9 +1,10 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { StaggerContainer, StaggerItem } from "@/components/ui/MotionContainer";
 import { LiquidMetalButton } from "@/components/ui/LiquidMetalButton";
-import { CardStack, CardStackItem } from "@/components/ui/card-stack";
+import { CardStack, CardStackControls, CardStackItem } from "@/components/ui/card-stack";
+import { Badge } from "@/components/ui/Badge";
 
 type ProjectCmsItem = {
   uid: string;
@@ -66,6 +67,12 @@ type ProjectStackCard = CardStackItem & { sourceUid: string };
 
 export function Projects() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isDescriptionVisible, setIsDescriptionVisible] = useState(false);
+  const [hasUnlockedScroll, setHasUnlockedScroll] = useState(false);
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const descriptionPanelRef = useRef<HTMLDivElement | null>(null);
+  const stackControlsRef = useRef<CardStackControls | null>(null);
+  const lastWheelActionRef = useRef(0);
 
   const stackItems = useMemo<ProjectStackCard[]>(
     () =>
@@ -76,20 +83,75 @@ export function Projects() {
         description: project.summary,
         imageSrc: project.coverImage,
         href: project.externalUrl ?? project.repositoryUrl,
+        ctaLabel: project.externalUrl ? "VIEW WEB" : project.repositoryUrl ? "VIEW REPOSITORY" : "PRIVATE",
         tag: project.status,
       })),
     [],
   );
 
   const activeProject = cmsProjects[activeIndex] ?? cmsProjects[0];
+  const shouldLockScroll = isDescriptionVisible && !hasUnlockedScroll;
+
+  useEffect(() => {
+    const updateDescriptionVisibility = () => {
+      const panel = descriptionPanelRef.current;
+      if (!panel) return;
+
+      const rect = panel.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+      const enoughTopVisible = rect.top <= viewportHeight - 24;
+      const enoughBottomInside = rect.bottom >= 64;
+
+      setIsDescriptionVisible(enoughTopVisible && enoughBottomInside);
+    };
+
+    updateDescriptionVisibility();
+    window.addEventListener("scroll", updateDescriptionVisibility, { passive: true });
+    window.addEventListener("resize", updateDescriptionVisibility);
+
+    return () => {
+      window.removeEventListener("scroll", updateDescriptionVisibility);
+      window.removeEventListener("resize", updateDescriptionVisibility);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!shouldLockScroll) return;
+
+    const onWheel = (event: WheelEvent) => {
+      const controls = stackControlsRef.current;
+      if (!controls) return;
+
+      // Keep the wheel interaction deterministic: one gesture changes one card.
+      event.preventDefault();
+
+      const now = Date.now();
+      if (now - lastWheelActionRef.current < 320) return;
+      if (Math.abs(event.deltaY) < 16) return;
+
+      if (event.deltaY > 0) {
+        controls.goNext();
+      } else {
+        controls.goPrev();
+      }
+
+      lastWheelActionRef.current = now;
+      if (controls.isAtEnd()) {
+        setHasUnlockedScroll(true);
+      }
+    };
+
+    window.addEventListener("wheel", onWheel, { passive: false });
+    return () => window.removeEventListener("wheel", onWheel);
+  }, [shouldLockScroll]);
 
   return (
-    <section id="projects" className="py-28 bg-[#0a0705]">
+    <section ref={sectionRef} id="projects" className="py-28" style={{ background: "transparent" }}>
       <div className="mx-auto max-w-6xl px-6">
         <StaggerContainer className="mb-16" delay={0.1}>
           <StaggerItem>
             <div className="text-[10px] font-mono tracking-[0.3em] text-[#c41e3a] uppercase mb-3">
-              // CODE
+              {"// CODE"}
             </div>
             <h2 className="font-heading text-4xl font-bold text-[#e8ddd0] chiseled mb-3">
               Selected Work
@@ -113,24 +175,27 @@ export function Projects() {
             activeLiftPx={16}
             activeScale={1.02}
             inactiveScale={0.93}
-            autoAdvance
+            loop={false}
+            autoAdvance={false}
             intervalMs={3400}
             pauseOnHover
             className="mx-auto max-w-5xl"
             onChangeIndex={(index) => setActiveIndex(index)}
+            controlsRef={stackControlsRef}
           />
 
-          <div className="bg-[#1c1510] p-8 rounded-2xl border border-[rgba(58,42,26,0.4)]">
+          <div ref={descriptionPanelRef} className="bg-[#1c1510] p-8 rounded-2xl border border-[rgba(58,42,26,0.4)]">
             <div className="flex items-center gap-4 mb-3">
               <span className="text-[10px] font-mono tracking-[0.2em] text-[#c41e3a]">{activeProject.displayId}</span>
               <div className="h-px flex-1 bg-[rgba(58,42,26,0.3)]" />
-              <span
-                className={`text-[9px] font-mono tracking-[0.15em] uppercase ${
-                  activeProject.status === "LIVE" ? "text-[#d94f3d]" : "text-[rgba(232,221,208,0.4)]"
-                }`}
+              <Badge
+                size="xs"
+                variant={activeProject.status === "LIVE" ? "success" : "secondary"}
+                appearance={activeProject.status === "LIVE" ? "light" : "outline"}
+                className="font-mono tracking-[0.15em] uppercase"
               >
                 {activeProject.status}
-              </span>
+              </Badge>
             </div>
 
             <h3 className="mb-3 font-heading text-2xl font-bold text-[#e8ddd0] chiseled">{activeProject.title}</h3>
@@ -138,12 +203,15 @@ export function Projects() {
 
             <div className="mt-5 flex flex-wrap gap-2">
               {activeProject.tags.map((tag) => (
-                <span
+                <Badge
                   key={tag}
-                  className="border border-[rgba(58,42,26,0.3)] px-2.5 py-1 text-[10px] font-mono tracking-[0.05em] text-[rgba(232,221,208,0.6)]"
+                  variant="secondary"
+                  appearance="outline"
+                  size="sm"
+                  className="font-mono tracking-[0.05em] text-[rgba(232,221,208,0.7)] border-[rgba(58,42,26,0.5)] bg-[#1c1510]"
                 >
                   {tag}
-                </span>
+                </Badge>
               ))}
             </div>
 

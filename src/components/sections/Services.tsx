@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/Card";
 import { MotionContainer, StaggerContainer, StaggerItem } from "@/components/ui/MotionContainer";
+import { LiquidMetalButton } from "@/components/ui/LiquidMetalButton";
 
 const services = [
   {
@@ -95,22 +96,7 @@ export function Services() {
                     {service.description}
                   </p>
 
-                  <a
-                    href={service.link}
-                    className="inline-flex items-center gap-2 text-[10px] font-mono tracking-[0.2em] uppercase text-[rgba(232,221,208,0.4)] hover:text-[#d94f3d] transition-colors"
-                  >
-                    VIEW_DETAILS
-                    <svg
-                      width="10"
-                      height="10"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                    >
-                      <path d="M7 17l9.2-9.2M17 17V7H7" />
-                    </svg>
-                  </a>
+                  <LiquidMetalButton label="VIEW_DETAILS →" href={service.link} width={185} />
 
                   <div className="absolute bottom-0 left-0 right-0 h-px bg-[rgba(58,42,26,0.3)]" />
                 </Card>

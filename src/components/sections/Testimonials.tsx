@@ -21,7 +21,7 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section id="testimonials" className="py-28 bg-[#0a0705]">
+    <section id="testimonials" className="py-28" style={{ background: "transparent" }}>
       <div className="mx-auto max-w-6xl px-6">
         <StaggerContainer className="mb-16" delay={0.1}>
           <StaggerItem>

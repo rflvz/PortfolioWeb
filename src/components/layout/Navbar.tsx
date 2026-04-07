@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { LiquidMetalButton } from "@/components/ui/LiquidMetalButton";
 
 const linkVariants = {
   hidden: { opacity: 0, y: -8 },
@@ -58,12 +59,7 @@ export function Navbar() {
               </motion.li>
             ))}
           </ul>
-          <a
-            href="#contact"
-            className="glow-pulse text-[10px] font-mono tracking-[0.2em] text-[#e8ddd0] border border-[#c41e3a] px-4 py-2 hover:bg-[#c41e3a] hover:text-[#0a0705] transition-all duration-300"
-          >
-            INITIATE_CONTACT
-          </a>
+          <LiquidMetalButton label="INITIATE_CONTACT" href="#contact" width={220} />
         </div>
 
         {/* Mobile toggle */}

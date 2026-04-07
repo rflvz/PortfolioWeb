@@ -40,6 +40,16 @@ export type CardStackProps<T extends CardStackItem> = {
   className?: string;
   onChangeIndex?: (index: number, item: T) => void;
   renderCard?: (item: T, state: { active: boolean }) => React.ReactNode;
+  controlsRef?: React.MutableRefObject<CardStackControls | null>;
+};
+
+export type CardStackControls = {
+  goPrev: () => boolean;
+  goNext: () => boolean;
+  getActiveIndex: () => number;
+  getLength: () => number;
+  isAtStart: () => boolean;
+  isAtEnd: () => boolean;
 };
 
 function wrapIndex(n: number, len: number) {
@@ -79,6 +89,7 @@ export function CardStack<T extends CardStackItem>({
   className,
   onChangeIndex,
   renderCard,
+  controlsRef,
 }: CardStackProps<T>) {
   const reduceMotion = useReducedMotion();
   const len = items.length;
@@ -103,14 +114,32 @@ export function CardStack<T extends CardStackItem>({
   const canGoNext = loop || active < len - 1;
 
   const prev = React.useCallback(() => {
-    if (!len || !canGoPrev) return;
+    if (!len || !canGoPrev) return false;
     setActive((a) => wrapIndex(a - 1, len));
+    return true;
   }, [canGoPrev, len]);
 
   const next = React.useCallback(() => {
-    if (!len || !canGoNext) return;
+    if (!len || !canGoNext) return false;
     setActive((a) => wrapIndex(a + 1, len));
+    return true;
   }, [canGoNext, len]);
+
+  React.useEffect(() => {
+    if (!controlsRef) return;
+    controlsRef.current = {
+      goPrev: prev,
+      goNext: next,
+      getActiveIndex: () => active,
+      getLength: () => len,
+      isAtStart: () => !loop && active <= 0,
+      isAtEnd: () => !loop && active >= len - 1,
+    };
+
+    return () => {
+      controlsRef.current = null;
+    };
+  }, [active, controlsRef, len, loop, next, prev]);
 
   const onKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "ArrowLeft") prev();
@@ -184,7 +213,7 @@ export function CardStack<T extends CardStackItem>({
                 <motion.div
                   key={item.id}
                   className={cn(
-                    "absolute bottom-0 overflow-hidden rounded-2xl border-4 border-black/10 shadow-xl dark:border-white/10",
+                    "group/card absolute bottom-0 overflow-hidden rounded-2xl border-4 border-black/10 shadow-xl dark:border-white/10",
                     "will-change-transform select-none",
                     isActive ? "cursor-grab active:cursor-grabbing" : "cursor-pointer",
                   )}
@@ -238,6 +267,8 @@ export function CardStack<T extends CardStackItem>({
 }
 
 function DefaultFanCard({ item }: { item: CardStackItem; active: boolean }) {
+  const ctaLabel = item.ctaLabel ?? (item.href ? "VIEW WEB" : "PRIVATE");
+
   return (
     <div className="relative h-full w-full">
       <div className="absolute inset-0">
@@ -249,10 +280,30 @@ function DefaultFanCard({ item }: { item: CardStackItem; active: boolean }) {
       </div>
 
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-black/55 opacity-0 backdrop-blur-[2px] transition-opacity duration-200 group-hover/card:opacity-100" />
 
       <div className="relative z-10 flex h-full flex-col justify-end p-5">
         <div className="truncate text-lg font-semibold text-white">{item.title}</div>
         {item.description ? <div className="mt-1 line-clamp-2 text-sm text-white/80">{item.description}</div> : null}
+      </div>
+
+      <div className="absolute inset-0 z-20 flex items-center justify-center p-6 opacity-0 transition-opacity duration-200 group-hover/card:opacity-100">
+        {item.href ? (
+          <Link
+            href={item.href}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 border border-[rgba(232,221,208,0.5)] bg-[rgba(10,7,5,0.7)] px-4 py-2 text-[10px] font-mono tracking-[0.15em] text-[#e8ddd0] uppercase"
+            onClick={(event) => event.stopPropagation()}
+          >
+            {ctaLabel}
+            <SquareArrowOutUpRight className="h-3.5 w-3.5" />
+          </Link>
+        ) : (
+          <span className="inline-flex items-center border border-[rgba(232,221,208,0.3)] bg-[rgba(10,7,5,0.7)] px-4 py-2 text-[10px] font-mono tracking-[0.15em] text-[rgba(232,221,208,0.7)] uppercase">
+            PRIVATE
+          </span>
+        )}
       </div>
     </div>
   );

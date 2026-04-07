@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { StaggerContainer, StaggerItem, MotionContainer } from "@/components/ui/MotionContainer";
+import { LiquidMetalButton } from "@/components/ui/LiquidMetalButton";
 
 export function Contact() {
   return (
@@ -88,17 +89,9 @@ export function Contact() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, ease: "easeOut", delay: 0.45 }}
-                className="pt-2"
+                className="pt-2 flex justify-center"
               >
-                <motion.button
-                  type="submit"
-                  whileHover={{ scale: 1.02, backgroundColor: "#c41e3a", color: "#0a0705" }}
-                  whileTap={{ scale: 0.98 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                  className="w-full border border-[#c41e3a] text-[#e8ddd0] font-mono text-[10px] tracking-[0.2em] uppercase px-6 py-4 cursor-crosshair"
-                >
-                  SEND_MESSAGE
-                </motion.button>
+                <LiquidMetalButton label="SEND_MESSAGE" type="submit" width={210} />
               </motion.div>
             </form>
 
