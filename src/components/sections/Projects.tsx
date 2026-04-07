@@ -189,7 +189,7 @@ export function Projects() {
           autoAdvance={false}
           intervalMs={3400}
           pauseOnHover
-          className="w-full"
+          className="mx-auto max-w-3xl lg:max-w-5xl"
           onChangeIndex={(index) => setActiveIndex(index)}
           controlsRef={stackControlsRef}
         />
