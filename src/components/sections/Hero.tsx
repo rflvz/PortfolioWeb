@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform, type Variants, type Transition } from "framer-motion";
 import { useRef } from "react";
 import { Button } from "@/components/ui/Button";
+import { TextGlitch } from "@/components/ui/text-glitch-effect";
 
 const EASE_OUT = [0.16, 1, 0.3, 1] as [number, number, number, number];
 
@@ -107,14 +108,19 @@ export function Hero() {
           </motion.p>
 
           {/* Main headline */}
-          <motion.h1
-            variants={itemVariants}
-            className="font-heading text-6xl font-bold tracking-[-0.02em] text-[#e8ddd0] chiseled sm:text-8xl lg:text-[7rem] leading-none"
-          >
-            RAFA
-            <br />
-            <span className="text-[rgba(232,221,208,0.7)]">ALVAREZ</span>
-          </motion.h1>
+          <motion.div variants={itemVariants} className="flex flex-col items-center">
+            <TextGlitch
+              text="RAFA"
+              hoverText="AI ARCH"
+              className="font-heading text-6xl sm:text-8xl lg:text-[7rem] tracking-[-0.02em] chiseled text-[#e8ddd0]"
+            />
+            <TextGlitch
+              as="div"
+              text="ALVAREZ"
+              hoverText="DEV"
+              className="font-heading text-6xl sm:text-8xl lg:text-[7rem] tracking-[-0.02em] chiseled text-[rgba(232,221,208,0.7)]"
+            />
+          </motion.div>
 
           {/* Divider */}
           <motion.div
