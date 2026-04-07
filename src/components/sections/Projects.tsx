@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { StaggerContainer, StaggerItem } from "@/components/ui/MotionContainer";
 import { LiquidMetalButton } from "@/components/ui/LiquidMetalButton";
 import { CardStack, CardStackControls, CardStackItem } from "@/components/ui/card-stack";
-import { Badge } from "@/components/ui/Badge";
+import { Badge, BadgeDot } from "@/components/ui/Badge";
 
 type ProjectCmsItem = {
   uid: string;
@@ -64,6 +64,14 @@ const cmsProjects: ProjectCmsItem[] = [
 ];
 
 type ProjectStackCard = CardStackItem & { sourceUid: string };
+
+const tagToVariant = (tag: string): "primary" | "info" | "success" | "warning" | "secondary" => {
+  if (["TypeScript", "Next.js", "React"].includes(tag)) return "info";
+  if (["Python", "PyTorch", "CLIP", "scikit-learn"].includes(tag)) return "success";
+  if (["PostgreSQL", "Supabase"].includes(tag)) return "warning";
+  if (["LangGraph", "MCP", "Claude_API"].includes(tag)) return "primary";
+  return "secondary";
+};
 
 export function Projects() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -205,11 +213,12 @@ export function Projects() {
               {activeProject.tags.map((tag) => (
                 <Badge
                   key={tag}
-                  variant="secondary"
-                  appearance="outline"
+                  variant={tagToVariant(tag)}
+                  appearance="light"
                   size="sm"
-                  className="font-mono tracking-[0.05em] text-[rgba(232,221,208,0.7)] border-[rgba(58,42,26,0.5)] bg-[#1c1510]"
+                  className="font-mono tracking-[0.05em] uppercase"
                 >
+                  <BadgeDot />
                   {tag}
                 </Badge>
               ))}
