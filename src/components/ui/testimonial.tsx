@@ -54,7 +54,7 @@ const TestimonialCarousel = React.forwardRef<HTMLDivElement, TestimonialCarousel
         className={cn("flex h-[28rem] w-full items-center justify-center", className)}
         {...props}
       >
-        <div className="relative h-[24rem] w-[28rem]">
+        <div className="relative h-[24rem] w-full max-w-[28rem]">
           {testimonials.map((testimonial, index) => {
             const isCurrentCard = index === currentIndex;
             const isPrevCard = index === (currentIndex + 1) % testimonials.length;

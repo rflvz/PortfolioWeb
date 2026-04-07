@@ -40,8 +40,8 @@ export function Navbar() {
         </a>
 
         {/* Desktop */}
-        <div className="flex items-center gap-10">
-          <ul className="hidden items-center gap-10 md:flex">
+        <div className="hidden md:flex items-center gap-10">
+          <ul className="flex items-center gap-10">
             {navLinks.map((link, i) => (
               <motion.li
                 key={link.href}
@@ -59,7 +59,7 @@ export function Navbar() {
               </motion.li>
             ))}
           </ul>
-          <LiquidMetalButton label="INITIATE_CONTACT" href="#contact" width={220} />
+          <LiquidMetalButton label="INITIATE_CONTACT" href="#contact" width={180} />
         </div>
 
         {/* Mobile toggle */}
@@ -104,7 +104,7 @@ export function Navbar() {
               >
                 <a
                   href={link.href}
-                  className="text-[10px] font-mono tracking-[0.25em] text-[rgba(232,221,208,0.75)] hover:text-[#e8ddd0] transition-colors"
+                  className="text-xs sm:text-[10px] font-mono tracking-wider sm:tracking-[0.25em] text-[rgba(232,221,208,0.75)] hover:text-[#e8ddd0] transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.label}

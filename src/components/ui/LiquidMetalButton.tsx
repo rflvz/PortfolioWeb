@@ -28,23 +28,32 @@ export function LiquidMetalButton({
   const [ripples, setRipples] = useState<
     Array<{ x: number; y: number; id: number }>
   >([]);
+  const [isMobile, setIsMobile] = useState(false);
   const shaderRef = useRef<HTMLDivElement>(null);
   // biome-ignore lint/suspicious/noExplicitAny: External library without types
   const shaderMount = useRef<any>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const rippleId = useRef(0);
 
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 640);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   const dimensions = useMemo(() => {
     const w = customWidth ?? 180;
+    const effectiveW = isMobile ? Math.min(w, window.innerWidth - 48) : w;
     return {
-      width: w,
+      width: effectiveW,
       height: 46,
-      innerWidth: w - 4,
+      innerWidth: effectiveW - 4,
       innerHeight: 42,
-      shaderWidth: w,
+      shaderWidth: effectiveW,
       shaderHeight: 46,
     };
-  }, [customWidth]);
+  }, [customWidth, isMobile]);
 
   useEffect(() => {
     const styleId = "shader-canvas-style-exploded";
