@@ -78,9 +78,9 @@ export function About() {
           </StaggerItem>
         </StaggerContainer>
 
-        <div className="grid gap-16 lg:grid-cols-5">
+        <div className="grid gap-8 md:grid-cols-5 md:gap-16">
           {/* Image with torn-edge */}
-          <div className="lg:col-span-2">
+          <div className="md:col-span-2">
             <MotionContainer animation="fadeInLeft" delay={0.2}>
               <div className="relative">
                 <div className="overflow-hidden">
@@ -99,7 +99,7 @@ export function About() {
           </div>
 
           {/* Bio */}
-          <div className="lg:col-span-3 space-y-5">
+          <div className="md:col-span-3 space-y-5">
             {[
               "Desarrollé ChessRadar (chesstogether.app) en 10 días con un equipo de 2 devs + 1 team leader. 4 días los hice en solitario. El proyecto existía en mi cabeza y en papel. La IA帮我 a materializarlo en tiempo récord.",
               "CodeOrchestrator es mi laboratorio personal: un sistema donde agentes autónomos generan, implementan y despliegan código siguiendo specs en lenguaje natural. Agentes que piensas antes de actuar.",
@@ -129,7 +129,7 @@ export function About() {
           </div>
 
           {/* Skills */}
-          <div className="lg:col-span-3 space-y-8">
+          <div className="md:col-span-3 space-y-8">
             <StaggerContainer>
               {skillGroups.map((group) => (
                 <StaggerItem key={group.label}>
