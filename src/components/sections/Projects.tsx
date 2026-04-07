@@ -198,11 +198,11 @@ export function Projects() {
               customSize
               width="100%"
               glowColor="red"
-              className="rounded-2xl border border-[rgba(58,42,26,0.4)] p-8"
+              className="rounded-2xl border border-[rgba(196,31,58,0.42)] bg-[linear-gradient(160deg,#2a1618_0%,#1d1113_52%,#140c0f_100%)] [--backdrop:rgba(29,17,19,0.92)] [--backup-border:rgba(196,31,58,0.42)] p-8"
             >
               <div className="flex items-center gap-4 mb-3">
                 <span className="text-[10px] font-mono tracking-[0.2em] text-[#c41e3a]">{activeProject.displayId}</span>
-                <div className="h-px flex-1 bg-[rgba(58,42,26,0.3)]" />
+                <div className="h-px flex-1 bg-[rgba(196,31,58,0.38)]" />
                 <Badge
                   size="xs"
                   variant={activeProject.status === "LIVE" ? "success" : "secondary"}
@@ -214,7 +214,7 @@ export function Projects() {
               </div>
 
               <h3 className="mb-3 font-heading text-2xl font-bold text-[#e8ddd0] chiseled">{activeProject.title}</h3>
-              <p className="text-sm font-mono text-[rgba(232,221,208,0.7)] leading-relaxed">{activeProject.summary}</p>
+              <p className="text-sm font-mono text-[rgba(232,221,208,0.82)] leading-relaxed">{activeProject.summary}</p>
 
               <div className="mt-5 flex flex-wrap gap-2">
                 {activeProject.tags.map((tag) => (

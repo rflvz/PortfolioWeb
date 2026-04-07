@@ -65,7 +65,7 @@ export function Services() {
           <StaggerItem>
             <MotionContainer animation="fadeInUp">
               <div className="text-[10px] font-mono tracking-[0.3em] text-[#c41e3a] uppercase mb-3">
-                // SERVICES
+                {"// SERVICES"}
               </div>
               <h2 className="font-heading text-4xl font-bold text-[#e8ddd0] chiseled mb-3">
                 What I Build
@@ -81,10 +81,10 @@ export function Services() {
           {services.map((service) => (
             <StaggerItem key={service.title}>
               <motion.div
-                whileHover={{ x: 5, borderColor: "rgba(196,87,26,0.5)" }}
+                whileHover={{ x: 5, borderColor: "rgba(196,31,58,0.55)" }}
                 transition={{ type: "spring", stiffness: 400, damping: 25 }}
               >
-                <Card className="p-8 group relative">
+                <Card className="p-8 group relative border-[rgba(196,31,58,0.42)] bg-[linear-gradient(160deg,#2a1618_0%,#1d1113_52%,#140c0f_100%)]">
                   <div className="flex items-start gap-4 mb-5">
                     <div className="shrink-0 mt-1">{service.icon}</div>
                     <h3 className="font-heading text-lg font-semibold text-[#e8ddd0] chiseled">
@@ -98,7 +98,7 @@ export function Services() {
 
                   <LiquidMetalButton label="VIEW_DETAILS →" href={service.link} width={185} />
 
-                  <div className="absolute bottom-0 left-0 right-0 h-px bg-[rgba(58,42,26,0.3)]" />
+                  <div className="absolute bottom-0 left-0 right-0 h-px bg-[rgba(196,31,58,0.34)]" />
                 </Card>
               </motion.div>
             </StaggerItem>

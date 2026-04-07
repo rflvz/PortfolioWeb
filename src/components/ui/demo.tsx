@@ -1,46 +1,34 @@
-"use client";
+import { TestimonialCarousel } from "@/components/ui/testimonial";
 
-import { Bot, Sparkles, Zap } from "lucide-react";
-import { GlowCard } from "@/components/ui/spotlight-card";
-
-const cards = [
+const TESTIMONIAL_DATA = [
   {
-    title: "AI System Design",
-    icon: Sparkles,
-    image:
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
+    id: 1,
+    name: "John Doe",
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=256&q=80",
+    description:
+      "Amazing experience working with this team! The results exceeded my expectations.",
   },
   {
-    title: "Automation Stack",
-    icon: Bot,
-    image:
-      "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80",
+    id: 2,
+    name: "Jane Smith",
+    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=256&q=80",
+    description:
+      "Highly recommended! Great service and professional approach.",
   },
   {
-    title: "High Velocity Build",
-    icon: Zap,
-    image:
-      "https://images.unsplash.com/photo-1488229297570-58520851e868?auto=format&fit=crop&w=1200&q=80",
+    id: 3,
+    name: "Mike Johnson",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=256&q=80",
+    description:
+      "Exceptional quality and professionalism. Would definitely work with them again.",
   },
-] as const;
+];
 
-export function Default() {
+export function TestimonialCarouselDemo() {
   return (
-    <div className="flex min-h-screen w-screen flex-row items-center justify-center gap-10">
-      {cards.map((card) => {
-        const Icon = card.icon;
-        return (
-          <GlowCard key={card.title} glowColor="red" className="overflow-hidden">
-            <div className="absolute inset-0 -z-10">
-              <img src={card.image} alt={card.title} className="h-full w-full object-cover opacity-35" />
-            </div>
-            <div className="flex h-full items-end justify-between">
-              <h3 className="font-heading text-xl text-[#e8ddd0]">{card.title}</h3>
-              <Icon className="h-5 w-5 text-[#c41e3a]" />
-            </div>
-          </GlowCard>
-        );
-      })}
-    </div>
+    <TestimonialCarousel
+      testimonials={TESTIMONIAL_DATA}
+      className="mx-auto max-w-2xl"
+    />
   );
 }
