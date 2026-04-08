@@ -1,4 +1,5 @@
 import { absoluteUrl, env } from '../absolute-url';
+import { content } from '@/content';
 import type {
   PersonSchema,
   OrganizationSchema,
@@ -11,125 +12,24 @@ import type {
 } from './types';
 
 // ---------------------------------------------------------------------------
-// Services Data
-// ---------------------------------------------------------------------------
-export const SERVICES_DATA = [
-  {
-    type: 'Desarrollo Web',
-    description:
-      'Aplicaciones full-stack construidas con Next.js, React y TypeScript. Interfaces que rinden tan bien como lucen.',
-  },
-  {
-    type: 'Sistemas IA',
-    description:
-      'Features potenciadas por LLMs, arquitecturas de agentes e integraciones MCP que llevan inteligencia a cada capa del stack.',
-  },
-  {
-    type: 'Productos',
-    description:
-      'Desarrollo de producto end-to-end desde concepto hasta lanzamiento. Apps Electron, dashboards y plataformas SaaS con IA en su núcleo.',
-  },
-  {
-    type: 'Arquitectura',
-    description:
-      'Diseño de sistemas y consultoría técnica. Arquitecturas de API, esquemas de base de datos e infraestructura que escala con tus ambiciones.',
-  },
-];
-
-// ---------------------------------------------------------------------------
-// Projects Data
-// ---------------------------------------------------------------------------
-export const PROJECTS_DATA = [
-  {
-    uid: 'chesstogether',
-    title: 'ChessTogether',
-    summary:
-      'Plataforma para organizar quedadas y torneos de ajedrez en la vida real. Sistema de Elo social y matchmaking para emparejar jugadores según nivel.',
-    tags: ['TypeScript', 'Next.js', 'React', 'Supabase'],
-    status: 'LIVE',
-    externalUrl: 'https://chesstogether.app',
-    datePublished: '2024-01-15',
-  },
-  {
-    uid: 'codeorchestrator',
-    title: 'CodeOrchestrator',
-    summary:
-      'Sistema de orquestación de agentes IA para generación y gestión de código, desde diseño hasta despliegue de funcionalidades completas.',
-    tags: ['Python', 'TypeScript', 'LangGraph', 'Claude API', 'MCP'],
-    status: 'IN_DEVELOPMENT',
-    repositoryUrl: 'https://github.com/rflvz/codeOrchestrator',
-    datePublished: '2024-06-01',
-  },
-  {
-    uid: 'teamergy',
-    title: 'Teamergy',
-    summary:
-      'Web de briefings para diseños NT con gestión completa del pipeline creativo, desde recepción de briefs hasta entrega de activos.',
-    tags: ['TypeScript', 'Next.js', 'Python', 'PostgreSQL'],
-    status: 'IN_DEVELOPMENT',
-    datePublished: '2024-09-01',
-  },
-  {
-    uid: 'stylecluster',
-    title: 'StyleCluster',
-    summary:
-      'Modelo de clustering que analiza imágenes de referencia y genera grupos de estilos visuales con patrones formales y cromáticos.',
-    tags: ['Python', 'PyTorch', 'CLIP', 'scikit-learn'],
-    status: 'IN_DEVELOPMENT',
-    datePublished: '2024-11-01',
-  },
-];
-
-// ---------------------------------------------------------------------------
-// Testimonials Data
-// ---------------------------------------------------------------------------
-export const TESTIMONIALS_DATA = [
-  {
-    id: 1,
-    name: 'CTO',
-    description:
-      'La arquitectura que diseñó para nuestro pipeline de IA redujo la latencia un 60%. No solo entiende los LLMs — entiende cómo hacerlos funcionar en producción.',
-  },
-  {
-    id: 2,
-    name: 'Founder',
-    description:
-      'Por fin, alguien que lo entiende. Agentes autónomos que realmente funcionan. El sistema que construyó es ahora la columna vertebral de toda nuestra línea de producto.',
-  },
-  {
-    id: 3,
-    name: 'Head of Product',
-    description:
-      'La velocidad de ejecución fue increíble. De idea a sistema funcional en días, sin sacrificar calidad ni claridad.',
-  },
-];
-
-// ---------------------------------------------------------------------------
 // Person
 // ---------------------------------------------------------------------------
 export function buildPersonSchema(): PersonSchema {
   return {
     '@type': 'Person',
-    name: 'Rafa Alvarez',
-    jobTitle: 'AI Architecture Developer',
-    description:
-      'Desarrollador especializado en arquitectura IA, construyendo el futuro con inteligencia artificial.',
+    name: content.meta.author.name,
+    jobTitle: content.meta.author.jobTitle,
+    description: content.meta.author.description,
     url: absoluteUrl('/'),
-    sameAs: ['https://github.com/rflvz', 'https://linkedin.com/in/rflvz'],
+    sameAs: [
+      content.meta.author.socials.github,
+      content.meta.author.socials.linkedin,
+    ],
     knowsAbout: [
-      'TypeScript',
-      'Python',
-      'Rust',
-      'LLM Orchestration',
-      'MCP',
-      'Prompt Engineering',
-      'Agent Architecture',
-      'React',
-      'Next.js',
-      'Tailwind',
-      'Node.js',
-      'FastAPI',
-      'PostgreSQL',
+      ...content.meta.author.skills.languages,
+      ...content.meta.author.skills.aiAgents,
+      ...content.meta.author.skills.frontend,
+      ...content.meta.author.skills.backend,
     ],
   };
 }
@@ -140,9 +40,12 @@ export function buildPersonSchema(): PersonSchema {
 export function buildOrganizationSchema(): OrganizationSchema {
   return {
     '@type': 'Organization',
-    name: 'THE_ARTIFACT',
+    name: content.meta.organizationName,
     url: absoluteUrl('/'),
-    sameAs: ['https://github.com/rflvz', 'https://linkedin.com/in/rflvz'],
+    sameAs: [
+      content.meta.author.socials.github,
+      content.meta.author.socials.linkedin,
+    ],
   };
 }
 
@@ -160,6 +63,11 @@ export function buildWebSiteSchema(): WebSiteSchema {
 }
 
 // ---------------------------------------------------------------------------
+// Services
+// ---------------------------------------------------------------------------
+const SERVICES_DATA = content.services;
+
+// ---------------------------------------------------------------------------
 // Service
 // ---------------------------------------------------------------------------
 export function buildServiceSchema(
@@ -167,7 +75,7 @@ export function buildServiceSchema(
 ): ServiceSchema {
   return {
     '@type': 'Service',
-    name: service.type,
+    name: service.title,
     description: service.description,
     provider: {
       '@type': 'Organization',
@@ -179,6 +87,11 @@ export function buildServiceSchema(
 }
 
 // ---------------------------------------------------------------------------
+// Projects
+// ---------------------------------------------------------------------------
+const PROJECTS_DATA = content.projects;
+
+// ---------------------------------------------------------------------------
 // Article (Project)
 // ---------------------------------------------------------------------------
 export function buildArticleSchema(
@@ -186,9 +99,7 @@ export function buildArticleSchema(
 ): ArticleSchema {
   const url =
     project.externalUrl ??
-    ('repositoryUrl' in project
-      ? (project as { repositoryUrl?: string }).repositoryUrl
-      : undefined) ??
+    project.repositoryUrl ??
     absoluteUrl('/#projects');
 
   return {
@@ -197,12 +108,17 @@ export function buildArticleSchema(
     description: project.summary,
     url,
     datePublished: project.datePublished,
-    author: { '@type': 'Person', name: 'Rafa Alvarez' },
+    author: { '@type': 'Person', name: content.meta.author.name },
     publisher: { '@type': 'Organization', name: env.organizationName },
     keywords: project.tags.join(', '),
     articleSection: 'Projects',
   };
 }
+
+// ---------------------------------------------------------------------------
+// Testimonials
+// ---------------------------------------------------------------------------
+const TESTIMONIALS_DATA = content.testimonials;
 
 // ---------------------------------------------------------------------------
 // Review (Testimonial)
@@ -227,8 +143,7 @@ export function buildWebPageSchema(): WebPageSchema {
   return {
     '@type': 'WebPage',
     name: 'Rafa Alvarez | AI Architecture Developer',
-    description:
-      'Desarrollador especializado en arquitectura IA, construyendo el futuro con inteligencia artificial.',
+    description: content.meta.author.description,
     url: absoluteUrl('/'),
     inLanguage: 'es',
     isPartOf: { '@type': 'WebSite', name: env.siteName },
@@ -249,3 +164,6 @@ export function buildCollectionPageSchema(): CollectionPageSchema {
     about: SERVICES_DATA.map(buildServiceSchema),
   };
 }
+
+// Re-export for convenience
+export { SERVICES_DATA, PROJECTS_DATA, TESTIMONIALS_DATA };

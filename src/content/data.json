@@ -1,0 +1,171 @@
+{
+  "meta": {
+    "siteName": "Rafa Alvarez Portfolio",
+    "organizationName": "THE_ARTIFACT",
+    "baseUrl": "https://rflvz.com",
+    "author": {
+      "name": "Rafa Alvarez",
+      "username": "rflvz",
+      "jobTitle": "AI Architecture Developer",
+      "description": "Desarrollador especializado en arquitectura IA, construyendo el futuro con inteligencia artificial.",
+      "email": "rafaceitunoalvarez@gmail.com",
+      "socials": {
+        "github": "https://github.com/rflvz",
+        "linkedin": "https://linkedin.com/in/rflvz",
+        "telegram": "https://t.me/rflvz"
+      },
+      "skills": {
+        "languages": ["TypeScript", "Python", "Rust"],
+        "aiAgents": ["LLM_Orchestration", "MCP", "Prompt_Engineering", "Agent_Architecture"],
+        "frontend": ["React", "Next.js", "Tailwind"],
+        "backend": ["Node.js", "FastAPI", "PostgreSQL"]
+      }
+    }
+  },
+
+  "hero": {
+    "label": "AI_FIRST_DEVELOPER",
+    "name": {
+      "line1": "RAFA",
+      "line1Hover": "AI ARCH",
+      "line2": "ALVAREZ",
+      "line2Hover": "DEV"
+    },
+    "tagline": "Programo con IA. Los sistemas piensan. Diseño, construyo y lanzo donde la inteligencia es el foundation, no un feature.",
+    "tags": ["AGENTES_AUTÓNOMOS", "ORQUESTACIÓN_LLM", "MCP", "DESARROLLO_10X"],
+    "scrollHint": "deslizar",
+    "cta": {
+      "primary": "VER_MI_TRABAJO",
+      "secondary": "ENVIAR_SEÑAL"
+    }
+  },
+
+  "about": {
+    "section": {
+      "label": "STORY",
+      "title": "Programar con IA",
+      "description": "No integro IA. Programa con ella. Cada línea, cada arquitectura, cada decisión pasa por un modelo de lenguaje.",
+      "signature": "rflvz — rafa alvarez"
+    },
+    "bio": [
+      "Desarrollé ChessRadar (chesstogether.app) en 10 días con un equipo de 2 devs + 1 team leader. 4 días los hice en solitario. El proyecto existía en mi cabeza y en papel. La IA me ayudó a materializarlo en tiempo récord.",
+      "CodeOrchestrator es mi laboratorio personal: un sistema donde agentes autónomos generan, implementan y despliegan código siguiendo specs en lenguaje natural. Agentes que piensas antes de actuar.",
+      "Mi stack mental es Flow — no frameworks. TypeScript y Python para traducir lógica. Agentes MCP para conectar herramientas. El resultado: software donde la inteligencia no es un feature, es el foundation."
+    ],
+    "image": {
+      "src": "/about-image.jpeg",
+      "alt": "Circuit board macro"
+    }
+  },
+
+  "services": [
+    {
+      "title": "Desarrollo Web",
+      "description": "Aplicaciones full-stack construidas con Next.js, React y TypeScript. Interfaces que rinden tan bien como lucen.",
+      "link": "#projects"
+    },
+    {
+      "title": "Sistemas IA",
+      "description": "Features potenciadas por LLMs, arquitecturas de agentes e integraciones MCP que llevan inteligencia a cada capa del stack.",
+      "link": "#about"
+    },
+    {
+      "title": "Productos",
+      "description": "Desarrollo de producto end-to-end desde concepto hasta lanzamiento. Apps Electron, dashboards y plataformas SaaS con IA en su núcleo.",
+      "link": "#projects"
+    },
+    {
+      "title": "Arquitectura",
+      "description": "Diseño de sistemas y consultoría técnica. Arquitecturas de API, esquemas de base de datos e infraestructura que escala con tus ambiciones.",
+      "link": "#contact"
+    }
+  ],
+
+  "projects": [
+    {
+      "uid": "chesstogether",
+      "displayId": "01",
+      "title": "ChessTogether",
+      "summary": "Plataforma para organizar quedadas y torneos de ajedrez en la vida real. Sistema de Elo social y matchmaking para emparejar jugadores según nivel.",
+      "tags": ["TypeScript", "Next.js", "React", "Supabase"],
+      "status": "LIVE",
+      "coverImage": "/chesstogether.png",
+      "externalUrl": "https://chesstogether.app",
+      "repositoryUrl": null,
+      "datePublished": "2024-01-15"
+    },
+    {
+      "uid": "codeorchestrator",
+      "displayId": "02",
+      "title": "CodeOrchestrator",
+      "summary": "Sistema de orquestación de agentes IA para generación y gestión de código, desde diseño hasta despliegue de funcionalidades completas.",
+      "tags": ["Python", "TypeScript", "LangGraph", "Claude_API", "MCP"],
+      "status": "IN_DEVELOPMENT",
+      "coverImage": "/CodeOrchestrator.png",
+      "externalUrl": null,
+      "repositoryUrl": "https://github.com/rflvz/codeOrchestrator",
+      "datePublished": "2024-06-01"
+    },
+    {
+      "uid": "teamergy",
+      "displayId": "03",
+      "title": "Teamergy",
+      "summary": "Web de briefings para diseños NT con gestión completa del pipeline creativo, desde recepción de briefs hasta entrega de activos.",
+      "tags": ["TypeScript", "Next.js", "Python", "PostgreSQL"],
+      "status": "IN_DEVELOPMENT",
+      "coverImage": "/teamergy-design.png",
+      "externalUrl": null,
+      "repositoryUrl": null,
+      "datePublished": "2024-09-01"
+    },
+    {
+      "uid": "stylecluster",
+      "displayId": "04",
+      "title": "StyleCluster",
+      "summary": "Modelo de clustering que analiza imágenes de referencia y genera grupos de estilos visuales con patrones formales y cromáticos.",
+      "tags": ["Python", "PyTorch", "CLIP", "scikit-learn"],
+      "status": "IN_DEVELOPMENT",
+      "coverImage": "/clustering.png",
+      "externalUrl": null,
+      "repositoryUrl": null,
+      "datePublished": "2024-11-01"
+    }
+  ],
+
+  "testimonials": [
+    {
+      "id": 1,
+      "name": "CTO",
+      "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=256&q=80",
+      "description": "La arquitectura que diseñó para nuestro pipeline de IA redujo la latencia un 60%. No solo entiende los LLMs — entiende cómo hacerlos funcionar en producción."
+    },
+    {
+      "id": 2,
+      "name": "Founder",
+      "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=256&q=80",
+      "description": "Por fin, alguien que lo entiende. Agentes autónomos que realmente funcionan. El sistema que construyó es ahora la columna vertebral de toda nuestra línea de producto."
+    },
+    {
+      "id": 3,
+      "name": "Head of Product",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=256&q=80",
+      "description": "La velocidad de ejecución fue increíble. De idea a sistema funcional en días, sin sacrificar calidad ni claridad."
+    }
+  ],
+
+  "contact": {
+    "section": {
+      "label": "SIGNAL",
+      "title": "Abierto a Conexiones",
+      "description": "¿Interesado en colaborar o tienes un proyecto en mente? Envía la señal."
+    },
+    "form": {
+      "identityLabel": "_IDENTIDAD",
+      "identityPlaceholder": "Tu nombre o empresa",
+      "transmissionLabel": "_TRANSMISIÓN",
+      "transmissionPlaceholder": "Describe tu proyecto o idea...",
+      "submitLabel": "ENVIAR_MENSAJE"
+    },
+    "footerNote": "Respuesta en 48h — Todas las señales recibidas"
+  }
+}

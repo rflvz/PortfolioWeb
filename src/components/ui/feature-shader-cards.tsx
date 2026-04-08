@@ -3,6 +3,7 @@
 import type React from "react"
 
 import { Warp } from "@paper-design/shaders-react"
+import { content } from "@/content"
 
 interface Feature {
   title: string
@@ -11,57 +12,32 @@ interface Feature {
   link: string
 }
 
-const features: Feature[] = [
-  {
-    title: "Desarrollo Web",
-    description:
-      "Aplicaciones full-stack construidas con frameworks modernos. Next.js, React y TypeScript para interfaces que rinden tan bien como lucen.",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#d94f3d]">
-        <path d="M12 2L2 7l10 5 10-5-10-5z" />
-        <path d="M2 17l10 5 10-5" />
-        <path d="M2 12l10 5 10-5" />
-      </svg>
-    ),
-    link: "#projects",
-  },
-  {
-    title: "Sistemas IA",
-    description:
-      "Features potenciadas por LLMs, arquitecturas de agentes e integraciones MCP que llevan inteligencia a cada capa de tu stack.",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#d94f3d]">
-        <circle cx="12" cy="12" r="3" />
-        <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
-      </svg>
-    ),
-    link: "#about",
-  },
-  {
-    title: "Productos",
-    description:
-      "Desarrollo de producto end-to-end desde concepto hasta lanzamiento. Apps Electron, dashboards y plataformas SaaS con IA en su núcleo.",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#d94f3d]">
-        <rect width="20" height="14" x="2" y="5" rx="2" />
-        <path d="M2 10h20" />
-      </svg>
-    ),
-    link: "#projects",
-  },
-  {
-    title: "Arquitectura",
-    description:
-      "Diseño de sistemas y consultoría técnica. Arquitecturas de API, esquemas de base de datos e infraestructura que escala con tus ambiciones.",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#d94f3d]">
-        <path d="M3 3h18v18H3z" />
-        <path d="M3 9h18M9 21V9" />
-      </svg>
-    ),
-    link: "#contact",
-  },
-]
+const icons = [
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#d94f3d]">
+    <path d="M12 2L2 7l10 5 10-5-10-5z" />
+    <path d="M2 17l10 5 10-5" />
+    <path d="M2 12l10 5 10-5" />
+  </svg>,
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#d94f3d]">
+    <circle cx="12" cy="12" r="3" />
+    <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
+  </svg>,
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#d94f3d]">
+    <rect width="20" height="14" x="2" y="5" rx="2" />
+    <path d="M2 10h20" />
+  </svg>,
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#d94f3d]">
+    <path d="M3 3h18v18H3z" />
+    <path d="M3 9h18M9 21V9" />
+  </svg>,
+];
+
+const features: Feature[] = content.services.map((service, i) => ({
+  title: service.title,
+  description: service.description,
+  icon: icons[i],
+  link: service.link,
+}));
 
 export default function FeaturesCards() {
   const getShaderConfig = (index: number) => {

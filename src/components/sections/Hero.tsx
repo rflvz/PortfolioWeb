@@ -5,6 +5,7 @@ import { useRef } from "react";
 import { LiquidMetalButton } from "@/components/ui/LiquidMetalButton";
 import { Button } from "@/components/ui/Button";
 import { TextGlitch } from "@/components/ui/text-glitch-effect";
+import { content } from "@/content";
 
 const EASE_OUT = [0.16, 1, 0.3, 1] as [number, number, number, number];
 
@@ -73,13 +74,6 @@ export function Hero() {
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
 
-  const tags = [
-    "AGENTES_AUTÓNOMOS",
-    "ORQUESTACIÓN_LLM",
-    "MCP",
-    "DESARROLLO_10X",
-  ];
-
   return (
     <section
       ref={ref}
@@ -106,20 +100,20 @@ export function Hero() {
             variants={itemVariants}
             className="mb-8 text-[10px] font-mono tracking-[0.3em] text-[#d94f3d] uppercase"
           >
-            [ AI_FIRST_DEVELOPER ]
+            [ {content.hero.label} ]
           </motion.p>
 
           {/* Main headline */}
           <motion.div variants={itemVariants} className="flex flex-col items-center">
             <TextGlitch
-              text="RAFA"
-              hoverText="AI ARCH"
+              text={content.hero.name.line1}
+              hoverText={content.hero.name.line1Hover}
               className="font-heading text-6xl sm:text-8xl lg:text-[7rem] tracking-[-0.02em] chiseled text-[#e8ddd0]"
             />
             <TextGlitch
               as="div"
-              text="ALVAREZ"
-              hoverText="DEV"
+              text={content.hero.name.line2}
+              hoverText={content.hero.name.line2Hover}
               className="font-heading text-6xl sm:text-8xl lg:text-[7rem] tracking-[-0.02em] chiseled text-[rgba(232,221,208,0.7)]"
             />
           </motion.div>
@@ -134,19 +128,15 @@ export function Hero() {
           <motion.p
             variants={itemVariants}
             className="mx-auto max-w-lg text-sm font-mono text-[rgba(232,221,208,0.75)] leading-loose tracking-wide"
-          >
-            Programo con IA. Los sistemas piensan.<br />
-            Diseño, construyo y lanzo donde{" "}
-            <span className="text-[#d94f3d]">la inteligencia es el foundation</span>,
-            no un feature.
-          </motion.p>
+            dangerouslySetInnerHTML={{ __html: content.hero.tagline.replace("la inteligencia es el foundation", '<span class="text-[#d94f3d]">la inteligencia es el foundation</span>') }}
+          />
 
           {/* Tech tags */}
           <motion.div
             variants={itemVariants}
             className="mt-8 flex flex-wrap items-center justify-center gap-3"
           >
-            {tags.map((tag, i) => (
+            {content.hero.tags.map((tag, i) => (
               <motion.span
                 key={tag}
                 custom={i}
@@ -163,9 +153,9 @@ export function Hero() {
             variants={ctaVariants}
             className="mt-14 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
           >
-            <LiquidMetalButton label="VER_MI_TRABAJO" href="#projects" width={200} />
+            <LiquidMetalButton label={content.hero.cta.primary} href="#projects" width={200} />
             <Button href="#contact" variant="secondary">
-              ENVIAR_SEÑAL
+              {content.hero.cta.secondary}
             </Button>
           </motion.div>
 
@@ -175,7 +165,7 @@ export function Hero() {
             className="mt-20 flex flex-col items-center gap-2"
           >
             <span className="text-[9px] font-mono tracking-[0.25em] text-[rgba(232,221,208,0.72)] uppercase">
-              deslizar
+              {content.hero.scrollHint}
             </span>
             <motion.div
               animate={{ y: [0, 6, 0] }}
