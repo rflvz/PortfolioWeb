@@ -10,11 +10,11 @@ const linkVariants = {
 };
 
 const navLinks = [
-  { href: "#about", label: "STORY" },
-  { href: "#services", label: "SERVICES" },
-  { href: "#projects", label: "CODE" },
-  { href: "#testimonials", label: "VOICES" },
-  { href: "#contact", label: "SIGNAL" },
+  { href: "#about", label: "HISTORIA" },
+  { href: "#services", label: "SERVICIOS" },
+  { href: "#projects", label: "CÓDIGO" },
+  { href: "#testimonials", label: "VOCES" },
+  { href: "#contact", label: "SEÑAL" },
 ];
 
 export function Navbar() {
@@ -59,7 +59,7 @@ export function Navbar() {
               </motion.li>
             ))}
           </ul>
-          <LiquidMetalButton label="INITIATE_CONTACT" href="#contact" width={180} />
+          <LiquidMetalButton label="INICIAR_CONTACTO" href="#contact" width={185} />
         </div>
 
         {/* Mobile toggle */}

@@ -17,10 +17,10 @@ export function Contact() {
                 {"// SIGNAL"}
               </div>
               <h2 className="font-heading text-4xl font-bold text-[#e8ddd0] chiseled mb-3">
-                Open for Connection
+                Abierto a Conexiones
               </h2>
               <p className="text-sm font-mono text-[rgba(232,221,208,0.6)] max-w-xl">
-                Interested in collaboration or have a project in mind? Send the signal.
+                ¿Interesado en colaborar o tienes un proyecto en mente? Envía la señal.
               </p>
             </MotionContainer>
           </StaggerItem>
@@ -59,16 +59,16 @@ export function Contact() {
                 <InputField
                   id="identity"
                   name="identity"
-                  label="_IDENTITY"
-                  placeholder="Your name or company"
+                  label="_IDENTIDAD"
+                  placeholder="Tu nombre o empresa"
                   required
                 />
 
                 <InputField
                   id="transmission"
                   name="transmission"
-                  label="_TRANSMISSION"
-                  placeholder="Describe your project or idea..."
+                  label="_TRANSMISIÓN"
+                  placeholder="Describe tu proyecto o idea..."
                   type="textarea"
                   required
                 />
@@ -80,7 +80,7 @@ export function Contact() {
                   transition={{ duration: 0.45, ease: "easeOut", delay: 0.45 }}
                   className="pt-2 flex justify-center"
                 >
-                  <LiquidMetalButton label="SEND_MESSAGE" type="submit" width={210} />
+                  <LiquidMetalButton label="ENVIAR_MENSAJE" type="submit" width={220} />
                 </motion.div>
               </form>
 
@@ -118,7 +118,7 @@ export function Contact() {
         </MotionContainer>
 
         <p className="mt-8 text-center text-[10px] font-mono tracking-[0.2em] text-[rgba(232,221,208,0.72)] uppercase">
-          Response within 48h &mdash; All signals received
+          Respuesta en 48h &mdash; Todas las señales recibidas
         </p>
       </div>
     </section>

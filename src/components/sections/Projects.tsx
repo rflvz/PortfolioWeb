@@ -92,7 +92,7 @@ export function Projects() {
         description: project.summary,
         imageSrc: project.coverImage,
         href: project.externalUrl ?? project.repositoryUrl,
-        ctaLabel: project.externalUrl ? "VIEW WEB" : project.repositoryUrl ? "VIEW REPOSITORY" : "PRIVATE",
+        ctaLabel: project.externalUrl ? "VER WEB" : project.repositoryUrl ? "VER REPOSITORIO" : "PRIVADO",
         tag: project.status,
       })),
     [],
@@ -163,7 +163,7 @@ export function Projects() {
               {"// CODE"}
             </div>
             <h2 className="font-heading text-4xl font-bold text-[#e8ddd0] chiseled mb-3">
-              Selected Work
+              Trabajo Seleccionado
             </h2>
             <p className="text-sm font-mono text-[rgba(232,221,208,0.6)] max-w-xl">
               Cada proyecto es una prueba de cómo la IA transforman el desarrollo de software desde el diseño hasta el deployment.
@@ -237,18 +237,18 @@ export function Projects() {
             <div className="mt-6 flex flex-wrap gap-4">
               {activeProject.externalUrl ? (
                 <LiquidMetalButton
-                  label="VISIT_SITE →"
+                  label="VISITAR_SITIO →"
                   href={activeProject.externalUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   width={175}
                 />
               ) : (
-                <span className="text-[10px] font-mono tracking-[0.2em] uppercase text-[rgba(232,221,208,0.55)]">PRIVATE</span>
+                <span className="text-[10px] font-mono tracking-[0.2em] uppercase text-[rgba(232,221,208,0.55)]">PRIVADO</span>
               )}
               {activeProject.repositoryUrl ? (
                 <LiquidMetalButton
-                  label="VIEW_REPOSITORY →"
+                  label="VER_REPOSITORIO →"
                   href={activeProject.repositoryUrl}
                   target="_blank"
                   rel="noopener noreferrer"

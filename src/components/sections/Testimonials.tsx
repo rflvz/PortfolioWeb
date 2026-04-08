@@ -10,7 +10,7 @@ const testimonials = [
     avatar:
       "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=256&q=80",
     description:
-      "The architecture he designed for our AI pipeline reduced latency by 60%. He doesn&apos;t just understand LLMs — he understands how to make them work in production.",
+      "La arquitectura que diseñó para nuestro pipeline de IA redujo la latencia un 60%. No solo entiende los LLMs — entiende cómo hacerlos funcionar en producción.",
   },
   {
     id: 2,
@@ -18,7 +18,7 @@ const testimonials = [
     avatar:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=256&q=80",
     description:
-      "Finally, someone who gets it. Autonomous agents that actually work. The system he built is the backbone of our entire product line now.",
+      "Por fin, alguien que lo entiende. Agentes autónomos que realmente funcionan. El sistema que construyó es ahora la columna vertebral de toda nuestra línea de producto.",
   },
   {
     id: 3,
@@ -26,7 +26,7 @@ const testimonials = [
     avatar:
       "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=256&q=80",
     description:
-      "Execution speed was unreal. From idea to working system in days, without sacrificing quality or clarity.",
+      "La velocidad de ejecución fue increíble. De idea a sistema funcional en días, sin sacrificar calidad ni claridad.",
   },
 ];
 
@@ -41,10 +41,10 @@ export function Testimonials() {
                 {"// VOICES"}
               </div>
               <h2 className="font-heading text-4xl font-bold text-[#e8ddd0] chiseled mb-3">
-                What Collaborators Say
+                Lo Que Dicen los Colaboradores
               </h2>
               <p className="text-sm font-mono text-[rgba(232,221,208,0.6)] max-w-xl">
-                Feedback from people I&apos;ve worked with across projects and teams.
+                Feedback de personas con quienes he trabajado en proyectos y equipos.
               </p>
             </MotionContainer>
           </StaggerItem>

@@ -13,9 +13,9 @@ interface Feature {
 
 const features: Feature[] = [
   {
-    title: "Web Development",
+    title: "Desarrollo Web",
     description:
-      "Full-stack applications built with modern frameworks. Next.js, React, and TypeScript for interfaces that perform as good as they look.",
+      "Aplicaciones full-stack construidas con frameworks modernos. Next.js, React y TypeScript para interfaces que rinden tan bien como lucen.",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#c41e3a]">
         <path d="M12 2L2 7l10 5 10-5-10-5z" />
@@ -26,9 +26,9 @@ const features: Feature[] = [
     link: "#projects",
   },
   {
-    title: "AI Systems",
+    title: "Sistemas IA",
     description:
-      "LLM-powered features, agent architectures, and MCP integrations that bring intelligence to every layer of your stack.",
+      "Features potenciadas por LLMs, arquitecturas de agentes e integraciones MCP que llevan inteligencia a cada capa de tu stack.",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#c41e3a]">
         <circle cx="12" cy="12" r="3" />
@@ -38,9 +38,9 @@ const features: Feature[] = [
     link: "#about",
   },
   {
-    title: "Products",
+    title: "Productos",
     description:
-      "End-to-end product development from concept to launch. Electron apps, dashboards, and SaaS platforms with AI at their core.",
+      "Desarrollo de producto end-to-end desde concepto hasta lanzamiento. Apps Electron, dashboards y plataformas SaaS con IA en su núcleo.",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#c41e3a]">
         <rect width="20" height="14" x="2" y="5" rx="2" />
@@ -50,9 +50,9 @@ const features: Feature[] = [
     link: "#projects",
   },
   {
-    title: "Architecture",
+    title: "Arquitectura",
     description:
-      "System design and technical consulting. API architectures, database schemas, and infrastructure that scales with your ambitions.",
+      "Diseño de sistemas y consultoría técnica. Arquitecturas de API, esquemas de base de datos e infraestructura que escala con tus ambiciones.",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#c41e3a]">
         <path d="M3 3h18v18H3z" />
@@ -118,10 +118,10 @@ export default function FeaturesCards() {
             {"// SERVICES"}
           </div>
           <h2 className="font-heading text-4xl font-bold text-[#e8ddd0] chiseled mb-3">
-            What I Build
+            Qué Construyo
           </h2>
           <p className="text-sm font-mono text-[rgba(232,221,208,0.6)] max-w-xl">
-            From interfaces to intelligent systems — design, development, and the architecture that connects them.
+            De interfaces a sistemas inteligentes — diseño, desarrollo y la arquitectura que los conecta.
           </p>
         </div>
 
@@ -169,7 +169,7 @@ export default function FeaturesCards() {
                       href={feature.link}
                       className="inline-flex items-center gap-2 text-[10px] font-mono tracking-[0.2em] text-[#c41e3a] hover:text-[#d94f3d] transition-colors uppercase"
                     >
-                      VIEW_DETAILS →
+                      VER_DETALLES →
                     </a>
                   </div>
                 </div>
