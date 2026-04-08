@@ -65,7 +65,7 @@ export function About() {
         <StaggerContainer className="mb-16" delay={0.1}>
           <StaggerItem>
             <MotionContainer animation="fadeInUp">
-              <div className="text-[10px] font-mono tracking-[0.3em] text-[#c41e3a] uppercase mb-3">
+              <div className="text-[10px] font-mono tracking-[0.3em] text-[#d94f3d] uppercase mb-3">
                 {"// STORY"}
               </div>
               <h2 className="font-heading text-4xl font-bold text-[#e8ddd0] chiseled mb-3">
@@ -121,7 +121,7 @@ export function About() {
             <MotionContainer animation="fadeInUp" delay={0.1}>
               <div className="pt-4">
                 <div className="scratched-divider max-w-xs" />
-                <p className="mt-4 text-[10px] font-mono tracking-[0.2em] text-[#c41e3a] uppercase">
+                <p className="mt-4 text-[10px] font-mono tracking-[0.2em] text-[#d94f3d] uppercase">
                   rflvz &mdash; rafa alvarez
                 </p>
               </div>
@@ -139,7 +139,7 @@ export function About() {
                     whileInView="visible"
                     viewport={{ once: true, margin: "-80px" }}
                   >
-                    <p className="text-[9px] font-mono tracking-[0.25em] text-[#c41e3a] uppercase mb-3">
+                    <p className="text-[9px] font-mono tracking-[0.25em] text-[#d94f3d] uppercase mb-3">
                       {group.label}
                     </p>
                     <div className="flex flex-wrap gap-2">

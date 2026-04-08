@@ -104,7 +104,7 @@ export function Hero() {
           {/* Stencil label */}
           <motion.p
             variants={itemVariants}
-            className="mb-8 text-[10px] font-mono tracking-[0.3em] text-[#c41e3a] uppercase"
+            className="mb-8 text-[10px] font-mono tracking-[0.3em] text-[#d94f3d] uppercase"
           >
             [ AI_FIRST_DEVELOPER ]
           </motion.p>
