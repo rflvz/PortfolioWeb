@@ -74,10 +74,10 @@ export function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
 
   const tags = [
-    "AUTONOMOUS_AGENTS",
-    "LLM_ORCHESTRATION",
+    "AGENTES_AUTÓNOMOS",
+    "ORQUESTACIÓN_LLM",
     "MCP",
-    "10X_DEVELOPMENT",
+    "DESARROLLO_10X",
   ];
 
   return (
@@ -135,10 +135,10 @@ export function Hero() {
             variants={itemVariants}
             className="mx-auto max-w-lg text-sm font-mono text-[rgba(232,221,208,0.75)] leading-loose tracking-wide"
           >
-            I code with AI. Systems think.<br />
-            Design, build, and ship where{" "}
-            <span className="text-[#d94f3d]">intelligence is the foundation</span>,
-            not a feature.
+            Programo con IA. Los sistemas piensan.<br />
+            Diseño, construyo y lanzo donde{" "}
+            <span className="text-[#d94f3d]">la inteligencia es el foundation</span>,
+            no un feature.
           </motion.p>
 
           {/* Tech tags */}
@@ -163,9 +163,9 @@ export function Hero() {
             variants={ctaVariants}
             className="mt-14 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
           >
-            <LiquidMetalButton label="SEE_MY_WORK" href="#projects" width={200} />
+            <LiquidMetalButton label="VER_MI_TRABAJO" href="#projects" width={200} />
             <Button href="#contact" variant="secondary">
-              SIGNAL_FOR_ACCESS
+              ENVIAR_SEÑAL
             </Button>
           </motion.div>
 
@@ -175,7 +175,7 @@ export function Hero() {
             className="mt-20 flex flex-col items-center gap-2"
           >
             <span className="text-[9px] font-mono tracking-[0.25em] text-[rgba(232,221,208,0.72)] uppercase">
-              scroll
+              deslizar
             </span>
             <motion.div
               animate={{ y: [0, 6, 0] }}

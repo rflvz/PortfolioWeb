@@ -65,7 +65,7 @@ export function Footer() {
       <div className="mx-auto max-w-6xl px-6 py-8">
         <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
           <p className="text-[10px] font-mono tracking-[0.15em] text-[rgba(232,221,208,0.7)] uppercase">
-            &copy; {new Date().getFullYear()} THE_ARTIFACT &mdash; Built with AI Architecture
+            &copy; {new Date().getFullYear()} THE_ARTIFACT &mdash; Construido con Arquitectura IA
           </p>
 
           {/* Social SVG icons */}
