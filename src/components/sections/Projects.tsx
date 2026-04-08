@@ -25,7 +25,7 @@ const cmsProjects: ProjectCmsItem[] = [
     displayId: "01",
     title: "ChessTogether",
     summary:
-      "Plataforma multiplayer para ajedrez en tiempo real. 10 días de desarrollo con un equipo de 2 devs + 1 team leader — 4 días en solitario.",
+      "Plataforma para organizar quedadas y torneos de ajedrez en la vida real. Sistema de Elo social y matchmaking para emparejar jugadores según nivel.",
     tags: ["TypeScript", "Next.js", "React", "Supabase"],
     coverImage: "/chesstogether.png",
     status: "LIVE",
