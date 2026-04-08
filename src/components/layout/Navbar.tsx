@@ -10,11 +10,11 @@ const linkVariants = {
 };
 
 const navLinks = [
-  { href: "#about", label: "HISTORIA" },
+  { href: "#about", label: "SOBRE_MÍ" },
   { href: "#services", label: "SERVICIOS" },
-  { href: "#projects", label: "CÓDIGO" },
-  { href: "#testimonials", label: "VOCES" },
-  { href: "#contact", label: "SEÑAL" },
+  { href: "#projects", label: "PROYECTOS" },
+  { href: "#testimonials", label: "TESTIMONIOS" },
+  { href: "#contact", label: "CONTACTO" },
 ];
 
 export function Navbar() {
@@ -36,7 +36,7 @@ export function Navbar() {
           href="#"
           className="font-heading text-sm font-semibold tracking-[0.3em] text-[#e8ddd0] hover:text-[#d94f3d] transition-colors uppercase chiseled"
         >
-          THE_ARTIFACT
+          RAFA_ALVAREZ
         </a>
 
         {/* Desktop */}

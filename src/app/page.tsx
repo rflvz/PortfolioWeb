@@ -44,7 +44,7 @@ export default function Home() {
               key={i}
               className="text-[10px] font-mono tracking-[0.25em] text-[rgba(232,221,208,0.7)] uppercase px-8 whitespace-nowrap"
             >
-              NEXT.JS &nbsp;&bull;&nbsp; TYPESCRIPT &nbsp;&bull;&nbsp; PYTHON &nbsp;&bull;&nbsp; LANGGRAPH &nbsp;&bull;&nbsp; CLAUDE_API &nbsp;&bull;&nbsp; MCP_PROTOCOL &nbsp;&bull;&nbsp; TAILWIND_CSS &nbsp;&bull;&nbsp; RUST &nbsp;&bull;&nbsp; POSTGRESQL
+              NEXT.JS &nbsp;&bull;&nbsp; TYPESCRIPT &nbsp;&bull;&nbsp; REACT &nbsp;&bull;&nbsp; TAILWIND &nbsp;&bull;&nbsp; SUPABASE &nbsp;&bull;&nbsp; RUST &nbsp;&bull;&nbsp; PYTHON
             </span>
           ))}
         </div>

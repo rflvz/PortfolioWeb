@@ -54,7 +54,7 @@ const skillGroups = [
 const skillToVariant = (skill: string): "primary" | "info" | "success" | "warning" | "secondary" => {
   if (["TypeScript", "Next.js", "React", "Tailwind"].includes(skill)) return "info";
   if (["Python", "Rust", "Node.js", "FastAPI"].includes(skill)) return "success";
-  if (["PostgreSQL", "MCP"].includes(skill)) return "warning";
+  if (["PostgreSQL", "SQL", "MCP"].includes(skill)) return "warning";
   if (
     [
       "LLM_Orchestration",
