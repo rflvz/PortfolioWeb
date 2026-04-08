@@ -10,7 +10,7 @@ const liquidButtonVariants = cva(
     variants: {
       variant: {
         default: "text-[#e8ddd0]",
-        accent: "text-[#c41e3a]",
+        accent: "text-[#d94f3d]",
         outline: "text-[rgba(232,221,208,0.75)]",
       },
       size: {

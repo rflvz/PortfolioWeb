@@ -37,7 +37,7 @@ export function Testimonials() {
         <StaggerContainer className="mb-16" delay={0.1}>
           <StaggerItem>
             <MotionContainer animation="fadeInUp">
-              <div className="text-[10px] font-mono tracking-[0.3em] text-[#c41e3a] uppercase mb-3">
+              <div className="text-[10px] font-mono tracking-[0.3em] text-[#d94f3d] uppercase mb-3">
                 {"// VOICES"}
               </div>
               <h2 className="font-heading text-4xl font-bold text-[#e8ddd0] chiseled mb-3">

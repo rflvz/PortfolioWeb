@@ -16,7 +16,7 @@ export function SectionHeading({
       className={`mb-16 ${align === "center" ? "text-center" : "text-left"}`}
     >
       {label && (
-        <p className="text-[10px] font-mono tracking-[0.2em] uppercase text-[#c41e3a] mb-4">
+        <p className="text-[10px] font-mono tracking-[0.2em] uppercase text-[#d94f3d] mb-4">
           {label}
         </p>
       )}

@@ -54,7 +54,7 @@ export function Footer() {
           {Array.from({ length: 8 }).map((_, i) => (
             <span
               key={i}
-              className="text-[10px] font-mono tracking-[0.2em] text-[#c41e3a] px-8 whitespace-nowrap"
+              className="text-[10px] font-mono tracking-[0.2em] text-[#d94f3d] px-8 whitespace-nowrap"
             >
               AI_ARCHITECTURE &nbsp;&bull;&nbsp; LLM_ORCHESTRATION &nbsp;&bull;&nbsp; AUTONOMOUS_AGENTS &nbsp;&bull;&nbsp; THE_ARTIFACT
             </span>

@@ -159,7 +159,7 @@ export function Projects() {
       <div className="mx-auto max-w-6xl px-6">
         <StaggerContainer className="mb-16" delay={0.1}>
           <StaggerItem>
-            <div className="text-[10px] font-mono tracking-[0.3em] text-[#c41e3a] uppercase mb-3">
+            <div className="text-[10px] font-mono tracking-[0.3em] text-[#d94f3d] uppercase mb-3">
               {"// CODE"}
             </div>
             <h2 className="font-heading text-4xl font-bold text-[#e8ddd0] chiseled mb-3">
@@ -204,7 +204,7 @@ export function Projects() {
             className="rounded-2xl border border-[rgba(196,31,58,0.42)] bg-[linear-gradient(160deg,#2a1618_0%,#1d1113_52%,#140c0f_100%)] [--backdrop:rgba(29,17,19,0.92)] [--backup-border:rgba(196,31,58,0.42)] p-8"
           >
             <div className="flex items-center gap-4 mb-3">
-              <span className="text-[10px] font-mono tracking-[0.2em] text-[#c41e3a]">{activeProject.displayId}</span>
+              <span className="text-[10px] font-mono tracking-[0.2em] text-[#d94f3d]">{activeProject.displayId}</span>
               <div className="h-px flex-1 bg-[rgba(196,31,58,0.38)]" />
               <Badge
                 size="xs"

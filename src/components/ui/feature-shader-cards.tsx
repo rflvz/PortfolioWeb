@@ -17,7 +17,7 @@ const features: Feature[] = [
     description:
       "Aplicaciones full-stack construidas con frameworks modernos. Next.js, React y TypeScript para interfaces que rinden tan bien como lucen.",
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#c41e3a]">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#d94f3d]">
         <path d="M12 2L2 7l10 5 10-5-10-5z" />
         <path d="M2 17l10 5 10-5" />
         <path d="M2 12l10 5 10-5" />
@@ -30,7 +30,7 @@ const features: Feature[] = [
     description:
       "Features potenciadas por LLMs, arquitecturas de agentes e integraciones MCP que llevan inteligencia a cada capa de tu stack.",
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#c41e3a]">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#d94f3d]">
         <circle cx="12" cy="12" r="3" />
         <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
       </svg>
@@ -42,7 +42,7 @@ const features: Feature[] = [
     description:
       "Desarrollo de producto end-to-end desde concepto hasta lanzamiento. Apps Electron, dashboards y plataformas SaaS con IA en su núcleo.",
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#c41e3a]">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#d94f3d]">
         <rect width="20" height="14" x="2" y="5" rx="2" />
         <path d="M2 10h20" />
       </svg>
@@ -54,7 +54,7 @@ const features: Feature[] = [
     description:
       "Diseño de sistemas y consultoría técnica. Arquitecturas de API, esquemas de base de datos e infraestructura que escala con tus ambiciones.",
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#c41e3a]">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#d94f3d]">
         <path d="M3 3h18v18H3z" />
         <path d="M3 9h18M9 21V9" />
       </svg>
@@ -114,7 +114,7 @@ export default function FeaturesCards() {
     <section id="services" className="py-28" style={{ background: "transparent" }}>
       <div className="mx-auto max-w-6xl px-6">
         <div className="mb-16">
-          <div className="text-[10px] font-mono tracking-[0.3em] text-[#c41e3a] uppercase mb-3">
+          <div className="text-[10px] font-mono tracking-[0.3em] text-[#d94f3d] uppercase mb-3">
             {"// SERVICES"}
           </div>
           <h2 className="font-heading text-4xl font-bold text-[#e8ddd0] chiseled mb-3">
@@ -167,7 +167,7 @@ export default function FeaturesCards() {
                     </p>
                     <a
                       href={feature.link}
-                      className="inline-flex items-center gap-2 text-[10px] font-mono tracking-[0.2em] text-[#c41e3a] hover:text-[#d94f3d] transition-colors uppercase"
+                      className="inline-flex items-center gap-2 text-[10px] font-mono tracking-[0.2em] text-[#d94f3d] hover:text-[#d94f3d] transition-colors uppercase"
                     >
                       VER_DETALLES →
                     </a>
