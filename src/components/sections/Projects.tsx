@@ -10,11 +10,12 @@ import { content } from "@/content";
 
 type ProjectStackCard = CardStackItem & { sourceUid: string };
 
-const tagToVariant = (tag: string): "primary" | "info" | "success" | "warning" | "secondary" => {
-  if (["TypeScript", "Next.js", "React"].includes(tag)) return "info";
+const tagToVariant = (tag: string): "primary" | "info" | "success" | "warning" | "secondary" | "destructive" => {
+  if (["TypeScript", "Next.js", "React", "Next.js frontend"].includes(tag)) return "info";
   if (["Python", "PyTorch", "CLIP", "scikit-learn"].includes(tag)) return "success";
-  if (["PostgreSQL", "Supabase"].includes(tag)) return "warning";
-  if (["LangGraph", "MCP", "Claude_API"].includes(tag)) return "primary";
+  if (["PostgreSQL", "Supabase", "Private backend"].includes(tag)) return "warning";
+  if (["LangGraph", "MCP", "Claude_API", "Claude code"].includes(tag)) return "primary";
+  if (["Rust", "Electron"].includes(tag)) return "destructive";
   return "secondary";
 };
 

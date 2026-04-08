@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { type FormEvent, useRef, useState } from "react";
 import { Warp } from "@paper-design/shaders-react";
 import { StaggerContainer, StaggerItem, MotionContainer } from "@/components/ui/MotionContainer";
 import { LiquidMetalButton } from "@/components/ui/LiquidMetalButton";
@@ -8,6 +9,73 @@ import { InputField } from "@/components/ui/InputField";
 import { content } from "@/content";
 
 export function Contact() {
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [statusMessage, setStatusMessage] = useState("");
+  const lastSubmitAtRef = useRef(0);
+
+  const formEndpoint = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT;
+  const cooldownMs = content.contact.form.cooldownMs;
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (status === "sending") {
+      return;
+    }
+
+    const now = Date.now();
+    if (now - lastSubmitAtRef.current < cooldownMs) {
+      setStatus("error");
+      setStatusMessage(content.contact.form.feedback.cooldownError);
+      return;
+    }
+
+    const formData = new FormData(e.currentTarget);
+    const trap = (formData.get("company") || "").toString().trim();
+    if (trap.length > 0) {
+      setStatus("error");
+      setStatusMessage(content.contact.form.feedback.spamError);
+      return;
+    }
+
+    if (!formEndpoint) {
+      setStatus("error");
+      setStatusMessage(content.contact.form.feedback.endpointMissingError);
+      return;
+    }
+
+    setStatus("sending");
+    setStatusMessage(content.contact.form.feedback.sending);
+
+    try {
+      const identity = (formData.get("identity") || "").toString().trim();
+      const transmission = (formData.get("transmission") || "").toString().trim();
+      const payload = new FormData();
+      payload.append("_subject", `Signal from ${identity || "Unknown sender"}`);
+      payload.append("identity", identity);
+      payload.append("transmission", transmission);
+      payload.append("_replyto", content.meta.author.email);
+
+      const response = await fetch(formEndpoint, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: payload,
+      });
+
+      if (!response.ok) {
+        throw new Error("Form submit failed");
+      }
+
+      lastSubmitAtRef.current = now;
+      e.currentTarget.reset();
+      setStatus("success");
+      setStatusMessage(content.contact.form.feedback.success);
+    } catch {
+      setStatus("error");
+      setStatusMessage(content.contact.form.feedback.networkError);
+    }
+  };
+
   return (
     <section id="contact" className="py-28" style={{ background: "transparent" }}>
       <div className="mx-auto max-w-3xl px-6">
@@ -49,14 +117,17 @@ export function Contact() {
             <div className="relative z-10 p-6 sm:p-10">
               <form
                 className="space-y-6"
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  const formData = new FormData(e.currentTarget);
-                  const identity = formData.get("identity");
-                  const transmission = formData.get("transmission");
-                  window.location.href = `mailto:${content.meta.author.email}?subject=Signal from ${identity}&body=${encodeURIComponent(transmission as string)}`;
-                }}
+                onSubmit={handleSubmit}
               >
+                <input
+                  type="text"
+                  name="company"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  className="hidden"
+                  aria-hidden="true"
+                />
+
                 <InputField
                   id="identity"
                   name="identity"
@@ -81,9 +152,22 @@ export function Contact() {
                   transition={{ duration: 0.45, ease: "easeOut", delay: 0.45 }}
                   className="pt-2 flex justify-center"
                 >
-                  <LiquidMetalButton label={content.contact.form.submitLabel} type="submit" width={220} />
+                  <LiquidMetalButton
+                    label={status === "sending" ? content.contact.form.sendingLabel : content.contact.form.submitLabel}
+                    type="submit"
+                    width={220}
+                  />
                 </motion.div>
               </form>
+              {status !== "idle" ? (
+                <p
+                  className={`mt-4 text-center text-xs font-mono tracking-[0.08em] ${
+                    status === "success" ? "text-[rgba(112,206,165,0.95)]" : "text-[rgba(217,79,61,0.95)]"
+                  }`}
+                >
+                  {statusMessage}
+                </p>
+              ) : null}
 
               {/* Social icons */}
               <motion.div

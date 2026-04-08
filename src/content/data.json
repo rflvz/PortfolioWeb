@@ -164,7 +164,17 @@
       "identityPlaceholder": "Tu nombre o empresa",
       "transmissionLabel": "_TRANSMISIÓN",
       "transmissionPlaceholder": "Describe tu proyecto o idea...",
-      "submitLabel": "ENVIAR_MENSAJE"
+      "submitLabel": "ENVIAR_MENSAJE",
+      "sendingLabel": "ENVIANDO...",
+      "cooldownMs": 10000,
+      "feedback": {
+        "sending": "Canal abierto... enviando señal.",
+        "success": "Señal recibida. Te respondo pronto.",
+        "networkError": "No se pudo enviar ahora. Prueba de nuevo en unos minutos.",
+        "cooldownError": "Espera unos segundos antes de reenviar.",
+        "spamError": "Envío bloqueado por protección anti-spam.",
+        "endpointMissingError": "Falta configurar el endpoint del formulario."
+      }
     },
     "footerNote": "PORTFOLIO EN DESARROLLO, usar rafaceitunoalvarez@gmail.com para contactar"
   }

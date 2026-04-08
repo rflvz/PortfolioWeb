@@ -55,7 +55,20 @@ const skillToVariant = (skill: string): "primary" | "info" | "success" | "warnin
   if (["TypeScript", "Next.js", "React", "Tailwind"].includes(skill)) return "info";
   if (["Python", "Rust", "Node.js", "FastAPI"].includes(skill)) return "success";
   if (["PostgreSQL", "MCP"].includes(skill)) return "warning";
-  if (["LLM_Orchestration", "Prompt_Engineering", "Agent_Architecture"].includes(skill)) return "primary";
+  if (
+    [
+      "LLM_Orchestration",
+      "Prompt_Engineering",
+      "Agent_Architecture",
+      "Claude code",
+      "Cursor",
+      "Spec-driven-development",
+      "Issue-driven-development",
+      "agentic-knowledge",
+    ].includes(skill)
+  ) {
+    return "primary";
+  }
   return "secondary";
 };
 
