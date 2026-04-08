@@ -87,7 +87,7 @@ export function About() {
                   <motion.img
                     whileHover={{ scale: 1.03 }}
                     transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                    src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80"
+                    src="/about-image.jpeg"
                     alt="Circuit board macro"
                     className="w-full object-cover opacity-60 transition-opacity duration-500"
                     style={{ minHeight: "240px" }}
