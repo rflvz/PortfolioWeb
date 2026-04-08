@@ -6,63 +6,7 @@ import { LiquidMetalButton } from "@/components/ui/LiquidMetalButton";
 import { CardStack, CardStackControls, CardStackItem } from "@/components/ui/card-stack";
 import { Badge, BadgeDot } from "@/components/ui/Badge";
 import { GlowCard } from "@/components/ui/spotlight-card";
-
-type ProjectCmsItem = {
-  uid: string;
-  displayId: string;
-  status: "LIVE" | "IN_DEVELOPMENT";
-  title: string;
-  summary: string;
-  coverImage: string;
-  tags: string[];
-  externalUrl?: string;
-  repositoryUrl?: string;
-};
-
-const cmsProjects: ProjectCmsItem[] = [
-  {
-    uid: "chesstogether",
-    displayId: "01",
-    title: "ChessTogether",
-    summary:
-      "Plataforma para organizar quedadas y torneos de ajedrez en la vida real. Sistema de Elo social y matchmaking para emparejar jugadores según nivel.",
-    tags: ["TypeScript", "Next.js", "React", "Supabase"],
-    coverImage: "/chesstogether.png",
-    status: "LIVE",
-    externalUrl: "https://chesstogether.app",
-  },
-  {
-    uid: "codeorchestrator",
-    displayId: "02",
-    title: "CodeOrchestrator",
-    summary:
-      "Sistema de orquestación de agentes IA para generación y gestión de código, desde diseño hasta despliegue de funcionalidades completas.",
-    tags: ["Python", "TypeScript", "LangGraph", "Claude_API", "MCP"],
-    coverImage: "/CodeOrchestrator.png",
-    status: "IN_DEVELOPMENT",
-    repositoryUrl: "https://github.com/rflvz/codeOrchestrator",
-  },
-  {
-    uid: "teamergy",
-    displayId: "03",
-    title: "Teamergy",
-    summary:
-      "Web de briefings para diseños NT con gestión completa del pipeline creativo, desde recepción de briefs hasta entrega de activos.",
-    tags: ["TypeScript", "Next.js", "Python", "PostgreSQL"],
-    coverImage: "/teamergy-design.png",
-    status: "IN_DEVELOPMENT",
-  },
-  {
-    uid: "stylecluster",
-    displayId: "04",
-    title: "StyleCluster",
-    summary:
-      "Modelo de clustering que analiza imágenes de referencia y genera grupos de estilos visuales con patrones formales y cromáticos.",
-    tags: ["Python", "PyTorch", "CLIP", "scikit-learn"],
-    coverImage: "/clustering.png",
-    status: "IN_DEVELOPMENT",
-  },
-];
+import { content } from "@/content";
 
 type ProjectStackCard = CardStackItem & { sourceUid: string };
 
@@ -85,20 +29,20 @@ export function Projects() {
 
   const stackItems = useMemo<ProjectStackCard[]>(
     () =>
-      cmsProjects.map((project) => ({
+      content.projects.map((project) => ({
         id: project.uid,
         sourceUid: project.uid,
         title: project.title,
         description: project.summary,
         imageSrc: project.coverImage,
-        href: project.externalUrl ?? project.repositoryUrl,
+        href: project.externalUrl ?? project.repositoryUrl ?? "",
         ctaLabel: project.externalUrl ? "VER WEB" : project.repositoryUrl ? "VER REPOSITORIO" : "PRIVADO",
         tag: project.status,
       })),
     [],
   );
 
-  const activeProject = cmsProjects[activeIndex] ?? cmsProjects[0];
+  const activeProject = content.projects[activeIndex] ?? content.projects[0];
   const shouldLockScroll = false;
 
   useEffect(() => {
