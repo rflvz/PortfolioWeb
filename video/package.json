@@ -1,0 +1,38 @@
+{
+  "name": "video",
+  "version": "1.0.0",
+  "description": "Portfolio promotional video using Remotion",
+  "scripts": {
+    "start": "remotion studio",
+    "dev": "remotion studio",
+    "build": "remotion render WalkthroughComposition output.mp4",
+    "render": "remotion render WalkthroughComposition output.mp4"
+  },
+  "keywords": [
+    "remotion",
+    "video",
+    "portfolio"
+  ],
+  "author": "rflvz",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.5.0",
+    "@remotion/bundler": "^4.0.447",
+    "@remotion/cli": "^4.0.447",
+    "@remotion/gif": "^4.0.447",
+    "@remotion/lottie": "^4.0.447",
+    "@remotion/player": "^4.0.447",
+    "@remotion/three": "^4.0.447",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "remotion": "^4.0.447",
+    "three": "^0.183.2"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "typescript": "^6.0.2"
+  }
+}
