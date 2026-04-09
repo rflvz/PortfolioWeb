@@ -78,17 +78,17 @@ const TestimonialCarousel = React.forwardRef<HTMLDivElement, TestimonialCarousel
                 dragElastic={0.7}
                 onDragEnd={isCurrentCard ? handleDragEnd : undefined}
                 initial={{
-                  scale: 0.94,
+                  scale: 0.88,
                   opacity: 0,
-                  y: isCurrentCard ? 0 : isPrevCard ? 12 : 24,
-                  rotate: isCurrentCard ? 0 : isPrevCard ? -3 : -6,
+                  y: isCurrentCard ? 0 : isPrevCard ? 20 : 38,
+                  rotate: isCurrentCard ? 0 : isPrevCard ? -5 : -10,
                 }}
                 animate={{
-                  scale: isCurrentCard ? 1 : 0.94,
-                  opacity: isCurrentCard ? 1 : isPrevCard ? 0.75 : 0.5,
+                  scale: isCurrentCard ? 1 : isPrevCard ? 0.90 : 0.82,
+                  opacity: isCurrentCard ? 1 : isPrevCard ? 0.8 : 0.55,
                   x: isCurrentCard ? exitX : 0,
-                  y: isCurrentCard ? 0 : isPrevCard ? 12 : 24,
-                  rotate: isCurrentCard ? exitX / 20 : isPrevCard ? -3 : -6,
+                  y: isCurrentCard ? 0 : isPrevCard ? 20 : 38,
+                  rotate: isCurrentCard ? exitX / 20 : isPrevCard ? -5 : -10,
                 }}
                 transition={{
                   type: "spring",
