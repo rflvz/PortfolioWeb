@@ -1,7 +1,7 @@
 {
   "meta": {
     "siteName": "Rafa Alvarez Portfolio",
-    "organizationName": "PORFOLIO",
+    "organizationName": "THE_ARTIFACT",
     "baseUrl": "https://rflvz.com",
     "author": {
       "name": "Rafa Alvarez",
@@ -15,28 +15,28 @@
         "telegram": "https://t.me/rflvz"
       },
       "skills": {
-        "languages": ["TypeScript", "Python", "Rust"],
-        "aiAgents": ["LLM_Orchestration", "MCP", "Prompt_Engineering", "Agent_Architecture"],
+        "languages": ["No need for languages, the planification is the new code"],
+        "aiAgents": ["Claude code", "Cursor", "Spec-driven-development", "Issue-driven-development", "agentic-knowledge"],
         "frontend": ["React", "Next.js", "Tailwind"],
-        "backend": ["Node.js", "FastAPI", "PostgreSQL"]
+        "backend": ["Node.js", "Rust", "Supabase"]
       }
     }
   },
 
   "hero": {
-    "label": "AI_FIRST_DEVELOPER",
+    "label": "AGENTIC_SOFTWARE_ARCHITECT",
     "name": {
-      "line1": "RAFA",
+      "line1": "RAFAEL",
       "line1Hover": "AI ARCH",
       "line2": "ALVAREZ",
       "line2Hover": "DEV"
     },
-    "tagline": "Programo con IA. Los sistemas piensan. Diseño, construyo y lanzo donde la inteligencia es el foundation, no un feature.",
-    "tags": ["AGENTES_AUTÓNOMOS", "ORQUESTACIÓN_LLM", "MCP", "DESARROLLO_10X"],
-    "scrollHint": "deslizar",
+    "tagline": "No programo con IA, ese enfoque es obsoleto. Dejo la autonomía a la IA mientras yo optimizo su sistema para obtener el maximo de eficiencia con la máxima autonomía",
+    "tags": ["ISSUE_DRIVEN_DEVELOPMENT", "SPEC_DRIVEN_DEVELOPMENT", "VANGUARDISMO_DEV", "DESARROLLO_PARALELO"],
+    "scrollHint": "SCROLL",
     "cta": {
       "primary": "VER_MI_TRABAJO",
-      "secondary": "ENVIAR_SEÑAL"
+      "secondary": "CONTACTA_CONMIGO"
     }
   },
 
@@ -44,13 +44,13 @@
     "section": {
       "label": "STORY",
       "title": "Programar con IA",
-      "description": "No integro IA. Programa con ella. Cada línea, cada arquitectura, cada decisión pasa por un modelo de lenguaje.",
-      "signature": "rflvz — rafa alvarez"
+      "description": "No integro IA. Programa ella. Cada línea, cada arquitectura, cada decisión pasa por un modelo de lenguaje, yo me encargo de optimizar el sistema.",
+      "signature": "rflvz — Rafael Aceituno Álvarez"
     },
     "bio": [
-      "Desarrollé ChessRadar (chesstogether.app) en 10 días con un equipo de 2 devs + 1 team leader. 4 días los hice en solitario. El proyecto existía en mi cabeza y en papel. La IA me ayudó a materializarlo en tiempo récord.",
-      "CodeOrchestrator es mi laboratorio personal: un sistema donde agentes autónomos generan, implementan y despliegan código siguiendo specs en lenguaje natural. Agentes que piensas antes de actuar.",
-      "Mi stack mental es Flow — no frameworks. TypeScript y Python para traducir lógica. Agentes MCP para conectar herramientas. El resultado: software donde la inteligencia no es un feature, es el foundation."
+      "Desarrollé ChessRadar (chesstogether.app) en 10 días con un equipo de 2 devs + yo como team leader, planificador y organizador. 4 días los hice en solitario preparando su entorno, cuando empezamos a programar el codigo se desarrollaba solo, incluso cuando eran inexpertos. El proyecto existía en mi cabeza y en una planificación extensiva. La IA simplemente tradujo decisiones técnicas a codigo en tiempo récord.",
+      "CodeOrchestrator es mi futuro laboratorio personal: un sistema donde agentes autónomos generan, implementan y despliegan código siguiendo specs en lenguaje natural. Agentes que piensan antes de actuar y la planificación es el nuevo codigo.",
+      "Mi sistema integraba los equipos de agentes antes si quiera de que los sub-agents existiesen, los agentes no actuan como un individuo, sino como un equipo que además les permite ahorrar costes y delegar los modelos mas potentes a la planificación."
     ],
     "image": {
       "src": "/about-image.jpeg",
@@ -65,18 +65,18 @@
       "link": "#projects"
     },
     {
-      "title": "Sistemas IA",
-      "description": "Features potenciadas por LLMs, arquitecturas de agentes e integraciones MCP que llevan inteligencia a cada capa del stack.",
-      "link": "#about"
+      "title": "Entornos IA",
+      "description": "Consultorías para actualizar los obsoletos entornos de desarrollo a entornos de IA potenciados con los ultimos conocimientos en desarrollo IA, herramientas y flujos de trabajo.",
+      "link": "#contact"
     },
     {
       "title": "Productos",
-      "description": "Desarrollo de producto end-to-end desde concepto hasta lanzamiento. Apps Electron, dashboards y plataformas SaaS con IA en su núcleo.",
+      "description": "Desarrollo de producto end-to-end desde concepto hasta deployment. Apps Electron, dashboards y plataformas SaaS en tiempo record.",
       "link": "#projects"
     },
     {
-      "title": "Arquitectura",
-      "description": "Diseño de sistemas y consultoría técnica. Arquitecturas de API, esquemas de base de datos e infraestructura que escala con tus ambiciones.",
+      "title": "Mantenimiento",
+      "description": "Mantenimiento de entornos existentes, actualización de entornos ia a las ultimas novedades y sistemas de organización de equipos",
       "link": "#contact"
     }
   ],
@@ -110,7 +110,7 @@
       "uid": "teamergy",
       "displayId": "03",
       "title": "Teamergy",
-      "summary": "Web de briefings para diseños NT con gestión completa del pipeline creativo, desde recepción de briefs hasta entrega de activos.",
+      "summary": "Web de briefings para diseños NT con gestión completa de la gestión creativa, desde recepción de briefs hasta entrega de MOCKUPS con gran visión a futuro de proyecto.",
       "tags": ["TypeScript", "Next.js", "Python", "PostgreSQL"],
       "status": "IN_DEVELOPMENT",
       "coverImage": "/teamergy-design.png",
@@ -160,6 +160,6 @@
       "transmissionPlaceholder": "Describe tu proyecto o idea...",
       "submitLabel": "ENVIAR_MENSAJE"
     },
-    "footerNote": "Respuesta en 48h — Todas las señales recibidas"
+    "footerNote": "PORTFOLIO EN DESARROLLO, usar rafaceitunoalvarez@gmail.com para contactar"
   }
 }
