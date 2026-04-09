@@ -37,7 +37,7 @@ export function Footer() {
               key={i}
               className="text-[10px] font-mono tracking-[0.2em] text-[#d94f3d] px-8 whitespace-nowrap"
             >
-              AI_ARCHITECTURE &nbsp;&bull;&nbsp; LLM_ORCHESTRATION &nbsp;&bull;&nbsp; AUTONOMOUS_AGENTS &nbsp;&bull;&nbsp; PORTFOLIO
+              LIDERAZGO_TÉCNICO &nbsp;&bull;&nbsp; PLANIFICACIÓN &nbsp;&bull;&nbsp; ARQUITECTURA_DE_SISTEMAS &nbsp;&bull;&nbsp; GESTIÓN_DE_PRODUCTO &nbsp;&bull;&nbsp; SPEC_DRIVEN_DEVELOPMENT &nbsp;&bull;&nbsp; ISSUE_DRIVEN_DEVELOPMENT &nbsp;&bull;&nbsp; COMUNICACIÓN &nbsp;&bull;&nbsp; PORTFOLIO
             </span>
           ))}
         </div>
