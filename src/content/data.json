@@ -135,7 +135,7 @@
   "testimonials": [
     {
       "id": 1,
-      "name": "Marcos García",
+      "name": "Marcos García Sánchez",
       "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=256&q=80",
       "description": "Trabajar con Rafa en ChessTogether fue de lo mejor. Liderazgo tecnico solido y decisiones de arquitectura bien justificadas. Como Scrum Master organizo el equipo con claridad y comunico prioridades sin ambiguedad. Siempre adelantado y proponiendo mejoras por iniciativa propia. Lo recomendaria sin dudarlo."
     },
@@ -160,6 +160,6 @@
       "transmissionPlaceholder": "Describe tu proyecto o idea...",
       "submitLabel": "ENVIAR_MENSAJE"
     },
-    "footerNote": "PORTFOLIO EN DESARROLLO, usar rafaceitunoalvarez@gmail.com para contactar"
+    "footerNote": "Respuesta en 48h — Todas las señales recibidas"
   }
 }
