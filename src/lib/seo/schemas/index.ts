@@ -130,7 +130,7 @@ export function buildReviewSchema(
     '@type': 'Review',
     reviewBody: testimonial.description,
     author: {
-      '@type': 'Professional',
+      '@type': 'Person',
       name: testimonial.name,
     },
   };
@@ -147,6 +147,7 @@ export function buildWebPageSchema(): WebPageSchema {
     url: absoluteUrl('/'),
     inLanguage: 'es',
     isPartOf: { '@type': 'WebSite', name: env.siteName },
+    author: { '@type': 'Person', name: content.meta.author.name },
   };
 }
 

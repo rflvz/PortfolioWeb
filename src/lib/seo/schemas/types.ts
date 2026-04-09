@@ -81,6 +81,10 @@ export interface WebPageSchema {
     '@type': 'WebSite';
     name: string;
   };
+  author?: {
+    '@type': 'Person';
+    name: string;
+  };
 }
 
 // CollectionPage schema for services listing
@@ -98,7 +102,7 @@ export interface ReviewSchema {
   '@type': 'Review';
   reviewBody: string;
   author: {
-    '@type': 'Person' | 'Professional' | 'Organization';
+    '@type': 'Person' | 'Organization';
     name: string;
   };
   reviewRating?: {

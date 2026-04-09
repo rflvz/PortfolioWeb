@@ -1,7 +1,7 @@
 const isDev = process.env.NODE_ENV === 'development';
 const BASE_URL = isDev ? 'http://localhost:3000' : 'https://rflvz.com';
 const SITE_NAME = 'Rafa Alvarez Portfolio';
-const ORGANIZATION_NAME = 'THE_ARTIFACT';
+const ORGANIZATION_NAME = 'PORTFOLIO';
 
 export function absoluteUrl(path: string): string {
   return `${BASE_URL}${path}`;

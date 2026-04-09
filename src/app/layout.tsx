@@ -25,14 +25,68 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Rafa Alvarez | AI Architecture Developer",
+  metadataBase: new URL("https://rflvz.com"),
+  title: {
+    default: "Rafa Alvarez | AI Architecture Developer",
+    template: "%s | Rafa Alvarez",
+  },
   description:
-    "Portfolio de Rafa Alvarez — Desarrollador especializado en arquitectura IA, construyendo el futuro con inteligencia artificial.",
+    "Portfolio de Rafa Alvarez — Desarrollador especializado en arquitectura IA. Construyo sistemas con LLMs, agentes autónomos y MCP. Spec-driven development, issue-driven development.",
+  keywords: [
+    "AI Architecture Developer",
+    "LLM Orchestration",
+    "Agentes autónomos",
+    "MCP protocol",
+    "Spec-driven development",
+    "Issue-driven development",
+    "Next.js",
+    "TypeScript",
+    "Rafa Alvarez",
+    "Rafael Aceituno",
+    "portfolio desarrollador IA",
+    "arquitectura inteligente",
+  ],
+  authors: [{ name: "Rafa Alvarez", url: "https://rflvz.com" }],
+  creator: "Rafa Alvarez",
+  category: "technology",
+  alternates: {
+    canonical: "https://rflvz.com",
+  },
   openGraph: {
     title: "Rafa Alvarez | AI Architecture Developer",
     description:
-      "Desarrollador especializado en arquitectura IA, construyendo el futuro con inteligencia artificial.",
+      "Desarrollador especializado en arquitectura IA. Construyo sistemas con LLMs, agentes autónomos y MCP donde la inteligencia es el foundation, no un feature.",
     type: "website",
+    url: "https://rflvz.com",
+    siteName: "Rafa Alvarez Portfolio",
+    locale: "es_ES",
+    images: [
+      {
+        url: "/about-image.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "Rafa Alvarez — AI Architecture Developer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Rafa Alvarez | AI Architecture Developer",
+    description:
+      "Desarrollador especializado en arquitectura IA. LLMs, agentes autónomos y MCP.",
+    creator: "@rflvz",
+    images: ["/about-image.jpeg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
