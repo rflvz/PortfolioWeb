@@ -82,7 +82,7 @@ export default function FeaturesCards() {
         distortion: 0.2,
         swirl: 0.9,
         swirlIterations: 12,
-        shape: "dots" as const,
+        shape: "stripes" as const,
         shapeScale: 0.12,
         colors: ["hsl(15, 60%, 5%)", "hsl(20, 70%, 10%)", "hsl(12, 50%, 7%)", "hsl(18, 80%, 15%)"],
       },
@@ -102,7 +102,7 @@ export default function FeaturesCards() {
         distortion: 0.22,
         swirl: 0.8,
         swirlIterations: 15,
-        shape: "dots" as const,
+        shape: "edge" as const,
         shapeScale: 0.09,
         colors: ["hsl(340, 60%, 5%)", "hsl(345, 70%, 10%)", "hsl(335, 50%, 7%)", "hsl(350, 80%, 15%)"],
       },
@@ -144,7 +144,7 @@ export default function FeaturesCards() {
                     distortion={shaderConfig.distortion}
                     swirl={shaderConfig.swirl}
                     swirlIterations={shaderConfig.swirlIterations}
-                    shape={shaderConfig.shape as any}
+                    shape={shaderConfig.shape}
                     shapeScale={shaderConfig.shapeScale}
                     scale={1}
                     rotation={0}

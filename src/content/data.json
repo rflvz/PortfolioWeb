@@ -1,0 +1,181 @@
+{
+  "meta": {
+    "siteName": "Rafa Alvarez Portfolio",
+    "organizationName": "PORTFOLIO",
+    "baseUrl": "https://rflvz.com",
+    "author": {
+      "name": "Rafa Alvarez",
+      "username": "rflvz",
+      "jobTitle": "AI Architecture Developer",
+      "description": "Desarrollador especializado en arquitectura IA, construyendo el futuro con inteligencia artificial.",
+      "email": "rafaceitunoalvarez@gmail.com",
+      "socials": {
+        "github": "https://github.com/rflvz",
+        "linkedin": "https://linkedin.com/in/rflvz",
+        "telegram": "https://t.me/rflvz"
+      },
+      "skills": {
+        "languages": ["No need for languages, the planification is the new code"],
+        "aiAgents": ["Claude code", "Cursor", "Spec-driven-development", "Issue-driven-development", "agentic-knowledge"],
+        "frontend": ["React", "Next.js", "Tailwind"],
+        "backend": ["Node.js", "Rust", "Supabase"]
+      }
+    }
+  },
+
+  "hero": {
+    "label": "AGENTIC_SOFTWARE_ARCHITECT",
+    "name": {
+      "line1": "RAFAEL",
+      "line1Hover": "AI ARCH",
+      "line2": "ALVAREZ",
+      "line2Hover": "DEV"
+    },
+    "tagline": "No programo con IA, ese enfoque es obsoleto. Dejo la autonomía a la IA mientras yo optimizo su sistema para obtener el maximo de eficiencia con la máxima autonomía",
+    "tags": ["ISSUE_DRIVEN_DEVELOPMENT", "SPEC_DRIVEN_DEVELOPMENT", "VANGUARDISMO_DEV", "DESARROLLO_PARALELO"],
+    "scrollHint": "SCROLL",
+    "cta": {
+      "primary": "VER_MI_TRABAJO",
+      "secondary": "CONTACTA_CONMIGO"
+    }
+  },
+
+  "about": {
+    "section": {
+      "label": "STORY",
+      "title": "Programar con IA",
+      "description": "No integro IA. Programa ella. Cada línea, cada arquitectura, cada decisión pasa por un modelo de lenguaje, yo me encargo de optimizar el sistema.",
+      "signature": "rflvz — Rafael Aceituno Álvarez"
+    },
+    "bio": [
+      "Desarrollé ChessRadar (chesstogether.app) en 10 días con un equipo de 2 devs + yo como team leader, planificador y organizador. 4 días los hice en solitario preparando su entorno, cuando empezamos a programar el codigo se desarrollaba solo, incluso cuando eran inexpertos. El proyecto existía en mi cabeza y en una planificación extensiva. La IA simplemente tradujo decisiones técnicas a codigo en tiempo récord.",
+      "CodeOrchestrator es mi futuro laboratorio personal: un sistema donde agentes autónomos generan, implementan y despliegan código siguiendo specs en lenguaje natural. Agentes que piensan antes de actuar y la planificación es el nuevo codigo.",
+      "Mi sistema integraba los equipos de agentes antes si quiera de que los sub-agents existiesen, los agentes no actuan como un individuo, sino como un equipo que además les permite ahorrar costes y delegar los modelos mas potentes a la planificación."
+    ],
+    "image": {
+      "src": "/about-image.jpeg",
+      "alt": "Circuit board macro"
+    }
+  },
+
+  "services": [
+    {
+      "title": "Desarrollo Web",
+      "description": "Aplicaciones full-stack construidas con Next.js, React y TypeScript. Interfaces que rinden tan bien como lucen.",
+      "link": "#projects"
+    },
+    {
+      "title": "Entornos IA",
+      "description": "Consultorías para actualizar los obsoletos entornos de desarrollo a entornos de IA potenciados con los ultimos conocimientos en desarrollo IA, herramientas y flujos de trabajo.",
+      "link": "#contact"
+    },
+    {
+      "title": "Productos",
+      "description": "Desarrollo de producto end-to-end desde concepto hasta deployment. Apps Electron, dashboards y plataformas SaaS en tiempo record.",
+      "link": "#projects"
+    },
+    {
+      "title": "Mantenimiento",
+      "description": "Mantenimiento de entornos existentes, actualización de entornos ia a las ultimas novedades y sistemas de organización de equipos",
+      "link": "#contact"
+    }
+  ],
+
+  "projects": [
+    {
+      "uid": "chesstogether",
+      "displayId": "01",
+      "title": "ChessTogether",
+      "summary": "Plataforma para organizar quedadas y torneos de ajedrez en la vida real. Sistema de Elo social y matchmaking para emparejar jugadores según nivel.",
+      "tags": ["TypeScript", "Next.js", "React", "Supabase"],
+      "status": "LIVE",
+      "coverImage": "/chesstogether.png",
+      "externalUrl": "https://chesstogether.app",
+      "repositoryUrl": null,
+      "datePublished": "08-04-2026"
+    },
+    {
+      "uid": "codeorchestrator",
+      "displayId": "02",
+      "title": "CodeOrchestrator",
+      "summary": "Sistema de orquestación de agentes IA para generación y gestión de código, desde diseño hasta despliegue de funcionalidades completas.",
+      "tags": [ "TypeScript", "Rust", "Electron", "Claude code"],
+      "status": "IN_DEVELOPMENT",
+      "coverImage": "/CodeOrchestrator.png",
+      "externalUrl": null,
+      "repositoryUrl": "https://github.com/rflvz/codeOrchestrator",
+      "datePublished": "08-04-2026"
+    },
+    {
+      "uid": "teamergy",
+      "displayId": "03",
+      "title": "Teamergy",
+      "summary": "Web de briefings para diseños NT con gestión completa de la gestión creativa, desde recepción de briefs hasta entrega de MOCKUPS con gran visión a futuro de proyecto.",
+      "tags": ["Next.js frontend", "Private backend"],
+      "status": "IN_DEVELOPMENT",
+      "coverImage": "/teamergy-design.png",
+      "externalUrl": null,
+      "repositoryUrl": null,
+      "datePublished": "08-04-2026"
+    },
+    {
+      "uid": "stylecluster",
+      "displayId": "04",
+      "title": "StyleCluster",
+      "summary": "Modelo de clustering que analiza imágenes de referencia y genera grupos de estilos visuales con patrones formales y cromáticos.",
+      "tags": ["Python", "PyTorch", "CLIP", "More"],
+      "status": "IN_DEVELOPMENT",
+      "coverImage": "/clustering.png",
+      "externalUrl": null,
+      "repositoryUrl": null,
+      "datePublished": "08-04-2026"
+    }
+  ],
+
+  "testimonials": [
+    {
+      "id": 1,
+      "name": "CTO",
+      "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=256&q=80",
+      "description": "Mockup testimonial"
+    },
+    {
+      "id": 2,
+      "name": "Founder",
+      "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=256&q=80",
+      "description": "Mockup testimonial"
+    },
+    {
+      "id": 3,
+      "name": "Head of Product",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=256&q=80",
+      "description": "Mockup testimonial"
+    }
+  ],
+
+  "contact": {
+    "section": {
+      "label": "SIGNAL",
+      "title": "Abierto a Conexiones",
+      "description": "¿Interesado en colaborar o tienes un proyecto en mente? Envía la señal."
+    },
+    "form": {
+      "identityLabel": "_IDENTIDAD",
+      "identityPlaceholder": "Tu nombre o empresa",
+      "transmissionLabel": "_TRANSMISIÓN",
+      "transmissionPlaceholder": "Describe tu proyecto o idea...",
+      "submitLabel": "ENVIAR_MENSAJE",
+      "sendingLabel": "ENVIANDO...",
+      "cooldownMs": 10000,
+      "feedback": {
+        "sending": "Canal abierto... enviando señal.",
+        "success": "Señal recibida. Te respondo pronto.",
+        "networkError": "No se pudo enviar ahora. Prueba de nuevo en unos minutos.",
+        "cooldownError": "Espera unos segundos antes de reenviar.",
+        "spamError": "Envío bloqueado por protección anti-spam.",
+        "endpointMissingError": "Falta configurar el endpoint del formulario."
+      }
+    },
+    "footerNote": "PORTFOLIO EN DESARROLLO, usar rafaceitunoalvarez@gmail.com para contactar"
+  }
+}
