@@ -126,7 +126,7 @@ const TestimonialCarousel = React.forwardRef<HTMLDivElement, TestimonialCarousel
                     <User className="h-10 w-10 text-[rgba(232,221,208,0.94)]" aria-hidden="true" />
                   </div>
                   <h3 className="text-2xl font-semibold text-[rgba(232,221,208,0.96)]">{testimonial.name}</h3>
-                  <p className="max-h-[20rem] max-w-[30rem] overflow-y-auto pr-1 text-center text-base leading-relaxed text-[rgba(232,221,208,0.82)]">
+                  <p className="max-w-[30rem] text-center text-base leading-relaxed text-[rgba(232,221,208,0.82)]">
                     {testimonial.description}
                   </p>
                 </div>
