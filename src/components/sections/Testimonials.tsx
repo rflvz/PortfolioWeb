@@ -2,33 +2,7 @@
 
 import { TestimonialCarousel } from "@/components/ui/testimonial";
 import { MotionContainer, StaggerContainer, StaggerItem } from "@/components/ui/MotionContainer";
-
-const testimonials = [
-  {
-    id: 1,
-    name: "CTO",
-    avatar:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=256&q=80",
-    description:
-      "The architecture he designed for our AI pipeline reduced latency by 60%. He doesn&apos;t just understand LLMs — he understands how to make them work in production.",
-  },
-  {
-    id: 2,
-    name: "Founder",
-    avatar:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=256&q=80",
-    description:
-      "Finally, someone who gets it. Autonomous agents that actually work. The system he built is the backbone of our entire product line now.",
-  },
-  {
-    id: 3,
-    name: "Head of Product",
-    avatar:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=256&q=80",
-    description:
-      "Execution speed was unreal. From idea to working system in days, without sacrificing quality or clarity.",
-  },
-];
+import { TESTIMONIALS } from "@/content/site-content";
 
 export function Testimonials() {
   return (
@@ -53,7 +27,7 @@ export function Testimonials() {
         <StaggerContainer staggerDelay={0.12}>
           <StaggerItem>
             <TestimonialCarousel
-              testimonials={testimonials}
+              testimonials={TESTIMONIALS}
               className="mx-auto max-w-4xl"
             />
           </StaggerItem>

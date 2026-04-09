@@ -2,12 +2,14 @@ import * as React from "react";
 import { motion, PanInfo } from "framer-motion";
 import { ChevronLeft, ChevronRight, User } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Badge } from "@/components/ui/Badge";
 
 interface Testimonial {
   id: number | string;
   name: string;
   avatar: string;
   description: string;
+  strengths?: string[];
 }
 
 interface TestimonialCarouselProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -129,6 +131,15 @@ const TestimonialCarousel = React.forwardRef<HTMLDivElement, TestimonialCarousel
                   <p className="max-w-[26rem] text-center text-base leading-relaxed text-[rgba(232,221,208,0.82)]">
                     {testimonial.description}
                   </p>
+                  {testimonial.strengths?.length ? (
+                    <div className="flex max-w-[26rem] flex-wrap items-center justify-center gap-2">
+                      {testimonial.strengths.map((strength) => (
+                        <Badge key={`${testimonial.id}-${strength}`} variant="secondary" appearance="light" size="sm">
+                          {strength}
+                        </Badge>
+                      ))}
+                    </div>
+                  ) : null}
                 </div>
               </motion.div>
             );

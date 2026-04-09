@@ -14,6 +14,12 @@ interface LiquidMetalButtonProps {
   rel?: string;
 }
 
+interface ShaderController {
+  destroy?: () => void;
+  setSpeed?: (speed: number) => void;
+  setUniform?: (name: string, value: number) => void;
+}
+
 export function LiquidMetalButton({
   label = "Get Started",
   onClick,
@@ -30,8 +36,7 @@ export function LiquidMetalButton({
   >([]);
   const [isMobile, setIsMobile] = useState(false);
   const shaderRef = useRef<HTMLDivElement>(null);
-  // biome-ignore lint/suspicious/noExplicitAny: External library without types
-  const shaderMount = useRef<any>(null);
+  const shaderMount = useRef<ShaderController | null>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const rippleId = useRef(0);
 
@@ -108,7 +113,7 @@ export function LiquidMetalButton({
             },
             undefined,
             0.6,
-          );
+          ) as unknown as ShaderController;
         }
       } catch (error) {
         console.error("Failed to load shader:", error);

@@ -1,4 +1,5 @@
 import { absoluteUrl, env } from '../absolute-url';
+import { AUTHOR_SOCIALS, TESTIMONIALS } from '@/content/site-content';
 import type {
   PersonSchema,
   OrganizationSchema,
@@ -84,24 +85,11 @@ export const PROJECTS_DATA = [
 // Testimonials Data
 // ---------------------------------------------------------------------------
 export const TESTIMONIALS_DATA = [
-  {
-    id: 1,
-    name: 'CTO',
-    description:
-      'La arquitectura que diseñó para nuestro pipeline de IA redujo la latencia un 60%. No solo entiende los LLMs — entiende cómo hacerlos funcionar en producción.',
-  },
-  {
-    id: 2,
-    name: 'Founder',
-    description:
-      'Por fin, alguien que lo entiende. Agentes autónomos que realmente funcionan. El sistema que construyó es ahora la columna vertebral de toda nuestra línea de producto.',
-  },
-  {
-    id: 3,
-    name: 'Head of Product',
-    description:
-      'La velocidad de ejecución fue increíble. De idea a sistema funcional en días, sin sacrificar calidad ni claridad.',
-  },
+  ...TESTIMONIALS.map((testimonial) => ({
+    id: testimonial.id,
+    name: testimonial.name,
+    description: testimonial.description,
+  })),
 ];
 
 // ---------------------------------------------------------------------------
@@ -115,7 +103,7 @@ export function buildPersonSchema(): PersonSchema {
     description:
       'Desarrollador especializado en arquitectura IA, construyendo el futuro con inteligencia artificial.',
     url: absoluteUrl('/'),
-    sameAs: ['https://github.com/rflvz', 'https://linkedin.com/in/rflvz'],
+    sameAs: [AUTHOR_SOCIALS.github, AUTHOR_SOCIALS.linkedin],
     knowsAbout: [
       'TypeScript',
       'Python',
@@ -142,7 +130,7 @@ export function buildOrganizationSchema(): OrganizationSchema {
     '@type': 'Organization',
     name: 'THE_ARTIFACT',
     url: absoluteUrl('/'),
-    sameAs: ['https://github.com/rflvz', 'https://linkedin.com/in/rflvz'],
+    sameAs: [AUTHOR_SOCIALS.github, AUTHOR_SOCIALS.linkedin],
   };
 }
 
