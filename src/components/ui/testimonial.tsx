@@ -53,10 +53,10 @@ const TestimonialCarousel = React.forwardRef<HTMLDivElement, TestimonialCarousel
     return (
       <div
         ref={ref}
-        className={cn("flex h-[28rem] w-full items-center justify-center", className)}
+        className={cn("flex h-[38rem] w-full items-center justify-center", className)}
         {...props}
       >
-        <div className="relative h-[24rem] w-full max-w-[28rem]">
+        <div className="relative h-[34rem] w-full max-w-[36rem]">
           {testimonials.map((testimonial, index) => {
             const isCurrentCard = index === currentIndex;
             const isPrevCard = index === (currentIndex + 1) % testimonials.length;
@@ -123,16 +123,16 @@ const TestimonialCarousel = React.forwardRef<HTMLDivElement, TestimonialCarousel
                   </div>
                 )}
 
-                <div className="flex h-full flex-col items-center justify-center gap-6 p-8">
+                <div className="flex h-full flex-col items-center justify-center gap-5 p-8">
                   <div className="flex h-20 w-20 items-center justify-center rounded-full border border-[rgba(196,31,58,0.45)] bg-[rgba(196,31,58,0.16)]">
                     <User className="h-10 w-10 text-[rgba(232,221,208,0.94)]" aria-hidden="true" />
                   </div>
                   <h3 className="text-2xl font-semibold text-[rgba(232,221,208,0.96)]">{testimonial.name}</h3>
-                  <p className="max-w-[26rem] text-center text-base leading-relaxed text-[rgba(232,221,208,0.82)]">
+                  <p className="max-h-[17rem] max-w-[31rem] overflow-y-auto pr-2 text-center text-base leading-relaxed text-[rgba(232,221,208,0.82)]">
                     {testimonial.description}
                   </p>
                   {testimonial.strengths?.length ? (
-                    <div className="flex max-w-[26rem] flex-wrap items-center justify-center gap-2">
+                    <div className="flex max-w-[31rem] flex-wrap items-center justify-center gap-2">
                       {testimonial.strengths.map((strength) => (
                         <Badge key={`${testimonial.id}-${strength}`} variant="secondary" appearance="light" size="sm">
                           {strength}
