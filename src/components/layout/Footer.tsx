@@ -37,7 +37,7 @@ export function Footer() {
               key={i}
               className="text-[10px] font-mono tracking-[0.2em] text-[#d94f3d] px-8 whitespace-nowrap"
             >
-              AI_ARCHITECTURE &nbsp;&bull;&nbsp; LLM_ORCHESTRATION &nbsp;&bull;&nbsp; AUTONOMOUS_AGENTS &nbsp;&bull;&nbsp; THE_ARTIFACT
+              AI_ARCHITECTURE &nbsp;&bull;&nbsp; LLM_ORCHESTRATION &nbsp;&bull;&nbsp; AUTONOMOUS_AGENTS &nbsp;&bull;&nbsp; PORTFOLIO
             </span>
           ))}
         </div>
@@ -46,7 +46,7 @@ export function Footer() {
       <div className="mx-auto max-w-6xl px-6 py-8">
         <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
           <p className="text-[10px] font-mono tracking-[0.15em] text-[rgba(232,221,208,0.7)] uppercase">
-            &copy; {new Date().getFullYear()} THE_ARTIFACT &mdash; Construido con Arquitectura IA
+            &copy; {new Date().getFullYear()} PORTFOLIO &mdash; Construido con Arquitectura IA
           </p>
 
           {/* Social SVG icons */}
