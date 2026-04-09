@@ -17,7 +17,7 @@ const features: Feature[] = [
     description:
       "Full-stack applications built with modern frameworks. Next.js, React, and TypeScript for interfaces that perform as good as they look.",
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#d94f3d]">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#c41e3a]">
         <path d="M12 2L2 7l10 5 10-5-10-5z" />
         <path d="M2 17l10 5 10-5" />
         <path d="M2 12l10 5 10-5" />
@@ -30,7 +30,7 @@ const features: Feature[] = [
     description:
       "LLM-powered features, agent architectures, and MCP integrations that bring intelligence to every layer of your stack.",
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#d94f3d]">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#c41e3a]">
         <circle cx="12" cy="12" r="3" />
         <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
       </svg>
@@ -42,7 +42,7 @@ const features: Feature[] = [
     description:
       "End-to-end product development from concept to launch. Electron apps, dashboards, and SaaS platforms with AI at their core.",
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#d94f3d]">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#c41e3a]">
         <rect width="20" height="14" x="2" y="5" rx="2" />
         <path d="M2 10h20" />
       </svg>
@@ -54,7 +54,7 @@ const features: Feature[] = [
     description:
       "System design and technical consulting. API architectures, database schemas, and infrastructure that scales with your ambitions.",
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#d94f3d]">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#c41e3a]">
         <path d="M3 3h18v18H3z" />
         <path d="M3 9h18M9 21V9" />
       </svg>
@@ -82,7 +82,7 @@ export default function FeaturesCards() {
         distortion: 0.2,
         swirl: 0.9,
         swirlIterations: 12,
-        shape: "stripes" as const,
+        shape: "dots" as const,
         shapeScale: 0.12,
         colors: ["hsl(15, 60%, 5%)", "hsl(20, 70%, 10%)", "hsl(12, 50%, 7%)", "hsl(18, 80%, 15%)"],
       },
@@ -102,7 +102,7 @@ export default function FeaturesCards() {
         distortion: 0.22,
         swirl: 0.8,
         swirlIterations: 15,
-        shape: "edge" as const,
+        shape: "dots" as const,
         shapeScale: 0.09,
         colors: ["hsl(340, 60%, 5%)", "hsl(345, 70%, 10%)", "hsl(335, 50%, 7%)", "hsl(350, 80%, 15%)"],
       },
@@ -114,7 +114,7 @@ export default function FeaturesCards() {
     <section id="services" className="py-28" style={{ background: "transparent" }}>
       <div className="mx-auto max-w-6xl px-6">
         <div className="mb-16">
-          <div className="text-[10px] font-mono tracking-[0.3em] text-[#d94f3d] uppercase mb-3">
+          <div className="text-[10px] font-mono tracking-[0.3em] text-[#c41e3a] uppercase mb-3">
             {"// SERVICES"}
           </div>
           <h2 className="font-heading text-4xl font-bold text-[#e8ddd0] chiseled mb-3">
@@ -144,7 +144,7 @@ export default function FeaturesCards() {
                     distortion={shaderConfig.distortion}
                     swirl={shaderConfig.swirl}
                     swirlIterations={shaderConfig.swirlIterations}
-                    shape={shaderConfig.shape}
+                    shape={shaderConfig.shape as any}
                     shapeScale={shaderConfig.shapeScale}
                     scale={1}
                     rotation={0}
@@ -167,7 +167,7 @@ export default function FeaturesCards() {
                     </p>
                     <a
                       href={feature.link}
-                      className="inline-flex items-center gap-2 text-[10px] font-mono tracking-[0.2em] text-[#d94f3d] hover:text-[#d94f3d] transition-colors uppercase"
+                      className="inline-flex items-center gap-2 text-[10px] font-mono tracking-[0.2em] text-[#c41e3a] hover:text-[#d94f3d] transition-colors uppercase"
                     >
                       VIEW_DETAILS →
                     </a>
