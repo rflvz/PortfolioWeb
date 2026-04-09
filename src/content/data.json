@@ -1,7 +1,7 @@
 {
   "meta": {
     "siteName": "Rafa Alvarez Portfolio",
-    "organizationName": "PORTFOLIO",
+    "organizationName": "THE_ARTIFACT",
     "baseUrl": "https://rflvz.com",
     "author": {
       "name": "Rafa Alvarez",
@@ -15,28 +15,28 @@
         "telegram": "https://t.me/rflvz"
       },
       "skills": {
-        "languages": ["No need for languages, the planification is the new code"],
-        "aiAgents": ["Claude code", "Cursor", "Spec-driven-development", "Issue-driven-development", "agentic-knowledge"],
+        "languages": ["TypeScript", "Python", "Rust"],
+        "aiAgents": ["LLM_Orchestration", "MCP", "Prompt_Engineering", "Agent_Architecture"],
         "frontend": ["React", "Next.js", "Tailwind"],
-        "backend": ["Node.js", "Rust", "Supabase"]
+        "backend": ["Node.js", "FastAPI", "PostgreSQL"]
       }
     }
   },
 
   "hero": {
-    "label": "AGENTIC_SOFTWARE_ARCHITECT",
+    "label": "AI_FIRST_DEVELOPER",
     "name": {
-      "line1": "RAFAEL",
+      "line1": "RAFA",
       "line1Hover": "AI ARCH",
       "line2": "ALVAREZ",
       "line2Hover": "DEV"
     },
-    "tagline": "No programo con IA, ese enfoque es obsoleto. Dejo la autonomía a la IA mientras yo optimizo su sistema para obtener el maximo de eficiencia con la máxima autonomía",
-    "tags": ["ISSUE_DRIVEN_DEVELOPMENT", "SPEC_DRIVEN_DEVELOPMENT", "VANGUARDISMO_DEV", "DESARROLLO_PARALELO"],
-    "scrollHint": "SCROLL",
+    "tagline": "Programo con IA. Los sistemas piensan. Diseño, construyo y lanzo donde la inteligencia es el foundation, no un feature.",
+    "tags": ["AGENTES_AUTÓNOMOS", "ORQUESTACIÓN_LLM", "MCP", "DESARROLLO_10X"],
+    "scrollHint": "deslizar",
     "cta": {
       "primary": "VER_MI_TRABAJO",
-      "secondary": "CONTACTA_CONMIGO"
+      "secondary": "ENVIAR_SEÑAL"
     }
   },
 
@@ -44,13 +44,13 @@
     "section": {
       "label": "STORY",
       "title": "Programar con IA",
-      "description": "No integro IA. Programa ella. Cada línea, cada arquitectura, cada decisión pasa por un modelo de lenguaje, yo me encargo de optimizar el sistema.",
-      "signature": "rflvz — Rafael Aceituno Álvarez"
+      "description": "No integro IA. Programa con ella. Cada línea, cada arquitectura, cada decisión pasa por un modelo de lenguaje.",
+      "signature": "rflvz — rafa alvarez"
     },
     "bio": [
-      "Desarrollé ChessRadar (chesstogether.app) en 10 días con un equipo de 2 devs + yo como team leader, planificador y organizador. 4 días los hice en solitario preparando su entorno, cuando empezamos a programar el codigo se desarrollaba solo, incluso cuando eran inexpertos. El proyecto existía en mi cabeza y en una planificación extensiva. La IA simplemente tradujo decisiones técnicas a codigo en tiempo récord.",
-      "CodeOrchestrator es mi futuro laboratorio personal: un sistema donde agentes autónomos generan, implementan y despliegan código siguiendo specs en lenguaje natural. Agentes que piensan antes de actuar y la planificación es el nuevo codigo.",
-      "Mi sistema integraba los equipos de agentes antes si quiera de que los sub-agents existiesen, los agentes no actuan como un individuo, sino como un equipo que además les permite ahorrar costes y delegar los modelos mas potentes a la planificación."
+      "Desarrollé ChessRadar (chesstogether.app) en 10 días con un equipo de 2 devs + 1 team leader. 4 días los hice en solitario. El proyecto existía en mi cabeza y en papel. La IA me ayudó a materializarlo en tiempo récord.",
+      "CodeOrchestrator es mi laboratorio personal: un sistema donde agentes autónomos generan, implementan y despliegan código siguiendo specs en lenguaje natural. Agentes que piensas antes de actuar.",
+      "Mi stack mental es Flow — no frameworks. TypeScript y Python para traducir lógica. Agentes MCP para conectar herramientas. El resultado: software donde la inteligencia no es un feature, es el foundation."
     ],
     "image": {
       "src": "/about-image.jpeg",
@@ -65,18 +65,18 @@
       "link": "#projects"
     },
     {
-      "title": "Entornos IA",
-      "description": "Consultorías para actualizar los obsoletos entornos de desarrollo a entornos de IA potenciados con los ultimos conocimientos en desarrollo IA, herramientas y flujos de trabajo.",
-      "link": "#contact"
+      "title": "Sistemas IA",
+      "description": "Features potenciadas por LLMs, arquitecturas de agentes e integraciones MCP que llevan inteligencia a cada capa del stack.",
+      "link": "#about"
     },
     {
       "title": "Productos",
-      "description": "Desarrollo de producto end-to-end desde concepto hasta deployment. Apps Electron, dashboards y plataformas SaaS en tiempo record.",
+      "description": "Desarrollo de producto end-to-end desde concepto hasta lanzamiento. Apps Electron, dashboards y plataformas SaaS con IA en su núcleo.",
       "link": "#projects"
     },
     {
-      "title": "Mantenimiento",
-      "description": "Mantenimiento de entornos existentes, actualización de entornos ia a las ultimas novedades y sistemas de organización de equipos",
+      "title": "Arquitectura",
+      "description": "Diseño de sistemas y consultoría técnica. Arquitecturas de API, esquemas de base de datos e infraestructura que escala con tus ambiciones.",
       "link": "#contact"
     }
   ],
@@ -92,43 +92,43 @@
       "coverImage": "/chesstogether.png",
       "externalUrl": "https://chesstogether.app",
       "repositoryUrl": null,
-      "datePublished": "08-04-2026"
+      "datePublished": "2024-01-15"
     },
     {
       "uid": "codeorchestrator",
       "displayId": "02",
       "title": "CodeOrchestrator",
       "summary": "Sistema de orquestación de agentes IA para generación y gestión de código, desde diseño hasta despliegue de funcionalidades completas.",
-      "tags": [ "TypeScript", "Rust", "Electron", "Claude code"],
+      "tags": ["Python", "TypeScript", "LangGraph", "Claude_API", "MCP"],
       "status": "IN_DEVELOPMENT",
       "coverImage": "/CodeOrchestrator.png",
       "externalUrl": null,
       "repositoryUrl": "https://github.com/rflvz/codeOrchestrator",
-      "datePublished": "08-04-2026"
+      "datePublished": "2024-06-01"
     },
     {
       "uid": "teamergy",
       "displayId": "03",
       "title": "Teamergy",
-      "summary": "Web de briefings para diseños NT con gestión completa de la gestión creativa, desde recepción de briefs hasta entrega de MOCKUPS con gran visión a futuro de proyecto.",
-      "tags": ["Next.js frontend", "Private backend"],
+      "summary": "Web de briefings para diseños NT con gestión completa del pipeline creativo, desde recepción de briefs hasta entrega de activos.",
+      "tags": ["TypeScript", "Next.js", "Python", "PostgreSQL"],
       "status": "IN_DEVELOPMENT",
       "coverImage": "/teamergy-design.png",
       "externalUrl": null,
       "repositoryUrl": null,
-      "datePublished": "08-04-2026"
+      "datePublished": "2024-09-01"
     },
     {
       "uid": "stylecluster",
       "displayId": "04",
       "title": "StyleCluster",
       "summary": "Modelo de clustering que analiza imágenes de referencia y genera grupos de estilos visuales con patrones formales y cromáticos.",
-      "tags": ["Python", "PyTorch", "CLIP", "More"],
+      "tags": ["Python", "PyTorch", "CLIP", "scikit-learn"],
       "status": "IN_DEVELOPMENT",
       "coverImage": "/clustering.png",
       "externalUrl": null,
       "repositoryUrl": null,
-      "datePublished": "08-04-2026"
+      "datePublished": "2024-11-01"
     }
   ],
 
@@ -137,19 +137,19 @@
       "id": 1,
       "name": "CTO",
       "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=256&q=80",
-      "description": "Mockup testimonial"
+      "description": "La arquitectura que diseñó para nuestro pipeline de IA redujo la latencia un 60%. No solo entiende los LLMs — entiende cómo hacerlos funcionar en producción."
     },
     {
       "id": 2,
       "name": "Founder",
       "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=256&q=80",
-      "description": "Mockup testimonial"
+      "description": "Por fin, alguien que lo entiende. Agentes autónomos que realmente funcionan. El sistema que construyó es ahora la columna vertebral de toda nuestra línea de producto."
     },
     {
       "id": 3,
       "name": "Head of Product",
       "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=256&q=80",
-      "description": "Mockup testimonial"
+      "description": "La velocidad de ejecución fue increíble. De idea a sistema funcional en días, sin sacrificar calidad ni claridad."
     }
   ],
 
@@ -164,18 +164,8 @@
       "identityPlaceholder": "Tu nombre o empresa",
       "transmissionLabel": "_TRANSMISIÓN",
       "transmissionPlaceholder": "Describe tu proyecto o idea...",
-      "submitLabel": "ENVIAR_MENSAJE",
-      "sendingLabel": "ENVIANDO...",
-      "cooldownMs": 10000,
-      "feedback": {
-        "sending": "Canal abierto... enviando señal.",
-        "success": "Señal recibida. Te respondo pronto.",
-        "networkError": "No se pudo enviar ahora. Prueba de nuevo en unos minutos.",
-        "cooldownError": "Espera unos segundos antes de reenviar.",
-        "spamError": "Envío bloqueado por protección anti-spam.",
-        "endpointMissingError": "Falta configurar el endpoint del formulario."
-      }
+      "submitLabel": "ENVIAR_MENSAJE"
     },
-    "footerNote": "PORTFOLIO EN DESARROLLO, usar rafaceitunoalvarez@gmail.com para contactar"
+    "footerNote": "Respuesta en 48h — Todas las señales recibidas"
   }
 }

@@ -13,20 +13,20 @@ interface Feature {
 }
 
 const icons = [
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#d94f3d]">
+  <svg key="web" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#d94f3d]">
     <path d="M12 2L2 7l10 5 10-5-10-5z" />
     <path d="M2 17l10 5 10-5" />
     <path d="M2 12l10 5 10-5" />
   </svg>,
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#d94f3d]">
+  <svg key="ai" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#d94f3d]">
     <circle cx="12" cy="12" r="3" />
     <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
   </svg>,
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#d94f3d]">
+  <svg key="products" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#d94f3d]">
     <rect width="20" height="14" x="2" y="5" rx="2" />
     <path d="M2 10h20" />
   </svg>,
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#d94f3d]">
+  <svg key="arch" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#d94f3d]">
     <path d="M3 3h18v18H3z" />
     <path d="M3 9h18M9 21V9" />
   </svg>,
@@ -58,7 +58,7 @@ export default function FeaturesCards() {
         distortion: 0.2,
         swirl: 0.9,
         swirlIterations: 12,
-        shape: "dots" as const,
+        shape: "stripes" as const,
         shapeScale: 0.12,
         colors: ["hsl(15, 60%, 5%)", "hsl(20, 70%, 10%)", "hsl(12, 50%, 7%)", "hsl(18, 80%, 15%)"],
       },
@@ -78,7 +78,7 @@ export default function FeaturesCards() {
         distortion: 0.22,
         swirl: 0.8,
         swirlIterations: 15,
-        shape: "dots" as const,
+        shape: "edge" as const,
         shapeScale: 0.09,
         colors: ["hsl(340, 60%, 5%)", "hsl(345, 70%, 10%)", "hsl(335, 50%, 7%)", "hsl(350, 80%, 15%)"],
       },
@@ -120,7 +120,7 @@ export default function FeaturesCards() {
                     distortion={shaderConfig.distortion}
                     swirl={shaderConfig.swirl}
                     swirlIterations={shaderConfig.swirlIterations}
-                    shape={shaderConfig.shape as any}
+                    shape={shaderConfig.shape}
                     shapeScale={shaderConfig.shapeScale}
                     scale={1}
                     rotation={0}

@@ -13,8 +13,8 @@ export function Contact() {
   const [statusMessage, setStatusMessage] = useState("");
   const lastSubmitAtRef = useRef(0);
 
+  const COOLDOWN_MS = 10000;
   const formEndpoint = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT;
-  const cooldownMs = content.contact.form.cooldownMs;
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -24,9 +24,9 @@ export function Contact() {
     }
 
     const now = Date.now();
-    if (now - lastSubmitAtRef.current < cooldownMs) {
+    if (now - lastSubmitAtRef.current < COOLDOWN_MS) {
       setStatus("error");
-      setStatusMessage(content.contact.form.feedback.cooldownError);
+      setStatusMessage("Espera unos segundos antes de reenviar.");
       return;
     }
 
@@ -34,18 +34,18 @@ export function Contact() {
     const trap = (formData.get("company") || "").toString().trim();
     if (trap.length > 0) {
       setStatus("error");
-      setStatusMessage(content.contact.form.feedback.spamError);
+      setStatusMessage("Envío bloqueado por protección anti-spam.");
       return;
     }
 
     if (!formEndpoint) {
       setStatus("error");
-      setStatusMessage(content.contact.form.feedback.endpointMissingError);
+      setStatusMessage("Falta configurar el endpoint del formulario.");
       return;
     }
 
     setStatus("sending");
-    setStatusMessage(content.contact.form.feedback.sending);
+    setStatusMessage("Canal abierto... enviando señal.");
 
     try {
       const identity = (formData.get("identity") || "").toString().trim();
@@ -69,10 +69,10 @@ export function Contact() {
       lastSubmitAtRef.current = now;
       e.currentTarget.reset();
       setStatus("success");
-      setStatusMessage(content.contact.form.feedback.success);
+      setStatusMessage("Señal recibida. Te respondo pronto.");
     } catch {
       setStatus("error");
-      setStatusMessage(content.contact.form.feedback.networkError);
+      setStatusMessage("No se pudo enviar ahora. Prueba de nuevo en unos minutos.");
     }
   };
 
@@ -153,7 +153,7 @@ export function Contact() {
                   className="pt-2 flex justify-center"
                 >
                   <LiquidMetalButton
-                    label={status === "sending" ? content.contact.form.sendingLabel : content.contact.form.submitLabel}
+                    label={status === "sending" ? "ENVIANDO..." : content.contact.form.submitLabel}
                     type="submit"
                     width={220}
                   />
