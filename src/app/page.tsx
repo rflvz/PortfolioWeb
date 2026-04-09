@@ -4,10 +4,34 @@ import { Services } from "@/components/sections/Services";
 import { Projects } from "@/components/sections/Projects";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { Contact } from "@/components/sections/Contact";
+import {
+  buildWebPageSchema,
+  buildCollectionPageSchema,
+  buildArticleSchema,
+  PROJECTS_DATA,
+  buildReviewSchema,
+  TESTIMONIALS_DATA,
+} from "@/lib/seo/schemas";
+
+const jsonLdData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    buildWebPageSchema(),
+    buildCollectionPageSchema(),
+    ...PROJECTS_DATA.map(buildArticleSchema),
+    ...TESTIMONIALS_DATA.map(buildReviewSchema),
+  ],
+};
 
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLdData).replace(/</g, "\\u003c"),
+        }}
+      />
       <Hero />
       <About />
       <Services />

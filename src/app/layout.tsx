@@ -4,6 +4,13 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { DynamicEtherealShadow } from "@/components/layout/DynamicEtherealShadow";
+import {
+  buildPersonSchema,
+  buildOrganizationSchema,
+  buildWebSiteSchema,
+  buildServiceSchema,
+  SERVICES_DATA,
+} from "@/lib/seo/schemas";
 
 const cinzel = Cinzel({
   variable: "--font-cinzel",
@@ -34,12 +41,26 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const person = buildPersonSchema();
+  const organization = buildOrganizationSchema();
+  const webSite = buildWebSiteSchema();
+  const services = SERVICES_DATA.map(buildServiceSchema);
+
   return (
     <html
       lang="es"
       className={`${cinzel.variable} ${ibmPlexMono.variable} h-full`}
     >
       <body className="min-h-full flex flex-col relative">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [person, organization, webSite, ...services],
+            }).replace(/</g, "\\u003c"),
+          }}
+        />
         <DynamicEtherealShadow />
         <div className="relative z-10">
           <Navbar />
