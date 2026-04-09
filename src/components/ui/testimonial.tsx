@@ -80,15 +80,15 @@ const TestimonialCarousel = React.forwardRef<HTMLDivElement, TestimonialCarousel
                 initial={{
                   scale: 0.88,
                   opacity: 0,
-                  y: isCurrentCard ? 0 : isPrevCard ? -8 : -14,
-                  rotate: isCurrentCard ? 0 : isPrevCard ? -6 : -11,
+                  y: isCurrentCard ? 0 : isPrevCard ? 8 : 16,
+                  rotate: isCurrentCard ? 0 : isPrevCard ? -2 : -4,
                 }}
                 animate={{
-                  scale: isCurrentCard ? 0.84 : isPrevCard ? 0.94 : 1.0,
-                  opacity: isCurrentCard ? 1 : isPrevCard ? 0.82 : 0.58,
+                  scale: isCurrentCard ? 1 : 0.95,
+                  opacity: isCurrentCard ? 1 : isPrevCard ? 0.75 : 0.55,
                   x: isCurrentCard ? exitX : 0,
-                  y: isCurrentCard ? 0 : isPrevCard ? -8 : -14,
-                  rotate: isCurrentCard ? exitX / 20 : isPrevCard ? -6 : -11,
+                  y: isCurrentCard ? 0 : isPrevCard ? 8 : 16,
+                  rotate: isCurrentCard ? exitX / 20 : isPrevCard ? -2 : -4,
                 }}
                 transition={{
                   type: "spring",
