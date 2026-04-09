@@ -10,11 +10,11 @@ const linkVariants = {
 };
 
 const navLinks = [
-  { href: "#about", label: "STORY" },
-  { href: "#services", label: "SERVICES" },
-  { href: "#projects", label: "CODE" },
-  { href: "#testimonials", label: "VOICES" },
-  { href: "#contact", label: "SIGNAL" },
+  { href: "#about", label: "SOBRE_MÍ" },
+  { href: "#services", label: "SERVICIOS" },
+  { href: "#projects", label: "PROYECTOS" },
+  { href: "#testimonials", label: "TESTIMONIOS" },
+  { href: "#contact", label: "CONTACTO" },
 ];
 
 export function Navbar() {
@@ -36,7 +36,7 @@ export function Navbar() {
           href="#"
           className="font-heading text-sm font-semibold tracking-[0.3em] text-[#e8ddd0] hover:text-[#d94f3d] transition-colors uppercase chiseled"
         >
-          THE_ARTIFACT
+          RAFA_ALVAREZ
         </a>
 
         {/* Desktop */}
@@ -59,7 +59,7 @@ export function Navbar() {
               </motion.li>
             ))}
           </ul>
-          <LiquidMetalButton label="INITIATE_CONTACT" href="#contact" width={180} />
+          <LiquidMetalButton label="INICIAR_CONTACTO" href="#contact" width={185} />
         </div>
 
         {/* Mobile toggle */}

@@ -3,6 +3,7 @@
 import type React from "react"
 
 import { Warp } from "@paper-design/shaders-react"
+import { content } from "@/content"
 
 interface Feature {
   title: string
@@ -11,57 +12,32 @@ interface Feature {
   link: string
 }
 
-const features: Feature[] = [
-  {
-    title: "Web Development",
-    description:
-      "Full-stack applications built with modern frameworks. Next.js, React, and TypeScript for interfaces that perform as good as they look.",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#c41e3a]">
-        <path d="M12 2L2 7l10 5 10-5-10-5z" />
-        <path d="M2 17l10 5 10-5" />
-        <path d="M2 12l10 5 10-5" />
-      </svg>
-    ),
-    link: "#projects",
-  },
-  {
-    title: "AI Systems",
-    description:
-      "LLM-powered features, agent architectures, and MCP integrations that bring intelligence to every layer of your stack.",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#c41e3a]">
-        <circle cx="12" cy="12" r="3" />
-        <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
-      </svg>
-    ),
-    link: "#about",
-  },
-  {
-    title: "Products",
-    description:
-      "End-to-end product development from concept to launch. Electron apps, dashboards, and SaaS platforms with AI at their core.",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#c41e3a]">
-        <rect width="20" height="14" x="2" y="5" rx="2" />
-        <path d="M2 10h20" />
-      </svg>
-    ),
-    link: "#projects",
-  },
-  {
-    title: "Architecture",
-    description:
-      "System design and technical consulting. API architectures, database schemas, and infrastructure that scales with your ambitions.",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#c41e3a]">
-        <path d="M3 3h18v18H3z" />
-        <path d="M3 9h18M9 21V9" />
-      </svg>
-    ),
-    link: "#contact",
-  },
-]
+const icons = [
+  <svg key="web" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#d94f3d]">
+    <path d="M12 2L2 7l10 5 10-5-10-5z" />
+    <path d="M2 17l10 5 10-5" />
+    <path d="M2 12l10 5 10-5" />
+  </svg>,
+  <svg key="ai" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#d94f3d]">
+    <circle cx="12" cy="12" r="3" />
+    <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
+  </svg>,
+  <svg key="products" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#d94f3d]">
+    <rect width="20" height="14" x="2" y="5" rx="2" />
+    <path d="M2 10h20" />
+  </svg>,
+  <svg key="arch" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#d94f3d]">
+    <path d="M3 3h18v18H3z" />
+    <path d="M3 9h18M9 21V9" />
+  </svg>,
+];
+
+const features: Feature[] = content.services.map((service, i) => ({
+  title: service.title,
+  description: service.description,
+  icon: icons[i],
+  link: service.link,
+}));
 
 export default function FeaturesCards() {
   const getShaderConfig = (index: number) => {
@@ -82,7 +58,7 @@ export default function FeaturesCards() {
         distortion: 0.2,
         swirl: 0.9,
         swirlIterations: 12,
-        shape: "dots" as const,
+        shape: "stripes" as const,
         shapeScale: 0.12,
         colors: ["hsl(15, 60%, 5%)", "hsl(20, 70%, 10%)", "hsl(12, 50%, 7%)", "hsl(18, 80%, 15%)"],
       },
@@ -102,7 +78,7 @@ export default function FeaturesCards() {
         distortion: 0.22,
         swirl: 0.8,
         swirlIterations: 15,
-        shape: "dots" as const,
+        shape: "edge" as const,
         shapeScale: 0.09,
         colors: ["hsl(340, 60%, 5%)", "hsl(345, 70%, 10%)", "hsl(335, 50%, 7%)", "hsl(350, 80%, 15%)"],
       },
@@ -114,14 +90,14 @@ export default function FeaturesCards() {
     <section id="services" className="py-28" style={{ background: "transparent" }}>
       <div className="mx-auto max-w-6xl px-6">
         <div className="mb-16">
-          <div className="text-[10px] font-mono tracking-[0.3em] text-[#c41e3a] uppercase mb-3">
+          <div className="text-[10px] font-mono tracking-[0.3em] text-[#d94f3d] uppercase mb-3">
             {"// SERVICES"}
           </div>
           <h2 className="font-heading text-4xl font-bold text-[#e8ddd0] chiseled mb-3">
-            What I Build
+            Qué Construyo
           </h2>
           <p className="text-sm font-mono text-[rgba(232,221,208,0.6)] max-w-xl">
-            From interfaces to intelligent systems — design, development, and the architecture that connects them.
+            De interfaces a sistemas inteligentes — diseño, desarrollo y la arquitectura que los conecta.
           </p>
         </div>
 
@@ -144,7 +120,7 @@ export default function FeaturesCards() {
                     distortion={shaderConfig.distortion}
                     swirl={shaderConfig.swirl}
                     swirlIterations={shaderConfig.swirlIterations}
-                    shape={shaderConfig.shape as any}
+                    shape={shaderConfig.shape}
                     shapeScale={shaderConfig.shapeScale}
                     scale={1}
                     rotation={0}
@@ -167,9 +143,9 @@ export default function FeaturesCards() {
                     </p>
                     <a
                       href={feature.link}
-                      className="inline-flex items-center gap-2 text-[10px] font-mono tracking-[0.2em] text-[#c41e3a] hover:text-[#d94f3d] transition-colors uppercase"
+                      className="inline-flex items-center gap-2 text-[10px] font-mono tracking-[0.2em] text-[#d94f3d] hover:text-[#d94f3d] transition-colors uppercase"
                     >
-                      VIEW_DETAILS →
+                      VER_DETALLES →
                     </a>
                   </div>
                 </div>

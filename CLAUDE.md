@@ -4,7 +4,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with th
 
 ## Project Overview
 
-PortfolioWeb is the personal portfolio for Rafa Alvarez (rflvz), an AI Architecture Developer. Built with Next.js 16, TypeScript, and Tailwind CSS v4. Design system: **"The Analog Artifact"** (Iron and Ash) — a "Digital Zine" aesthetic with cinematic tones.
+**Owner**: Rafa Alvarez (rflvz) — AI Architecture Developer
+**Stack**: Next.js 16.2.2, TypeScript, React 19, Tailwind CSS v4, Framer Motion
+**Purpose**: Portfolio website with "Digital Zine" aesthetic — "The Analog Artifact" design system
 
 ## Development Commands
 
@@ -17,45 +19,155 @@ npm run lint         # Run ESLint
 
 ## Architecture
 
-- **Framework**: Next.js 16 (App Router) with `src/` directory
-- **Styling**: Tailwind CSS v4 — configured via CSS (`@theme inline` in `globals.css`), NOT via `tailwind.config.ts`
-- **Fonts**: Cinzel (headings/serif), IBM Plex Mono (body/code) via `next/font/google`
+### Framework & Build
+- **Next.js 16** (App Router) with `src/` directory
+- **TypeScript** strict mode
+- **Tailwind CSS v4** — configured via CSS `@theme inline` in `globals.css`, NOT via `tailwind.config.ts`
+- **No Tailwind config file** — all tokens live in `globals.css`
 
-### Component Organization
+### Fonts (next/font/google)
+- `Cinzel` — headings/serif (weights: 400, 600, 700, 900)
+- `IBM_Plex_Mono` — body/code (weights: 300, 400, 500, 600)
+- Font variables: `--font-heading`, `--font-sans`, `--font-mono`
+
+### Key Dependencies
+- `framer-motion` — animations (Hero, Navbar, UI components)
+- `@paper-design/shaders` + `@paper-design/shaders-react` — GPU shader effects (transpiled via `next.config.ts`)
+- `clsx` + `tailwind-merge` — className utility (`cn()` helper in `src/lib/utils.ts`)
+- `lucide-react` — icons
+- `@radix-ui/react-slot` — polymorphic component pattern
+- `class-variance-authority` — component variant utilities
+
+### Color Tokens (defined in `globals.css` @theme inline)
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--color-background` | `#140c0f` | Page background (dark charcoal) |
+| `--color-surface` | `#141008` | Card/panel backgrounds |
+| `--color-surface-variant` | `#1c1510` | Elevated surfaces |
+| `--color-foreground` | `#e8ddd0` | Primary text (warm white) |
+| `--color-foreground-muted` | `rgba(232,221,208,0.55)` | Secondary text |
+| `--color-accent` | `#c41e3a` | Carmine red — labels, IDs, primary accents |
+| `--color-accent-orange` | `#d94f3d` | Warm red — highlights, hover states |
+| `--color-border` | `#3a2a1a` | Subtle borders |
+
+## File Structure
 
 ```
-src/components/
-  layout/     → Navbar, Footer (persistent layout components)
-  sections/   → Hero, About, Projects, Contact (landing page sections)
-  ui/         → Button, Card, Badge, SectionHeading (reusable primitives)
+src/
+├── app/
+│   ├── globals.css        # Tailwind v4 config, CSS utilities, animations
+│   ├── layout.tsx        # Root layout (fonts, Navbar, Footer, metadata)
+│   ├── page.tsx          # Home page (Hero → About → Services → Projects → TechMarquee → Testimonials → Contact)
+│   └── card-stack-demo/  # Demo pages (dev-only)
+├── components/
+│   ├── layout/
+│   │   ├── Navbar.tsx          # "use client" — mobile menu toggle
+│   │   ├── Footer.tsx
+│   │   └── DynamicEtherealShadow.tsx
+│   ├── sections/
+│   │   ├── Hero.tsx           # "use client" — parallax scroll, TextGlitch
+│   │   ├── About.tsx
+│   │   ├── Services.tsx
+│   │   ├── Projects.tsx
+│   │   ├── Testimonials.tsx
+│   │   └── Contact.tsx
+│   └── ui/
+│       ├── Button.tsx
+│       ├── Card.tsx
+│       ├── Badge.tsx
+│       ├── LiquidButton.tsx
+│       ├── LiquidMetalButton.tsx
+│       ├── SectionHeading.tsx
+│       ├── AnimateIn.tsx
+│       ├── MotionContainer.tsx
+│       ├── InputField.tsx
+│       ├── TextGlitch.tsx
+│       ├── EtherealShadowBackground.tsx
+│       └── [feature-shader-cards, card-stack, spotlight-card, testimonial, demo, etc.]
+└── lib/
+    └── utils.ts          # cn() helper
 ```
 
-### Design System: "The Analog Artifact"
+## Component Conventions
 
-- **Theme**: Dark cinematic — background `#140c0f`, no solid black
-- **Palette**:
-  - `--color-accent: #c41e3a` (carmine red — use for labels, IDs, accents)
-  - `--color-accent-orange: #d94f3d` (warm red — use for highlights, hovers)
-  - `--color-foreground: #e8ddd0` (warm white — primary text, always high contrast)
-- **Background**: Grain overlay (SVG noise at 6% opacity) + vignette radial-gradient
-- **Cursor**: `crosshair` throughout
-- **Corners**: `border-radius: 0px` everywhere (square aesthetic)
-- **Typography**: Chiseled text-shadow on headlines, monospace for all body/tech text
-- **Dividers**: Scratched gradient lines (no solid borders)
+### Server vs Client Components
+- **Default**: Server Components (no "use client")
+- **Exceptions** (require client):
+  - `Navbar.tsx` — mobile menu state (`useState`)
+  - `Hero.tsx` — scroll parallax (`useScroll`, `useTransform`)
+  - `src/app/page.tsx` — uses framer-motion variants
+  - UI components using Framer Motion or React hooks
 
-### Design Rules
+### ClassName Utilities
+Use `cn()` from `@/lib/utils` for conditional classes:
+```tsx
+import { cn } from "@/lib/utils";
+<div className={cn("base-class", isActive && "active-class", className)} />
+```
 
-- **No line borders** to define sections — use background color shifts or texture changes
+### Animation Patterns
+- **Easing**: `const EASE_OUT = [0.16, 1, 0.3, 1] as [number, number, number, number]`
+- **Variants**: Stagger children with `delayChildren` and `staggerChildren`
+- **Transitions**: Always use `ease: EASE_OUT` for smooth deceleration
+
+## Design System: "The Analog Artifact"
+
+### Visual Rules
+- **Cursor**: `crosshair` everywhere (set on `body`)
+- **Corners**: `border-radius: 0px` — square aesthetic throughout
+- **No solid borders** to define sections — use background color shifts
 - **No pure white text** — always `rgba(232,221,208,X)` or `#e8ddd0`
-- **Glassmorphism** on floating elements (navbar, tooltips): `backdrop-filter: blur(12px)`
-- **Text contrast**: Body text minimum `rgba(232,221,208,0.75)` (WCAG AA)
+- **Grain overlay + vignette** — CSS `::before`/`::after` on body
 
-### Key Patterns
+### CSS Utility Classes
+- `.chiseled` — Chiseled text-shadow on headlines
+- `.scratched-divider` — Gradient line with carmine center
+- `.iron-plate` — Card with metallic gradient + inset glow
+- `.card-hover` — Hover lift with border glow
+- `.text-shimmer-hover` — Text shimmer on hover
+- `.glow-pulse` — Pulsing glow animation
+- `.animate-float` — Floating animation
+- `.torn-top` — Jagged clip-path top edge
 
-- All sections are **Server Components** by default. Only `Navbar.tsx` uses `"use client"` for mobile menu toggle.
-- Color tokens are defined once in `globals.css` `@theme inline` block
-- Grain overlay and vignette are CSS `::before`/`::after` on `body`
+### Glassmorphism
+Floating elements (navbar, tooltips): `backdrop-filter: blur(12px)` with gradient backgrounds
 
-### Design Tool
+### Text Contrast
+Body text minimum `rgba(232,221,208,0.75)` (WCAG AA compliance)
 
-Google Stitch MCP is configured globally. Stitch project: **"PortfolioWeb"** (ID: `718002708572066993`). The design uses the "Iron and Ash / The Analog Artifact" system with carmine (#c41e3a) and warm red (#d94f3d) accents.
+## Key Patterns
+
+### Section Rendering
+All page sections are composed in `src/app/page.tsx` as a flat list of Server Components.
+
+### Scroll Animations
+Hero uses `framer-motion` `useScroll` + `useTransform` for parallax. Components can use `AnimateIn.tsx` for intersection-based reveals.
+
+### Shader Components
+Paper-design shaders are transpiled via `next.config.ts` `transpilePackages`. Used in `feature-shader-cards.tsx` and similar GPU-accelerated visual effects.
+
+### Marquee
+Tech stack marquee uses CSS animation (`@keyframes marquee`) with duplicated content for seamless loop.
+
+## Styling Approach
+
+**Tailwind v4 with CSS-first configuration**:
+- All design tokens in `globals.css` `@theme inline` block
+- NO `tailwind.config.ts` file
+- CSS custom properties (variables) for colors, fonts, spacing
+- Custom CSS classes for complex effects (grain, vignette, scratched lines)
+
+## Dev Origin Config
+
+`next.config.ts` allows `192.168.1.100` as a dev origin for local network access.
+
+## SEO & Metadata
+
+Root layout exports `Metadata` with Spanish title/description. HTML lang is `"es"`.
+
+## Design Tool
+
+Google Stitch MCP is configured globally.
+- **Project**: PortfolioWeb (ID: `718002708572066993`)
+- **Design System**: "Iron and Ash / The Analog Artifact" with carmine (#c41e3a) and warm red (#d94f3d) accents

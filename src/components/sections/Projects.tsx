@@ -6,71 +6,16 @@ import { LiquidMetalButton } from "@/components/ui/LiquidMetalButton";
 import { CardStack, CardStackControls, CardStackItem } from "@/components/ui/card-stack";
 import { Badge, BadgeDot } from "@/components/ui/Badge";
 import { GlowCard } from "@/components/ui/spotlight-card";
-
-type ProjectCmsItem = {
-  uid: string;
-  displayId: string;
-  status: "LIVE" | "IN_DEVELOPMENT";
-  title: string;
-  summary: string;
-  coverImage: string;
-  tags: string[];
-  externalUrl?: string;
-  repositoryUrl?: string;
-};
-
-const cmsProjects: ProjectCmsItem[] = [
-  {
-    uid: "chesstogether",
-    displayId: "01",
-    title: "ChessTogether",
-    summary:
-      "Plataforma multiplayer para ajedrez en tiempo real. 10 días de desarrollo con un equipo de 2 devs + 1 team leader — 4 días en solitario.",
-    tags: ["TypeScript", "Next.js", "React", "Supabase"],
-    coverImage: "/chesstogether.png",
-    status: "LIVE",
-    externalUrl: "https://chesstogether.app",
-  },
-  {
-    uid: "codeorchestrator",
-    displayId: "02",
-    title: "CodeOrchestrator",
-    summary:
-      "Sistema de orquestación de agentes IA para generación y gestión de código, desde diseño hasta despliegue de funcionalidades completas.",
-    tags: ["Python", "TypeScript", "LangGraph", "Claude_API", "MCP"],
-    coverImage: "/CodeOrchestrator.png",
-    status: "IN_DEVELOPMENT",
-    repositoryUrl: "https://github.com/rflvz/codeOrchestrator",
-  },
-  {
-    uid: "teamergy",
-    displayId: "03",
-    title: "Teamergy",
-    summary:
-      "Web de briefings para diseños NT con gestión completa del pipeline creativo, desde recepción de briefs hasta entrega de activos.",
-    tags: ["TypeScript", "Next.js", "Python", "PostgreSQL"],
-    coverImage: "/teamergy-design.png",
-    status: "IN_DEVELOPMENT",
-  },
-  {
-    uid: "stylecluster",
-    displayId: "04",
-    title: "StyleCluster",
-    summary:
-      "Modelo de clustering que analiza imágenes de referencia y genera grupos de estilos visuales con patrones formales y cromáticos.",
-    tags: ["Python", "PyTorch", "CLIP", "scikit-learn"],
-    coverImage: "/clustering.png",
-    status: "IN_DEVELOPMENT",
-  },
-];
+import { content } from "@/content";
 
 type ProjectStackCard = CardStackItem & { sourceUid: string };
 
-const tagToVariant = (tag: string): "primary" | "info" | "success" | "warning" | "secondary" => {
-  if (["TypeScript", "Next.js", "React"].includes(tag)) return "info";
+const tagToVariant = (tag: string): "primary" | "info" | "success" | "warning" | "secondary" | "destructive" => {
+  if (["TypeScript", "Next.js", "React", "Next.js frontend"].includes(tag)) return "info";
   if (["Python", "PyTorch", "CLIP", "scikit-learn"].includes(tag)) return "success";
-  if (["PostgreSQL", "Supabase"].includes(tag)) return "warning";
-  if (["LangGraph", "MCP", "Claude_API"].includes(tag)) return "primary";
+  if (["PostgreSQL", "Supabase", "Private backend"].includes(tag)) return "warning";
+  if (["LangGraph", "MCP", "Claude_API", "Claude code"].includes(tag)) return "primary";
+  if (["Rust", "Electron"].includes(tag)) return "destructive";
   return "secondary";
 };
 
@@ -85,20 +30,20 @@ export function Projects() {
 
   const stackItems = useMemo<ProjectStackCard[]>(
     () =>
-      cmsProjects.map((project) => ({
+      content.projects.map((project) => ({
         id: project.uid,
         sourceUid: project.uid,
         title: project.title,
         description: project.summary,
         imageSrc: project.coverImage,
-        href: project.externalUrl ?? project.repositoryUrl,
-        ctaLabel: project.externalUrl ? "VIEW WEB" : project.repositoryUrl ? "VIEW REPOSITORY" : "PRIVATE",
+        href: project.externalUrl ?? project.repositoryUrl ?? "",
+        ctaLabel: project.externalUrl ? "VER WEB" : project.repositoryUrl ? "VER REPOSITORIO" : "PRIVADO",
         tag: project.status,
       })),
     [],
   );
 
-  const activeProject = cmsProjects[activeIndex] ?? cmsProjects[0];
+  const activeProject = content.projects[activeIndex] ?? content.projects[0];
   const shouldLockScroll = false;
 
   useEffect(() => {
@@ -159,11 +104,11 @@ export function Projects() {
       <div className="mx-auto max-w-6xl px-6">
         <StaggerContainer className="mb-16" delay={0.1}>
           <StaggerItem>
-            <div className="text-[10px] font-mono tracking-[0.3em] text-[#c41e3a] uppercase mb-3">
+            <div className="text-[10px] font-mono tracking-[0.3em] text-[#d94f3d] uppercase mb-3">
               {"// CODE"}
             </div>
             <h2 className="font-heading text-4xl font-bold text-[#e8ddd0] chiseled mb-3">
-              Selected Work
+              Trabajo Seleccionado
             </h2>
             <p className="text-sm font-mono text-[rgba(232,221,208,0.6)] max-w-xl">
               Cada proyecto es una prueba de cómo la IA transforman el desarrollo de software desde el diseño hasta el deployment.
@@ -204,7 +149,7 @@ export function Projects() {
             className="rounded-2xl border border-[rgba(196,31,58,0.42)] bg-[linear-gradient(160deg,#2a1618_0%,#1d1113_52%,#140c0f_100%)] [--backdrop:rgba(29,17,19,0.92)] [--backup-border:rgba(196,31,58,0.42)] p-8"
           >
             <div className="flex items-center gap-4 mb-3">
-              <span className="text-[10px] font-mono tracking-[0.2em] text-[#c41e3a]">{activeProject.displayId}</span>
+              <span className="text-[10px] font-mono tracking-[0.2em] text-[#d94f3d]">{activeProject.displayId}</span>
               <div className="h-px flex-1 bg-[rgba(196,31,58,0.38)]" />
               <Badge
                 size="xs"
@@ -237,18 +182,18 @@ export function Projects() {
             <div className="mt-6 flex flex-wrap gap-4">
               {activeProject.externalUrl ? (
                 <LiquidMetalButton
-                  label="VISIT_SITE →"
+                  label="VISITAR_SITIO →"
                   href={activeProject.externalUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   width={175}
                 />
               ) : (
-                <span className="text-[10px] font-mono tracking-[0.2em] uppercase text-[rgba(232,221,208,0.55)]">PRIVATE</span>
+                <span className="text-[10px] font-mono tracking-[0.2em] uppercase text-[rgba(232,221,208,0.55)]">PRIVADO</span>
               )}
               {activeProject.repositoryUrl ? (
                 <LiquidMetalButton
-                  label="VIEW_REPOSITORY →"
+                  label="VER_REPOSITORIO →"
                   href={activeProject.repositoryUrl}
                   target="_blank"
                   rel="noopener noreferrer"

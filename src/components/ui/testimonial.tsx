@@ -51,10 +51,10 @@ const TestimonialCarousel = React.forwardRef<HTMLDivElement, TestimonialCarousel
     return (
       <div
         ref={ref}
-        className={cn("flex h-[28rem] w-full items-center justify-center", className)}
+        className={cn("flex h-[34rem] w-full items-center justify-center", className)}
         {...props}
       >
-        <div className="relative h-[24rem] w-full max-w-[28rem]">
+        <div className="relative h-[30rem] w-full max-w-[30rem]">
           {testimonials.map((testimonial, index) => {
             const isCurrentCard = index === currentIndex;
             const isPrevCard = index === (currentIndex + 1) % testimonials.length;
@@ -78,7 +78,7 @@ const TestimonialCarousel = React.forwardRef<HTMLDivElement, TestimonialCarousel
                 dragElastic={0.7}
                 onDragEnd={isCurrentCard ? handleDragEnd : undefined}
                 initial={{
-                  scale: 0.95,
+                  scale: 0.88,
                   opacity: 0,
                   y: isCurrentCard ? 0 : isPrevCard ? 8 : 16,
                   rotate: isCurrentCard ? 0 : isPrevCard ? -2 : -4,
@@ -126,7 +126,7 @@ const TestimonialCarousel = React.forwardRef<HTMLDivElement, TestimonialCarousel
                     <User className="h-10 w-10 text-[rgba(232,221,208,0.94)]" aria-hidden="true" />
                   </div>
                   <h3 className="text-2xl font-semibold text-[rgba(232,221,208,0.96)]">{testimonial.name}</h3>
-                  <p className="max-w-[26rem] text-center text-base leading-relaxed text-[rgba(232,221,208,0.82)]">
+                  <p className="max-w-[30rem] text-center text-sm leading-relaxed text-[rgba(232,221,208,0.82)]">
                     {testimonial.description}
                   </p>
                 </div>

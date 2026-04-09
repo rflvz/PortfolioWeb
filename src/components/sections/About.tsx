@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { MotionContainer, StaggerContainer, StaggerItem } from "@/components/ui/MotionContainer";
 import { Badge, BadgeDot } from "@/components/ui/Badge";
+import { content } from "@/content";
 
 const skillGroupVariants = {
   hidden: { opacity: 0 },
@@ -34,27 +35,40 @@ const bioVariants = {
 const skillGroups = [
   {
     label: "Lenguajes",
-    skills: ["TypeScript", "Python", "Rust"],
+    skills: content.meta.author.skills.languages,
   },
   {
     label: "IA / Agentes",
-    skills: ["LLM_Orchestration", "MCP", "Prompt_Engineering", "Agent_Architecture"],
+    skills: content.meta.author.skills.aiAgents,
   },
   {
     label: "Frontend",
-    skills: ["React", "Next.js", "Tailwind"],
+    skills: content.meta.author.skills.frontend,
   },
   {
     label: "Backend",
-    skills: ["Node.js", "FastAPI", "PostgreSQL"],
+    skills: content.meta.author.skills.backend,
   },
 ];
 
 const skillToVariant = (skill: string): "primary" | "info" | "success" | "warning" | "secondary" => {
   if (["TypeScript", "Next.js", "React", "Tailwind"].includes(skill)) return "info";
   if (["Python", "Rust", "Node.js", "FastAPI"].includes(skill)) return "success";
-  if (["PostgreSQL", "MCP"].includes(skill)) return "warning";
-  if (["LLM_Orchestration", "Prompt_Engineering", "Agent_Architecture"].includes(skill)) return "primary";
+  if (["PostgreSQL", "SQL", "MCP"].includes(skill)) return "warning";
+  if (
+    [
+      "LLM_Orchestration",
+      "Prompt_Engineering",
+      "Agent_Architecture",
+      "Claude code",
+      "Cursor",
+      "Spec-driven-development",
+      "Issue-driven-development",
+      "agentic-knowledge",
+    ].includes(skill)
+  ) {
+    return "primary";
+  }
   return "secondary";
 };
 
@@ -65,14 +79,14 @@ export function About() {
         <StaggerContainer className="mb-16" delay={0.1}>
           <StaggerItem>
             <MotionContainer animation="fadeInUp">
-              <div className="text-[10px] font-mono tracking-[0.3em] text-[#c41e3a] uppercase mb-3">
-                {"// STORY"}
+              <div className="text-[10px] font-mono tracking-[0.3em] text-[#d94f3d] uppercase mb-3">
+                {"// " + content.about.section.label}
               </div>
               <h2 className="font-heading text-4xl font-bold text-[#e8ddd0] chiseled mb-3">
-                Programar con IA
+                {content.about.section.title}
               </h2>
               <p className="text-sm font-mono text-[rgba(232,221,208,0.6)] max-w-xl">
-                No integro IA. Programa con ella. Cada línea, cada arquitectura, cada decisión pasa por un modelo de lenguaje.
+                {content.about.section.description}
               </p>
             </MotionContainer>
           </StaggerItem>
@@ -87,8 +101,8 @@ export function About() {
                   <motion.img
                     whileHover={{ scale: 1.03 }}
                     transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                    src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80"
-                    alt="Circuit board macro"
+                    src={content.about.image.src}
+                    alt={content.about.image.alt}
                     className="w-full object-cover opacity-60 transition-opacity duration-500"
                     style={{ minHeight: "240px" }}
                   />
@@ -100,11 +114,7 @@ export function About() {
 
           {/* Bio */}
           <div className="md:col-span-3 space-y-5">
-            {[
-              "Desarrollé ChessRadar (chesstogether.app) en 10 días con un equipo de 2 devs + 1 team leader. 4 días los hice en solitario. El proyecto existía en mi cabeza y en papel. La IA帮我 a materializarlo en tiempo récord.",
-              "CodeOrchestrator es mi laboratorio personal: un sistema donde agentes autónomos generan, implementan y despliegan código siguiendo specs en lenguaje natural. Agentes que piensas antes de actuar.",
-              "Mi stack mental es Flow — no frameworks. TypeScript y Python para traducir lógica. Agentes MCP para conectar herramientas. El resultado: software donde la inteligencia no es un feature, es el foundation.",
-            ].map((text, i) => (
+            {content.about.bio.map((text, i) => (
               <motion.p
                 key={i}
                 custom={i}
@@ -121,8 +131,8 @@ export function About() {
             <MotionContainer animation="fadeInUp" delay={0.1}>
               <div className="pt-4">
                 <div className="scratched-divider max-w-xs" />
-                <p className="mt-4 text-[10px] font-mono tracking-[0.2em] text-[#c41e3a] uppercase">
-                  rflvz &mdash; rafa alvarez
+                <p className="mt-4 text-[10px] font-mono tracking-[0.2em] text-[#d94f3d] uppercase">
+                  {content.about.section.signature}
                 </p>
               </div>
             </MotionContainer>
@@ -139,7 +149,7 @@ export function About() {
                     whileInView="visible"
                     viewport={{ once: true, margin: "-80px" }}
                   >
-                    <p className="text-[9px] font-mono tracking-[0.25em] text-[#c41e3a] uppercase mb-3">
+                    <p className="text-[9px] font-mono tracking-[0.25em] text-[#d94f3d] uppercase mb-3">
                       {group.label}
                     </p>
                     <div className="flex flex-wrap gap-2">
