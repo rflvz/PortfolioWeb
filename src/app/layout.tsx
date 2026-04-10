@@ -25,7 +25,7 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://rflvz.com"),
+  metadataBase: new URL("https://rafalvz.dev"),
   title: {
     default: "Rafa Alvarez | AI Architecture Developer",
     template: "%s | Rafa Alvarez",
@@ -46,23 +46,23 @@ export const metadata: Metadata = {
     "portfolio desarrollador IA",
     "arquitectura inteligente",
   ],
-  authors: [{ name: "Rafa Alvarez", url: "https://rflvz.com" }],
+  authors: [{ name: "Rafa Alvarez", url: "https://rafalvz.dev" }],
   creator: "Rafa Alvarez",
   category: "technology",
   alternates: {
-    canonical: "https://rflvz.com",
+    canonical: "https://rafalvz.dev",
   },
   openGraph: {
     title: "Rafa Alvarez | AI Architecture Developer",
     description:
       "Desarrollador especializado en arquitectura IA. Construyo sistemas con LLMs, agentes autónomos y MCP donde la inteligencia es el foundation, no un feature.",
     type: "website",
-    url: "https://rflvz.com",
+    url: "https://rafalvz.dev",
     siteName: "Rafa Alvarez Portfolio",
     locale: "es_ES",
     images: [
       {
-        url: "/about-image.jpeg",
+        url: "/opengraph-image.png?v=3",
         width: 1200,
         height: 630,
         alt: "Rafa Alvarez — AI Architecture Developer",
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
     description:
       "Desarrollador especializado en arquitectura IA. LLMs, agentes autónomos y MCP.",
     creator: "@rflvz",
-    images: ["/about-image.jpeg"],
+    images: ["/twitter-image.png?v=3"],
   },
   robots: {
     index: true,
