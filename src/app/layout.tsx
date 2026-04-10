@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     locale: "es_ES",
     images: [
       {
-        url: "/opengraph-image.png",
+        url: "/about-image.jpeg",
         width: 1200,
         height: 630,
         alt: "Rafa Alvarez — AI Architecture Developer",
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
     description:
       "Desarrollador especializado en arquitectura IA. LLMs, agentes autónomos y MCP.",
     creator: "@rflvz",
-    images: ["/twitter-image.png"],
+    images: ["/about-image.jpeg"],
   },
   robots: {
     index: true,
