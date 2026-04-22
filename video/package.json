@@ -1,0 +1,24 @@
+{
+  "name": "portfolio-promo-video",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "npx remotion studio",
+    "render:landscape": "npx remotion render PromoLandscape out/promo-landscape.mp4",
+    "render:vertical": "npx remotion render PromoVertical out/promo-vertical.mp4",
+    "render:all": "npx remotion render PromoLandscape out/promo-landscape.mp4 ; npx remotion render PromoVertical out/promo-vertical.mp4"
+  },
+  "dependencies": {
+    "remotion": "4.0.267",
+    "@remotion/cli": "4.0.267",
+    "@remotion/transitions": "4.0.267",
+    "@remotion/google-fonts": "4.0.267",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "typescript": "^5"
+  },
+  "devDependencies": {
+    "@types/react": "^19",
+    "@types/react-dom": "^19"
+  }
+}
