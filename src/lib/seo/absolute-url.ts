@@ -1,5 +1,5 @@
 const isDev = process.env.NODE_ENV === 'development';
-const BASE_URL = isDev ? 'http://localhost:3000' : 'https://rflvz.com';
+const BASE_URL = isDev ? 'http://localhost:3000' : 'https://rafalvz.dev';
 const SITE_NAME = 'Rafa Alvarez Portfolio';
 const ORGANIZATION_NAME = 'PORTFOLIO';
 

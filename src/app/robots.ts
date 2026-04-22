@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://rflvz.com/sitemap.xml",
-    host: "https://rflvz.com",
+    sitemap: "https://rafalvz.dev/sitemap.xml",
+    host: "https://rafalvz.dev",
   };
 }
