@@ -129,6 +129,18 @@
       "externalUrl": null,
       "repositoryUrl": null,
       "datePublished": "2024-11-01"
+    },
+    {
+      "uid": "seenpdf",
+      "displayId": "05",
+      "title": "SeenPDF",
+      "summary": "Plataforma para visualizar y compartir documentos PDF de forma simple y directa desde la web.",
+      "tags": ["TypeScript", "Next.js", "React", "Supabase"],
+      "status": "LIVE",
+      "coverImage": "/seenpdf.png",
+      "externalUrl": "https://seenpdf.vercel.app",
+      "repositoryUrl": null,
+      "datePublished": "2026-04-22"
     }
   ],
 
